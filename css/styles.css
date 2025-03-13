@@ -37,7 +37,7 @@ header h1 {
 
 /* styling of sky gradient, added the gradient, no z-index*/
 .sky {
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);;
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
     height: 100vh;
     width: 100%;
     display: flex;
@@ -59,32 +59,41 @@ but I fiddled until it did, aka please do not change anything*/
 
 /* hill 3 and hill 2, kept together because they move together but that is not necessary so long as they 
 have the same timeline tag "move1" in the js file */
-#hill3, #hill2 {
-    width: 100%; /* Adjust size */
+#Tree-Right, #Bush-Right {
+    width: 80%; /* Adjust size */
     align-content: center;
+    left: 30vw;
     position: absolute; /* Overlap images according to how they are stacked in the html*/
     z-index: 2; /* Make sure they correctly on top of the other images */
 }
 
 /* hill 4 and 5 */
-#hill4, #hill5 {
-    width: 100%; /* Adjust size */
-    height: 100vh;
-    top: 10vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+#Tree-Left {
+    width: 105%; /* Adjust size */;
+    left: 1px;
+    top: -26vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+#Bush-Left {
+    width: 100%; /* Adjust size */;
+    top: -15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
     z-index: 2;
 }
 
-#leaf {
+#Tree-Middle {
     width: 100%; /* Adjust size */
     height: 100vh;
+    top:-10vh; /* Adjust position higher number = lower on page */
     align-content: center;
     position: absolute; /* Overlap images, if I dont have it the sky disappears? */
     z-index: 2; /* Make sure they are on top of the other images */
 }
 
-#hill1 {
+#BG {
     width: 100%; /* Adjust size */
     align-content: center;
     position: absolute; /* Overlap images */

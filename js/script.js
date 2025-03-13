@@ -5,21 +5,21 @@ var controller = new ScrollMagic.Controller();
 var timeline = gsap.timeline();
 
 // Step 1: Pin the image for a short duration
-timeline.to(".sky, #leaf, #hill5, #hill4, #hill3, #hill2, #hill1", { duration: 4, ease: "power1.inOut" });
+timeline.to(".sky, #Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG", { duration: 4, ease: "power1.inOut" });
 
 // Step 2.1: Move the image off-screen to the left (at the same time)
 // timeline.to("#hill2, #hill1", { x: "-100vw", duration: 2, ease: "power1.inOut" });
 
 // Step 2.2: Move the image off-screen to the left (one after another)
-timeline.to("#leaf", { x: "100vw", y: "-20vh", duration: 2, ease: "power1.inOut" }, "move0")
-        .to("#hill5", { x: "100vw", y: "-10vh", duration: 2, ease: "power1.inOut" }, "move1")
-        .to("#hill4", { x: "-100vw", y: "-10vh", duration: 2, ease: "power1.inOut" }, "move1") //y position change so it goes higher
-        .to("#hill3", { x: "100vw", duration: 2, ease: "power1.inOut" },"move2")
-        .to("#hill2", { x: "-100vw", duration: 2, ease: "power1.inOut" }, "move2");
+timeline.to("#Bush-Left", { x: "-100vw", y: "-10vh", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move0", "+=1")
+.to("#Tree-Left", { x: "-100vw", scale: 1.5, duration: 5, ease: "power1.inOut" },"move1", "+=1")
+        .to("#Bush-Right", { x: "100vw", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move2", "+=1")
+        .to("#Tree-Right", { x: "150vw", y: "-10vh", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move2", "+=1") //y position change so it goes higher
+        .to("#Tree-Middle", { x: "-100vw", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move4", "+=1");
 
 
 // Step 3: skygradient and back image stays pinned longer, then fades out (order matters, top = animates first)
-timeline.to("#hill1", { opacity: 0, duration: 1.5, ease: "power1.inOut" }, "+=1")
+timeline.to("#BG", { opacity: 0, duration: 1.5, ease: "power1.inOut" }, "+=1")
         .to(".sky", { opacity: 0, duration: 2, ease: "power1.inOut" }, "+=1");
 
 
