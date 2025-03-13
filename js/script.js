@@ -4,7 +4,7 @@ var controller = new ScrollMagic.Controller();
 // Create a timeline animation with GSAP
 var timeline = gsap.timeline();
 
-// Set initial positions for the elements
+// Set initial positions for images that need to be flipped
 gsap.set("#Bush-Left2", { scaleX: -1 });
 gsap.set("#Tree-Left2", { scaleX: -1 });
 
