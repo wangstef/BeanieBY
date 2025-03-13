@@ -35,18 +35,31 @@ header h1 {
     height: 100vh; /* Creates an extra blank space for scrolling */
 }
 
-/* styling of sky gradient, added the gradient, no z-index*/
-/* .sky {
-    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
-    height: 100vh;
+
+/* Notebook*/
+body {  
+            background-color: #f5f5dc; /* Light parchment background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+.scrapbook-container {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
+    padding: 50px 0;
+}
+
+.scrapbook-page {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+    opacity: 0; /* Start hidden */
+    transform: translateX(100px); /* Start slightly off-screen */
+    margin-bottom: 100vh; /* Space between pages to ensure clear transitions */
+}
+
 
 /* Defines the container for the images.. not sure exactly how this works 
-but I fiddled until it did, aka please do not change anything*/
+but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 .container {
     position: relative;
     height: 100vh; /* Adjust size of the area that the images will be contained in*/
