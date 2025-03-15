@@ -1,1 +1,22 @@
+   <style>
+        body {
+            background-color: #f5f5dc; /* Light parchment background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
+        .scrapbook-container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        .scrapbook-page {
+            width: 100%;
+            opacity: 0; /* Start hidden */
+            transform: translateX(100px); /* Start slightly off-screen */
+            margin-bottom: 100vh; /* Space between pages to ensure clear transitions */
+        }
+    </style>
