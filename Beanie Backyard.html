@@ -38,34 +38,66 @@
         <img src="images/coyote.png" class="scrapbook-page" id="page3">
     </div>
 
-    <script>
-        gsap.registerPlugin(ScrollMagic);
 
-        const controller = new ScrollMagic.Controller();
-        const pages = document.querySelectorAll('.scrapbook-page');
 
-        pages.forEach((page) => {
-            const timeline = gsap.timeline();
+</body>
+</html>
 
-            timeline.fromTo(page, 
-                { opacity: 0, x: 100 },  // Start off-screen to the right
-                { opacity: 1, x: 0, ease: "power2.out", duration: 3 }
-            );
 
-            timeline.to(page, 
-                { opacity: 0, x: -100, ease: "power2.in", duration: 0.2 },
-                "+=1"  // Delay before swooping out
-            );
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollMagic Animation</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
 
-            new ScrollMagic.Scene({
-                triggerElement: page,
-                triggerHook: 0.7,  // Triggers when the page reaches the middle of the screen
-                duration: "200%",  // Controls how long the animation lasts (scroll-based)
-            })
-            .setTween(timeline)
-            .addTo(controller);
-        });
-    </script>
+    <header>
+        <h1>ScrollMagic Animation</h1>
+    </header>
+    
+    <!-- Divider that contains all the animated images -->
+    <div class="container"> 
+        <!-- ORDER of the following matters!!! bottom to top-->
+
+        <!-- Second Scene -->
+        <img id="Tree-Right2" src="./img/Tree-Right.png" alt="Moving Image">
+        <img id="Bush-Right2" src="./img/Bush-Right.png" alt="Moving Image">
+        <img id="Tree-Middle2" src="./img/Tree-Middle.png" alt="Moving Image">
+        <img id="Bush-Left2" src="./img/Bush-Left.png" alt="Moving Image">
+        <img id="Tree-Left2" src="./img/Tree-Left.png" alt="Moving Image">
+
+        <!-- Notebook-->
+
+        <!-- First scene -->
+        <div class="sky"></div> <!-- gradient of sky behind, test to see if I can use div in the js = yes we can!-->
+        <img id="BG" src="./img/BG.png" alt="Moving Image">
+        <img id="Tree-Right" src="./img/Tree-Right.png" alt="Moving Image">
+        <img id="Bush-Right" src="./img/Bush-Right.png" alt="Moving Image">
+        <img id="Tree-Middle" src="./img/Tree-Middle.png" alt="Moving Image">
+        <img id="Raccoon" src="./img/Racoon.png" alt="Moving Image">
+        <img id="Bush-Left" src="./img/Bush-Left.png" alt="Moving Image">
+        <img id="Tree-Left" src="./img/Tree-Left.png" alt="Moving Image">
+        <img id="Notebook-Raccoon" src="./img/Notebook-Raccoon.png" alt="Notebook-Raccoon">
+        
+    </div>
+
+    <div class="spacer"></div> <!-- More space to allow scrolling -->
+
+
+
+
+    <footer>
+        <p>Yay! You've reached the end of the page!</p>
+    </footer>
+
+    <!-- Libraries so that the scroll magic works... -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
+    <script src="./js/script.js"></script>
 
 </body>
 </html>
