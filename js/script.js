@@ -9,14 +9,50 @@ var timeline = gsap.timeline();
 gsap.set("#Bush-Left2", { scaleX: -1 });
 gsap.set("#Tree-Left2", { scaleX: -1 });
 
+// Opening Scene 
 
-// Step 1: Pin the image for a short duration
-timeline.to(".sky, #Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG", { duration: 4, ease: "power1.inOut" })
 
-// Step 2: Move the image off-screen (one after another)
-//Defintions: .to (adding to timeline), x = horizontal, y = vertical, scale = size, duration = time, ease = easing effect, "" = label, "+=1" = delay
+// Opening Scene: Fade to background gradient 
 
-//First Scene 
+timeline.to(".opening h1", { 
+    opacity: 0, 
+    duration: 20, 
+    ease: "power1.inOut", 
+    scrollTrigger: {
+        trigger: ".opening",
+        start: "top top",  // Start fading when the top of .opening hits the top of the viewport
+        end: "bottom top",  // Fully faded when the bottom of .opening reaches the top
+        scrub: 1,  // Smooth scrolling effect
+    }
+})
+
+.to(".opening", { 
+    opacity: 0, 
+    duration: 40, 
+    ease: "power1.inOut", 
+    scrollTrigger: {
+        trigger: ".opening",
+        start: "top top",  // Start fading when the top of .opening hits the top of the viewport
+        end: "bottom top",  // Fully faded when the bottom of .opening reaches the top
+        scrub: 1,  // Smooth scrolling effect
+    }
+});
+
+// Scene 1: House
+timeline.to("#House", { duration: 100, ease: "power1.inOut" })
+        .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" }, "fade1", "+=2")
+        .to(".opening", { opacity: 100,  duration: 50, ease: "power1.inOut" },"fade1", "+=2")
+        .to(".opening", { opacity: 0, duration: 20, ease: "power1.inOut" });
+        
+
+// Enter Woods: Pin the image for a short duration
+timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG", { duration: 70, ease: "power1.inOut" })
+
+
+//Move the image off-screen (one after another)
+//Definitions: .to (adding to timeline), x = horizontal, y = vertical, scale = size, duration = time, ease = easing effect, "" = label, "+=1" = delay
+
+// Scene 2: Encounter Raccoon
         .to("#Bush-Left", { x: "-100vw", y: "-10vh", scale: 1.5, duration: 50, ease: "power.inOut" }, "bush1", "+=2")
         .to("#Raccoon", { x: "20vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "animal1", "+=2")
 
@@ -25,14 +61,11 @@ timeline.to(".sky, #Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Lef
 
 
 //Notebook 1: Raccoon
-        .to("#Notebook-Raccoon", { y: "-50vw", scale: 1.5, duration: 17, ease: "power0.out" }, "notebook1", "+=2")
+        .to("#Notebook-Raccoon", { y: "-50vw", scale: 1.5, duration: 30, ease: "power0.out" }, "notebook1", "+=2")
         //pinning the notebook
         .to("#Notebook-Raccoon", { duration: 50, ease: "power1.inOut" })
-        .to("#Notebook-Raccoon", { y: "50vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "notebook2", "+=2")
+        .to("#Notebook-Raccoon", { y: "50vw", scale: 1.5, duration: 40, ease: "power1.inOut" }, "notebook2", "+=2")
         
-
-
-
         .to("#Raccoon", { x: "100vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "animal2", "+=2")
         .to("#Tree-Left", { x: "-100vw", scale: 1.5, duration: 5, ease: "power1.inOut" },"move1", "+=1")
         .to("#Bush-Right", { x: "100vw", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move1", "+=1")
@@ -40,8 +73,8 @@ timeline.to(".sky, #Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Lef
         .to("#Tree-Middle", { x: "-100vw", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move1", "+=1")
 
 
-// Second Scene 
-// Second Scene: Zoom
+// Scene 3: Encounter Beanie
+// Zoom
     .to("#Bush-Left2", {  scaleX: -1.5, // Ensures the image stays flipped while scaling
     scaleY: 1.5,  // Only scales vertically
     duration: 17, ease: "power1.inOut" }, "move1", "+=2")
@@ -50,10 +83,10 @@ timeline.to(".sky, #Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Lef
         .to("#Tree-Right2", { scale: 1.5, duration: 17, ease: "power1.inOut" }, "move1","+=2") //y position change so it goes higher
         .to("#Tree-Middle2", { scale: 1.5, duration: 17, ease: "power1.inOut" }, "move1","+=2")
 
-// Pining the second scene
+// Pinning
     .to("#Bush-Left2, #Tree-Left2, #Bush-Right2, #Tree-Right2, #Tree-Middle", { duration: 20, ease: "power1.inOut" })
 
-//Second Scene: Move off screen
+//Move off screen
         .to("#Bush-Left2", { x: "100vw", y: "-10vh", scaleX: -1.5, scaleY: 1.5, duration: 50, ease: "power.inOut" }, "bush2", "+=2")
         .to("#Tree-Left2", { x: "100vw", scaleX: -1.5, scaleY: 1.5, duration: 17, ease: "power1.inOut" },"move2", "+=2")
         .to("#Bush-Right2", { x: "100vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "move2", "+=2")
@@ -61,7 +94,7 @@ timeline.to(".sky, #Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Lef
         .to("#Tree-Middle2", { x: "-100vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "move2", "+=2")
 
 
-// Step 3: skygradient and back image stays pinned longer, then fades out (order matters, top = animates first)
+// skygradient and back image stays pinned longer, then fades out (order matters, top = animates first)
     .to("#BG", { opacity: 0, duration: 5, ease: "power1.inOut" }, "+=1");
         
         
