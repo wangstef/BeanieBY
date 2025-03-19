@@ -1,0 +1,183 @@
+
+
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    background-color: rgb(223, 126, 126); /* Background color pink so we can see if it is peaking through*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header and footer styling */
+header,footer {
+   height: 100vh;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: "Montserrat", sans-serif;
+   background-color: #dcf6ff;
+}
+
+/* styling for the header */
+.opening h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.opening {  
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #070b36;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    z-index: 99;
+}
+
+
+.spacer {
+    height: 100vh; /* Creates an extra blank space for scrolling */
+}
+
+
+
+/* Defines the container for the images.. not sure exactly how this works 
+but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
+.container {
+    position: relative;
+    height: 100vh; /* Adjust size of the area that the images will be contained in*/
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+#House {
+    width: 100%; /* Adjust size */
+    height: 100vh;
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
+#Beanie {
+    width: 20%; /* Adjust size */
+    left: 10vw;
+    top: 50vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
+#Bush-Left {
+    width: 100%; /* Adjust size */;
+    top: -15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
+#Notebook-Raccoon {
+    width: 35%; /* Adjust size */
+    left: 30vw;
+    top: 100vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
+#Tree-Right, #Bush-Right {
+    width: 80%; /* Adjust size */
+    align-content: center;
+    left: 30vw;
+    position: absolute; /* Overlap images according to how they are stacked in the html*/
+    z-index: 2; /* Make sure they correctly on top of the other images */
+}
+
+/* hill 4 and 5 */
+#Tree-Left {
+    width: 105%; /* Adjust size */;
+    left: 1px;
+    top: -26vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
+#Tree-Middle {
+    width: 100%; /* Adjust size */
+    height: 100vh;
+    top:-10vh; /* Adjust position higher number = lower on page */
+    align-content: center;
+    position: absolute; /* Overlap images, if I dont have it the sky disappears? */
+    z-index: 2; /* Make sure they are on top of the other images */
+}
+
+#BG {
+    width: 100%; /* Adjust size */
+    height: 100vh;
+    align-content: center;
+    position: absolute; /* Overlap images */
+}
+
+
+
+/* Second Scene */
+/* hill 3 and hill 2, kept together because they move together but that is not necessary so long as they 
+have the same timeline tag "move1" in the js file */
+#Tree-Right2, #Bush-Right2 {
+    width: 40%; /* Adjust size */
+    align-content: center;
+    left: 30vw;
+    position: absolute; /* Overlap images according to how they are stacked in the html*/
+    z-index: 2; /* Make sure they correctly on top of the other images */
+}
+
+/* hill 4 and 5 */
+#Tree-Left2 {
+    width: 65%; /* Adjust size */;
+    left: 20vw;
+    top: -26vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
+/* The flipped bush on the right */
+#Bush-Left2 { 
+    width: 60%; /* Adjust size */;
+    top: 10vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    left: 25vw;
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
+#Tree-Middle2 {
+    width: 60%; /* Adjust size */
+    height: 100vh;
+    left: 40vw;
+    top:-10vh; /* Adjust position higher number = lower on page */
+    align-content: center;
+    position: absolute; /* Overlap images, if I dont have it the sky disappears? */
+    z-index: 2; /* Make sure they are on top of the other images */
+}
+
+#Raccoon {
+    width: 30%; /* Adjust size */
+    left: 15vw;
+    top: 60vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
