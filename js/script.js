@@ -184,15 +184,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 // skygradient and back image stays pinned longer, then fades out (order matters, top = animates first)
     .to("#BG", { opacity: 0, duration: 5, ease: "power1.inOut" }, "+=1");
         
-        
-        
-// // Step 4: Move everything back when scrolling up (uneccessary)
-// timeline.add("moveBack") // Label for reverse motion
-//         .to("#top-img", { x: "0vw", duration: 2, ease: "power1.inOut" }, "moveBack")
-//         .to("#bottom-img", { x: "0vw", duration: 2, ease: "power1.inOut" }, "moveBack")
-//         .to("#middle-img", { opacity: 1, duration: 1.5, ease: "power1.inOut" }, "-=1");
 
- 
 // Create a ScrollMagic scene this puts evertyhing together, triggers the animation when the scroll
 // reaches the .container
 var scene = new ScrollMagic.Scene({
@@ -207,23 +199,63 @@ var scene = new ScrollMagic.Scene({
 .addTo(controller);
 
 
-// Smooth scroll effect to slow down scroll speed
-let scrollSpeed = 0.2; // Adjust to control speed (lower = slower)
-let currentScroll = 0;
-let targetScroll = 0;
 
+// Smooth scroll effect to slow down scroll speed
+// let scrollSpeed = 0.2; // Adjust to control speed (lower = slower)
+// let currentScroll = 0;
+// let targetScroll = 0;
+
+// window.addEventListener("wheel", (e) => {
+//     e.preventDefault(); // Prevent default scroll behavior
+//     targetScroll += e.deltaY * scrollSpeed; // Apply custom scroll speed
+// }, { passive: false });
+
+// function smoothScroll() {
+//     currentScroll += (targetScroll - currentScroll) * 0.1; // Smooth effect
+//     window.scrollTo(0, currentScroll);
+//     requestAnimationFrame(smoothScroll);
+// }
+// smoothScroll();
+
+let scrollSpeed = 0.05; // Lower = slower scroll speed
+let targetScroll = window.scrollY;
+let currentScroll = window.scrollY;
+let isAnimating = false;
+
+// Handle smooth scrolling when using mouse wheel or trackpad
 window.addEventListener("wheel", (e) => {
-    e.preventDefault(); // Prevent default scroll behavior
-    targetScroll += e.deltaY * scrollSpeed; // Apply custom scroll speed
+    e.preventDefault(); // Prevent default abrupt scrolling
+    targetScroll += e.deltaY * scrollSpeed * 5; // Adjust multiplier for speed
+    if (!isAnimating) {
+        smoothScroll();
+    }
 }, { passive: false });
 
+// Smooth scrolling function
 function smoothScroll() {
-    currentScroll += (targetScroll - currentScroll) * 0.1; // Smooth effect
+    isAnimating = true;
+    currentScroll += (targetScroll - currentScroll) * 0.1; // Easing effect
     window.scrollTo(0, currentScroll);
-    requestAnimationFrame(smoothScroll);
-}
-smoothScroll();
 
+    if (Math.abs(targetScroll - currentScroll) > 0.5) {
+        requestAnimationFrame(smoothScroll);
+    } else {
+        isAnimating = false;
+    }
+}
+
+// Allow normal scrollbar dragging
+window.addEventListener("scroll", () => {
+    if (!isAnimating) {
+        targetScroll = window.scrollY;
+        currentScroll = window.scrollY;
+    }
+});
+
+
+
+
+//Make the window load faster so there is no delay when beginning scrolling
 window.onload = function (){
     controller.update(true);
 };
