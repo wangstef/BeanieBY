@@ -38,6 +38,8 @@ timeline.to(".opening h1", {
     }
 });
 
+
+
 // Scene 1: House
 timeline.to("#House", { duration: 100, ease: "power1.inOut" })
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" }, "fade1", "+=2")
