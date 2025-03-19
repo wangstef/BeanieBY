@@ -26,42 +26,39 @@ timeline.to("#opening-text", {
     }
 }, "title")
 
-//text 1 fades in and out
-.to("#text1", { duration: 70, ease: "power1.inOut" }, "text1a")
-.to("#text1", { opacity: 1, duration: 100, delay: 10, ease: "power1.inOut" },"text1a")
-.to("#text1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+//text 1a fades in and out
+.to("#text1a", { duration: 70, ease: "power1.inOut" }, "text1a")
+.to("#text1a", { opacity: 1, duration: 100, delay: 10, ease: "power1.inOut" },"text1a")
+.to("#text1a", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+
+//text 1b fades in and out
+.to("#text1b", { duration: 70, ease: "power1.inOut" }, "text1b")
+.to("#text1b", { opacity: 1, duration: 100, delay: 10, ease: "power1.inOut" },"text1b")
+.to("#text1b", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
 
 
 
 .to("#sky",  { duration: 320, ease: "power1.inOut" })
 
-// 
 .to("#fade-to-black", { 
     opacity: 1, 
-    duration: 3, 
+    duration: 50, 
     ease: "power1.inOut",
     scrollTrigger: {
         trigger: "#sky",
-        start: "bottom bottom",  // When the bottom of #sky reaches the bottom of the viewport
+        start: "bottom -=100px",  // When the bottom of #sky reaches the bottom of the viewport
         end: "bottom top",  // Fully faded when the bottom of #sky reaches the top of the viewport
-        scrub: 1, // Smooth scroll effect
+        scrub: 2, // Smooth scroll effect
     }
 })
-
 .to("#sky", { 
     opacity: 0, 
-    duration: 40, 
-    ease: "power1.inOut", 
-    scrollTrigger: {
-        trigger: ".opening",
-        start: "top top",  // Start fading when the top of .opening hits the top of the viewport
-        end: "bottom top",  // Fully faded when the bottom of .opening reaches the top
-        scrub: 1,  // Smooth scrolling effect
-    }
-}, "skyfade")
+    duration: 50, 
+    ease: "power1.inOut",}, "skyfade")
+
 .to("#fade-to-black", { duration: 50, ease: "power1.inOut"})
-.to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut"})
+.to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut"});
 
 
 
