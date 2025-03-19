@@ -23,12 +23,6 @@ header,footer {
    background-color: #dcf6ff;
 }
 
-/* styling for the header */
-.opening h1 {
-    font-size: 6rem;
-    font-weight: bold;
-    color: #ffffff;
-}
 
 .opening {  
     position: relative;
@@ -41,6 +35,12 @@ header,footer {
     z-index: 99;
 }
 
+#opening{ /* Adjust size */
+    height: 100vh;
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2; 
+}
 
 .spacer {
     height: 100vh; /* Creates an extra blank space for scrolling */
@@ -77,6 +77,23 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     position: absolute; /* Overlap images */
     z-index: 2;
 }
+
+#text1 {
+    width: 100%; /* Adjust size */;
+    top: -15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
+#text2 {
+    width: 100%; /* Adjust size */;
+    top: -15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
 
 #Bush-Left {
     width: 100%; /* Adjust size */;
