@@ -14,7 +14,7 @@ gsap.set("#Tree-Left2", { scaleX: -1 });
 
 // Opening Scene: Fade to background gradient 
 
-timeline.to(".opening h1", { 
+timeline.to("#opening-text", { 
     opacity: 0, 
     duration: 20, 
     ease: "power1.inOut", 
@@ -24,9 +24,32 @@ timeline.to(".opening h1", {
         end: "bottom top",  // Fully faded when the bottom of .opening reaches the top
         scrub: 1,  // Smooth scrolling effect
     }
+}, "title")
+
+//text 1 fades in and out
+.to("#text1", { duration: 70, ease: "power1.inOut" }, "text1a")
+.to("#text1", { opacity: 1, duration: 100, delay: 10, ease: "power1.inOut" },"text1a")
+.to("#text1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+
+
+
+
+.to("#sky",  { duration: 320, ease: "power1.inOut" })
+
+// 
+.to("#fade-to-black", { 
+    opacity: 1, 
+    duration: 3, 
+    ease: "power1.inOut",
+    scrollTrigger: {
+        trigger: "#sky",
+        start: "bottom bottom",  // When the bottom of #sky reaches the bottom of the viewport
+        end: "bottom top",  // Fully faded when the bottom of #sky reaches the top of the viewport
+        scrub: 1, // Smooth scroll effect
+    }
 })
 
-.to(".opening", { 
+.to("#sky", { 
     opacity: 0, 
     duration: 40, 
     ease: "power1.inOut", 
@@ -36,15 +59,20 @@ timeline.to(".opening h1", {
         end: "bottom top",  // Fully faded when the bottom of .opening reaches the top
         scrub: 1,  // Smooth scrolling effect
     }
-});
+}, "skyfade")
+.to("#fade-to-black", { duration: 50, ease: "power1.inOut"})
+.to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut"})
 
 
 
 // Scene 1: House
 timeline.to("#House", { duration: 100, ease: "power1.inOut" })
-        .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" }, "fade1", "+=2")
-        .to(".opening", { opacity: 100,  duration: 50, ease: "power1.inOut" },"fade1", "+=2")
-        .to(".opening", { opacity: 0, duration: 20, ease: "power1.inOut" });
+        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" })
+        .to("#fade-to-black", { opacity: 1, duration: 50, ease: "power1.inOut" }, "fadein1")
+        .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
+        .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
+        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" }, "fadeout1", "+=2")
+
         
 
 // Enter Woods: Pin the image for a short duration
@@ -142,3 +170,13 @@ var scene = new ScrollMagic.Scene({
         requestAnimationFrame(smoothScroll);
     }
     smoothScroll();
+
+    //arrowkeys for scrolling
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "ArrowDown") {
+            window.scrollBy({ top: 100, behavior: "smooth" }); // Scroll down smoothly
+        } else if (event.key === "ArrowUp") {
+            window.scrollBy({ top: -100, behavior: "smooth" }); // Scroll up smoothly
+        }
+    });
+    
