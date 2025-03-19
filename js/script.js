@@ -1,3 +1,5 @@
+
+
 // Initialize ScrollMagic controller
 var controller = new ScrollMagic.Controller();
 
@@ -9,14 +11,13 @@ var timeline = gsap.timeline();
 gsap.set("#Bush-Left2", { scaleX: -1 });
 gsap.set("#Tree-Left2", { scaleX: -1 });
 
-// Opening Scene 
+// Opening Scene 1 
 
 
-// Opening Scene: Fade to background gradient 
-
+// Opening Scene 1: Fade to background gradient 
 timeline.to("#opening-text", { 
     opacity: 0, 
-    duration: 20, 
+    duration: 100, 
     ease: "power1.inOut", 
     scrollTrigger: {
         trigger: ".opening",
@@ -26,31 +27,29 @@ timeline.to("#opening-text", {
     }
 }, "title")
 
-//text 1a fades in and out
-.to("#text1a", { duration: 70, ease: "power1.inOut" }, "text1a")
-.to("#text1a", { opacity: 1, duration: 100, delay: 10, ease: "power1.inOut" },"text1a")
-.to("#text1a", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+.to("#sky", {y:"-100vh", duration: 800, ease: "power1.inOut"})
+//text 1_1 fades in and out
+.to("#text1_1", { y: "-40vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text1_1")
+.to("#text1_1", { duration: 100, ease: "power1.inOut" }, "+=20")
+.to("#text1_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
-//text 1b fades in and out
-.to("#text1b", { duration: 70, ease: "power1.inOut" }, "text1b")
-.to("#text1b", { opacity: 1, duration: 100, delay: 10, ease: "power1.inOut" },"text1b")
-.to("#text1b", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+//text 1_1 fades in and out
+.to("#text1_2", {  y: "-40vh",opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text1_2")
+.to("#text1_2", { duration: 200, ease: "power1.inOut" }, "+=20")
+.to("#text1_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
 
-
-
-.to("#sky",  { duration: 320, ease: "power1.inOut" })
 
 .to("#fade-to-black", { 
     opacity: 1, 
     duration: 50, 
-    ease: "power1.inOut",
-    scrollTrigger: {
-        trigger: "#sky",
-        start: "bottom -=100px",  // When the bottom of #sky reaches the bottom of the viewport
-        end: "bottom top",  // Fully faded when the bottom of #sky reaches the top of the viewport
-        scrub: 2, // Smooth scroll effect
-    }
+    ease: "power1.inOut"
+    // scrollTrigger: {
+    //     trigger: "#sky",
+    //     start: "bottom bottom",  // When the bottom of #sky reaches the bottom of the viewport
+    //     end: "bottom top",  // Fully faded when the bottom of #sky reaches the top of the viewport
+    //     scrub: 2, // Smooth scroll effect
+    // }
 })
 .to("#sky", { 
     opacity: 0, 
@@ -62,63 +61,124 @@ timeline.to("#opening-text", {
 
 
 
-// Scene 1: House
+// Scene 2: House
 timeline.to("#House", { duration: 100, ease: "power1.inOut" })
+        //text 2_1 fades in and out
+        .to("#text2_1", { duration: 100, ease: "power1.inOut" }, "text2_1")
+        .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1")
+        .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" }, "text2_1out")
+
+        .to("#text2_1B", { duration: 100, ease: "power1.inOut" }, "text2_1")
+        .to("#text2_1B", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1out")
+        .to("#text2_1B", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" },)
+         //text 2_2 fades in and out
+        .to("#text2_2", { duration: 100, ease: "power1.inOut" }, "text2_2")
+        .to("#text2_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text2_2")
+        .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+
         .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" })
-        .to("#fade-to-black", { opacity: 1, duration: 50, ease: "power1.inOut" }, "fadein1")
+        .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
+         //text 3A fades in and out
+         .to("#text3A", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text3A")
+         .to("#text3A", { duration: 150, ease: "power1.inOut" }, "text3A")
+         .to("#text3A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+         //text 3B fades in and out
+         .to("#text3B", { y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text3B")
+         .to("#text3B", { duration: 300, ease: "power1.inOut" }, "text3B")
+         .to("#text3B", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+
+
+
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
         .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" }, "fadeout1", "+=2")
 
         
 
-// Enter Woods: Pin the image for a short duration
-timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG", { duration: 70, ease: "power1.inOut" })
-
+// Scene 3 Enter Woods: Pin the image for a short duration
+timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG", { duration: 200, ease: "power1.inOut" })
+        .to("#Bush-Left", { 
+            x: "random(-10, 10)", 
+            y: "random(-15, 15)",
+            // rotation: "random(-2, 2)", 
+            duration: 15, 
+            repeat: 8, // ⬅️ Adjust based on duration (0.2s * 15 ≈ 3 seconds)
+            yoyo: true, 
+            ease: "sine.inOut"
+        })
+        .to("#Bush-Left", { duration: 100, ease: "power1.inOut" })
 
 //Move the image off-screen (one after another)
 //Definitions: .to (adding to timeline), x = horizontal, y = vertical, scale = size, duration = time, ease = easing effect, "" = label, "+=1" = delay
 
-// Scene 2: Encounter Raccoon
-        .to("#Bush-Left", { x: "-100vw", y: "-10vh", scale: 1.5, duration: 50, ease: "power.inOut" }, "bush1", "+=2")
-        .to("#Raccoon", { x: "20vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "animal1", "+=2")
+// Scene 4: Encounter Raccoon
+        .to("#Bush-Left", { x: "-100vw", y: "-10vh", scale: 1.5, duration: 100, ease: "power.inOut" }, "bush1", "+=2")
+          //text 4A fades in and out
+          .to("#text4A", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"bush1")
+          .to("#text4A", { duration: 100, ease: "power1.inOut" }, "text4A")
+          .to("#text4A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+          //text 4B fades in and out
+          .to("#text4B", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+          .to("#text4B", { duration: 100, ease: "power1.inOut" })
+          .to("#text4B", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" })
 
 //pinning the scene
-        .to("#Raccoon", { duration: 20, ease: "power1.inOut" })
-
-
+.to("#Raccoon", { duration: 100, ease: "power1.inOut" })
 //Notebook 1: Raccoon
-        .to("#Notebook-Raccoon", { y: "-50vw", scale: 1.5, duration: 30, ease: "power0.out" }, "notebook1", "+=2")
+        .to("#Notebook-Raccoon", { y: "-50vw", scale: 1.5, duration: 60, ease: "power0.out" }, "notebook1", "+=2")
         //pinning the notebook
-        .to("#Notebook-Raccoon", { duration: 50, ease: "power1.inOut" })
-        .to("#Notebook-Raccoon", { y: "50vw", scale: 1.5, duration: 40, ease: "power1.inOut" }, "notebook2", "+=2")
+        .to("#Notebook-Raccoon", { duration: 300, ease: "power1.inOut" }, "+=15")
+        .to("#Notebook-Raccoon", { y: "10vw", scale: 1.5, duration: 100, ease: "power1.inOut" }, "notebook2", "+=2")
         
-        .to("#Raccoon", { x: "100vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "animal2", "+=2")
-        .to("#Tree-Left", { x: "-100vw", scale: 1.5, duration: 5, ease: "power1.inOut" },"move1", "+=1")
-        .to("#Bush-Right", { x: "100vw", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move1", "+=1")
-        .to("#Tree-Right", { x: "150vw", y: "-10vh", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move1", "+=1") //y position change so it goes higher
-        .to("#Tree-Middle", { x: "-100vw", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move1", "+=1")
+          //text 4C fades in and out
+          .to("#text4C", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+          .to("#text4C", { duration: 100, ease: "power1.inOut" },"+=20")
+          .to("#text4C", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },"text4C")
 
+          //Raccoon jumps
+          .to("#Raccoon", { y: "-10vw",  duration: 10, rotation: 3, ease: "power0.out" }, "text4C")
+          .to("#Raccoon", { y: "0vw", duration: 10, rotation: 0, ease: "power0.out" })
+          //text 4D_1 fades in and out
+          .to("#text4D_1", { duration: 100, ease: "power1.inOut" })
+          .to("#text4D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+          //text 4D_2 fades in and out
+          .to("#text4D_2", { duration: 100, ease: "power1.inOut" })
+          .to("#text4D_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+          .to("#text4D_2", { scale: 1.2, duration: 50, repeat: 2, yoyo: true, ease: "sine.inOut",transformOrigin: "center center"})
+          .to("#text4D_2", { duration: 100, ease: "power1.inOut" })
+          //text 4D fades together
+          .to("#text4D_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" }, "text4Dfadeout")
+          .to("#text4D_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" }, "text4Dfadeout")
+
+        //things leaves
+        .to("#Raccoon", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut" },"move1", "+=1")
+        .to("#Tree-Left", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut" },"move1", "+=1")
+        .to("#Bush-Right", { x: "100vw", scale: 1.5, duration: 50, ease: "power1.inOut" }, "move1", "+=1")
+        .to("#Tree-Right", { x: "150vw", y: "-10vh", scale: 1.5, duration: 50, ease: "power1.inOut" }, "move1", "+=1") //y position change so it goes higher
+        .to("#Tree-Middle", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut" }, "move1", "+=1")
+
+
+    
 
 // Scene 3: Encounter Beanie
 // Zoom
     .to("#Bush-Left2", {  scaleX: -1.5, // Ensures the image stays flipped while scaling
     scaleY: 1.5,  // Only scales vertically
-    duration: 17, ease: "power1.inOut" }, "move1", "+=2")
-        .to("#Tree-Left2", { scaleX: -1.5, scaleY: 1.5, duration: 17, ease: "power1.inOut" }, "move1", "+=2")
-        .to("#Bush-Right2", { scale: 1.5, duration: 17, ease: "power1.inOut" }, "move1", "+=2")
-        .to("#Tree-Right2", { scale: 1.5, duration: 17, ease: "power1.inOut" }, "move1","+=2") //y position change so it goes higher
-        .to("#Tree-Middle2", { scale: 1.5, duration: 17, ease: "power1.inOut" }, "move1","+=2")
+    duration: 50, ease: "power1.inOut" }, "move1", "+=2")
+        .to("#Tree-Left2", { scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power1.inOut" }, "move1", "+=2")
+        .to("#Bush-Right2", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1", "+=2")
+        .to("#Tree-Right2", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2") //y position change so it goes higher
+        .to("#Tree-Middle2", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
 
 // Pinning
     .to("#Bush-Left2, #Tree-Left2, #Bush-Right2, #Tree-Right2, #Tree-Middle", { duration: 20, ease: "power1.inOut" })
 
 //Move off screen
-        .to("#Bush-Left2", { x: "100vw", y: "-10vh", scaleX: -1.5, scaleY: 1.5, duration: 50, ease: "power.inOut" }, "bush2", "+=2")
-        .to("#Tree-Left2", { x: "100vw", scaleX: -1.5, scaleY: 1.5, duration: 17, ease: "power1.inOut" },"move2", "+=2")
-        .to("#Bush-Right2", { x: "100vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "move2", "+=2")
-        .to("#Tree-Right2", { x: "150vw", y: "-10vh", scale: 1.5, duration: 17, ease: "power1.inOut" }, "move2", "+=2") //y position change so it goes higher
-        .to("#Tree-Middle2", { x: "-100vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "move2", "+=2")
+        .to("#Bush-Left2", { x: "100vw", y: "-10vh", scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power.inOut" }, "bush2", "+=2")
+        .to("#Tree-Left2", { x: "100vw", scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power1.inOut" },"move2", "+=2")
+        .to("#Bush-Right2", { x: "100vw", scale: 1.5, duration: 150, ease: "power1.inOut" }, "move2", "+=2")
+        .to("#Tree-Right2", { x: "150vw", y: "-10vh", scale: 1.5, duration: 150, ease: "power1.inOut" }, "move2", "+=2") //y position change so it goes higher
+        .to("#Tree-Middle2", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut" }, "move2", "+=2")
 
 
 // skygradient and back image stays pinned longer, then fades out (order matters, top = animates first)
@@ -147,33 +207,23 @@ var scene = new ScrollMagic.Scene({
 .addTo(controller);
 
 
-
-
-
-
 // Smooth scroll effect to slow down scroll speed
-    let scrollSpeed = 0.5; // Adjust to control speed (lower = slower)
-    let currentScroll = 0;
-    let targetScroll = 0;
+let scrollSpeed = 0.2; // Adjust to control speed (lower = slower)
+let currentScroll = 0;
+let targetScroll = 0;
 
-    window.addEventListener("wheel", (e) => {
-        e.preventDefault(); // Prevent default scroll behavior
-        targetScroll += e.deltaY * scrollSpeed; // Apply custom scroll speed
-    }, { passive: false });
+window.addEventListener("wheel", (e) => {
+    e.preventDefault(); // Prevent default scroll behavior
+    targetScroll += e.deltaY * scrollSpeed; // Apply custom scroll speed
+}, { passive: false });
 
-    function smoothScroll() {
-        currentScroll += (targetScroll - currentScroll) * 0.1; // Smooth effect
-        window.scrollTo(0, currentScroll);
-        requestAnimationFrame(smoothScroll);
-    }
-    smoothScroll();
+function smoothScroll() {
+    currentScroll += (targetScroll - currentScroll) * 0.1; // Smooth effect
+    window.scrollTo(0, currentScroll);
+    requestAnimationFrame(smoothScroll);
+}
+smoothScroll();
 
-    //arrowkeys for scrolling
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "ArrowDown") {
-            window.scrollBy({ top: 100, behavior: "smooth" }); // Scroll down smoothly
-        } else if (event.key === "ArrowUp") {
-            window.scrollBy({ top: -100, behavior: "smooth" }); // Scroll up smoothly
-        }
-    });
-    
+window.onload = function (){
+    controller.update(true);
+};

@@ -6,31 +6,17 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
-    background-color: rgb(223, 126, 126); /* Background color pink so we can see if it is peaking through*/
+    background-color: rgb(255, 255, 255); /* Background color pink so we can see if it is peaking through*/
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Header and footer styling */
-header,footer {
-   height: 100vh;
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-family: "Montserrat", sans-serif;
-   background-color: #dcf6ff;
-}
-
-
-
 #sky{
-    height: 180vh;
     width: 100%;
     align-content: center;
     position: absolute; /* Overlap images */
-    z-index: 2; 
+    z-index: 2;
 }
 #opening-text{ /* Adjust size */
     height: 100vh;
@@ -39,15 +25,41 @@ header,footer {
     z-index: 2; 
 }
 
+/* Text */
 .text {
     width: 100%; /* Adjust size */;
-    opacity: 0;
-    top: 0vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    opacity: 0; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
-    z-index: 2;
+    z-index: 999;
+}
+.s-text {
+    width: 100%; /* Adjust size */;
+    top: 50vh;
+    opacity: 0; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 999;
 }
 
+#text2_2{
+    top: -10vh;
+}
+#text2_1{
+    top: 15vh;
+}
+#text2_1B{
+    top: 20vh;
+    width: 60%;
+}
+#text4B{
+    width: 90%;
+    top: 10vh;
+    left: -2vw;
+}
+
+
+/* Other elements */
 .spacer {
     height: 100vh; /* Creates an extra blank space for scrolling */
 }
@@ -61,6 +73,8 @@ header,footer {
     z-index: 2; 
 }
 
+
+/* Main parallax scrolling */
 /* Defines the container for the images.. not sure exactly how this works 
 but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 .container {
@@ -72,7 +86,6 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     align-items: center;
     overflow: hidden;
 }
-
 
 #House {
     width: 100%; /* Adjust size */
@@ -90,8 +103,6 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     position: absolute; /* Overlap images */
     z-index: 2;
 }
-
-
 
 #Bush-Left {
     width: 100%; /* Adjust size */;
@@ -118,7 +129,6 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     z-index: 2; /* Make sure they correctly on top of the other images */
 }
 
-/* hill 4 and 5 */
 #Tree-Left {
     width: 105%; /* Adjust size */;
     left: 1px;
@@ -147,8 +157,6 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 
 
 /* Second Scene */
-/* hill 3 and hill 2, kept together because they move together but that is not necessary so long as they 
-have the same timeline tag "move1" in the js file */
 #Tree-Right2, #Bush-Right2 {
     width: 40%; /* Adjust size */
     align-content: center;
@@ -157,7 +165,6 @@ have the same timeline tag "move1" in the js file */
     z-index: 2; /* Make sure they correctly on top of the other images */
 }
 
-/* hill 4 and 5 */
 #Tree-Left2 {
     width: 65%; /* Adjust size */;
     left: 20vw;
