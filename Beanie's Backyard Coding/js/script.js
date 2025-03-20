@@ -8,6 +8,7 @@ var timeline = gsap.timeline();
 // Set initial positions for images that need to be flipped
 gsap.set("#Bush-Left2", { scaleX: -1 });
 gsap.set("#Tree-Left2", { scaleX: -1 });
+gsap.set("#Beanie", { opacity: 0 , x: "20vw"});
 
 
 // Step 1: Pin the image for a short duration
@@ -29,10 +30,6 @@ timeline.to(".sky, #Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Lef
         //pinning the notebook
         .to("#Notebook-Raccoon", { duration: 50, ease: "power1.inOut" })
         .to("#Notebook-Raccoon", { y: "50vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "notebook2", "+=2")
-        
-
-
-
         .to("#Raccoon", { x: "100vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "animal2", "+=2")
         .to("#Tree-Left", { x: "-100vw", scale: 1.5, duration: 5, ease: "power1.inOut" },"move1", "+=1")
         .to("#Bush-Right", { x: "100vw", scale: 1.5, duration: 5, ease: "power1.inOut" }, "move1", "+=1")
@@ -44,11 +41,13 @@ timeline.to(".sky, #Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Lef
 // Second Scene: Zoom
     .to("#Bush-Left2", {  scaleX: -1.5, // Ensures the image stays flipped while scaling
     scaleY: 1.5,  // Only scales vertically
-    duration: 17, ease: "power1.inOut" }, "move1", "+=2")
+    duration: 17, ease: "power1.inOut" }, "move1", "+=2") 
+    
         .to("#Tree-Left2", { scaleX: -1.5, scaleY: 1.5, duration: 17, ease: "power1.inOut" }, "move1", "+=2")
         .to("#Bush-Right2", { scale: 1.5, duration: 17, ease: "power1.inOut" }, "move1", "+=2")
         .to("#Tree-Right2", { scale: 1.5, duration: 17, ease: "power1.inOut" }, "move1","+=2") //y position change so it goes higher
-        .to("#Tree-Middle2", { scale: 1.5, duration: 17, ease: "power1.inOut" }, "move1","+=2")
+        .to("#Tree-Middle2", { scale: 1, duration: 17, ease: "power1.inOut" }, "move1","+=2")
+        
 
 // Pinning the second scene
     .to("#Bush-Left2, #Tree-Left2, #Bush-Right2, #Tree-Right2, #Tree-Middle", { duration: 20, ease: "power1.inOut" })
@@ -59,12 +58,14 @@ timeline.to(".sky, #Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Lef
         .to("#Bush-Right2", { x: "100vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "move2", "+=2")
         .to("#Tree-Right2", { x: "150vw", y: "-10vh", scale: 1.5, duration: 17, ease: "power1.inOut" }, "move2", "+=2") //y position change so it goes higher
         .to("#Tree-Middle2", { x: "-100vw", scale: 1.5, duration: 17, ease: "power1.inOut" }, "move2", "+=2")
+        .to("#Beanie", { opacity: 1, x: "1vw", scale: 1, duration: 17, ease: "power1.inOut" }, "move2", "+=2")
+
 
 // Step 3: skygradient and back image stays pinned longer, then fades out (order matters, top = animates first)
     .to("#BG", { opacity: 1, duration: 5, ease: "power1.inOut" }, "+=1"); //Prevent the fade out to continue with quiz interaction//
         
-// // Pin Beanie and BG for the quiz
-timeline.to("#Beanie, #BG", { duration: 20, ease: "power1.inOut" });
+
+
 
 // Quiz Interactions
 
@@ -92,10 +93,10 @@ function closeModal() {
     }
 
 
-/* // Close the modal when the close button is clicked
+// Close the modal when the close button is clicked
 closeBtn.addEventListener('click', closeModal);
 
-// Close the modal if the user clicks outside of the modal content
+/* // Close the modal if the user clicks outside of the modal content
 window.addEventListener('click', (event) => {
     if (event.target === modal) {
         closeModal();
@@ -123,7 +124,7 @@ quizForm.addEventListener('submit', function (e) {
 
        // Optionally, close the modal after showing the result and unlocking scrolling
        setTimeout(() => {
-        closeModal();  // Close the modal after x seconds
+        closeModal();  // Close the modal after 1 second
     }, 1000); 
 
     } else {
@@ -131,8 +132,6 @@ quizForm.addEventListener('submit', function (e) {
     }
 });
 
-// Trigger the lightbox when the Beanie image is clicked
-document.getElementById('Beanie').addEventListener('click', openModal); // This will show the quiz when Beanie is clicked.
 
 
 // Quiz Lightbox Modal Transition Effects
@@ -149,6 +148,7 @@ document.getElementById('Beanie').addEventListener('click', openModal); // This 
     100% { opacity: 1; }
 }
 */
+
 
 // Get elements for full-screen gallery
 const fullScreenGallery = document.getElementById('full-screen-gallery');
@@ -226,5 +226,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+let currentSound = null; // Store the currently playing audio
+let correctSound = new Audio('./audio/win.mp3'); // Correct answer sound
+let wrongSound = new Audio('./audio/lose.mp3'); // Wrong answer sound
+let selectedAnswer = null; // Store the selected answer
 
-       
+document.querySelectorAll('.animal-icon').forEach(icon => {
+    icon.addEventListener('click', function() {
+        // Stop the previous sound if it's playing
+        if (currentSound) {
+            currentSound.pause();
+            currentSound.currentTime = 0; // Reset the audio
+        }
+
+        // Play the new sound
+        currentSound = new Audio(this.dataset.sound);
+        currentSound.play();
+
+        // Stop the sound after 3 seconds
+        setTimeout(() => {
+            if (currentSound) {
+                currentSound.pause();
+                currentSound.currentTime = 0;
+            }
+        }, 3000); // 3000ms = 3 seconds
+
+        // Store the selected answer (dataset.correct will be "true" or "false")
+        selectedAnswer = this.dataset.correct;
+
+    });
+});
+
