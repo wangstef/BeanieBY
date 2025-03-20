@@ -37,7 +37,7 @@
         <img id="Tree-Right" src="./img/Tree-Right.png" alt="Moving Image">
         <img id="Bush-Right" src="./img/Bush-Right.png" alt="Moving Image">
         <img id="Tree-Middle" src="./img/Tree-Middle.png" alt="Moving Image">
-        <img id="Raccoon" src="./img/Racoon.png" alt="Moving Image">
+        <img id="Raccoon" src="./img/raccoon.png" alt="Moving Image">
         <img id="Bush-Left" src="./img/Bush-Left.png" alt="Moving Image">
         <img id="Tree-Left" src="./img/Tree-Left.png" alt="Moving Image">
         <img id="Notebook-Raccoon" src="./img/raccoon-notepad.png" alt="Notebook-Raccoon">
@@ -64,29 +64,12 @@
                 <img src="./img/raccoon-notepad.png" alt="Notebook-Raccoon" class="gallery-image">
                 </a>
 
-                <a href="./img/coyote-notepad.png" data-fancybox="gallery">
-                <img src="./img/coyote-notepad.png" alt="Notebook-coyote" class="gallery-image">
-                </a>
-
-                <a href="./img/owl-notepad.png" data-fancybox="gallery">
-                <img src="./img/owl-notepad.png" alt="Notebook-owl" class="gallery-image">
-                </a>
-
-                <a href="./img/rat-notepad.png" data-fancybox="gallery">
-                    <img src="./img/rat-notepad.png" alt="rat-notepad" class="gallery-image">
-                    </a>
-
-                <a href="./img/opossum-notepad.png" data-fancybox="gallery">
-                <img src="./img/opossum-notepad.png" alt="opossum-notepad" class="gallery-image">
-                </a>
-            
-
                 <a href="./img/skunk-notepad.png" data-fancybox="gallery">
                     <img src="./img/skunk-notepad.png" alt="skunk-notepad" class="gallery-image">
                     </a>
 
-                    <a href="./img/toad-notepad.png" data-fancybox="gallery">
-                        <img src="./img/toad-notepad.png" alt="toad-notepad" class="gallery-image">
+                    <a href="./img/rat-notepad.png" data-fancybox="gallery">
+                        <img src="./img/rat-notepad.png" alt="rat-notepad" class="gallery-image">
                         </a>
 
                 <!-- Add more images here -->
@@ -99,19 +82,19 @@
 
                 <!-- Animal icons as options -->
                 <label class="quiz-option">
-                    <input type="radio" name="quiz" value="Raccoon">
-                    <img src="./img/Racoon.png" alt="Raccoon" class="animal-icon">
+                    <input type="radio" name="quiz" value="Raccoon" data-correct="true">
+                    <img src="./img/raccoon.png" alt="Raccoon" class="animal-icon"  data-sound="./audio/raccoon.mp3">
                 </label>
                 <label class="quiz-option">
-                    <input type="radio" name="quiz" value="Skunk">
-                    <img src="./img/Skunk.png" alt="Skunk" class="animal-icon">
+                    <input type="radio" name="quiz" value="Skunk" data-correct="false">
+                    <img src="./img/Skunk.png" alt="Skunk" class="animal-icon"  data-sound="./audio/skunk.mp3">
                 </label>
                 <label class="quiz-option">
-                    <input type="radio" name="quiz" value="rat">
-                    <img src="./img/rat.png" alt="rat" class="animal-icon">
+                    <input type="radio" name="quiz" value="rat" data-correct="false">
+                    <img src="./img/rat.png" alt="rat" class="animal-icon"  data-sound="./audio/rat.mp3">
                 </label>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit-button">Submit</button> <!-- Added button ID -->
         </form>
 
         <div id="result"></div>
