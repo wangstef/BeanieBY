@@ -10,6 +10,8 @@ var timeline = gsap.timeline();
 // Set initial positions for images that need to be flipped
 gsap.set("#Bush-Left2", { scaleX: -1 });
 gsap.set("#Tree-Left2", { scaleX: -1 });
+gsap.set("#Beanie-tail", { scaleX: -1 });
+
 
 // Opening Scene 1 
 
@@ -62,19 +64,26 @@ timeline.to("#opening-text", {
 
 
 // Scene 2: House
-timeline.to("#House", { duration: 100, ease: "power1.inOut" })
+timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut" })
         //Arf! Arf! 1 fades in and out
         .to("#text2_1", { duration: 100, ease: "power1.inOut" }, "text2_1")
         .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1")
         .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" }, "text2_1out")
-        //Arf! Arf! 2 fades in and out
-        .to("#text2_1B", { duration: 100, ease: "power1.inOut" }, "text2_1")
-        .to("#text2_1B", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1out")
-        .to("#text2_1B", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" },)
          //What your.. fades in and out
-        .to("#text2_2", { duration: 100, ease: "power1.inOut" }, "text2_2")
-        .to("#text2_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text2_2")
-        .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+         .to("#text2_2", { duration: 100, ease: "power1.inOut" }, "text2_2")
+         .to("#text2_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text2_2")
+         .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+        //Beanie sad fades out
+        .to("#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut" })
+        //Beanie tail fades in
+        .to("#Beanie-tail", { opacity:1, duration: 100, ease: "power1.inOut" },"tail_in")
+        //Arf! Arf! 2 fades in and out
+        .to("#text2_1B", { duration: 100, ease: "power1.inOut" })
+        .to("#text2_1B", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"tail_in")
+        .to("#text2_1B", { opacity: 0, duration: 150, ease: "power1.inOut" },"text2_1Bout","+=10")
+        //Beanie tail fades in
+        .to("#Beanie-tail", { opacity:0, duration: 100, ease: "power1.inOut" },"text2_1Bout")
+        
 
         //Fade to black
         .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" })
@@ -168,21 +177,22 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 // Zoom
     .to("#Bush-Left2", {  scaleX: -1.5, // Ensures the image stays flipped while scaling
     scaleY: 1.5,  // Only scales vertically
-    duration: 50, ease: "power1.inOut" }, "move1", "+=2")
+    duration: 150, ease: "power1.inOut" }, "move1", "+=2")
         .to("#Tree-Left2", { scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power1.inOut" }, "move1", "+=2")
         .to("#Bush-Right2", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1", "+=2")
         .to("#Tree-Right2", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2") //y position change so it goes higher
         .to("#Tree-Middle2", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
+        .to("#Bush-Left3", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
+        .to("#Tree-Right3", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
+        .to("#Bush-Right3", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
+        .to("#Bush-Left4", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
 
 // Pinning
     .to("#Bush-Left2, #Tree-Left2, #Bush-Right2, #Tree-Right2, #Tree-Middle", { duration: 20, ease: "power1.inOut" })
 
 //Move off screen
-        .to("#Bush-Left2", { x: "100vw", y: "-10vh", scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power.inOut" }, "bush2", "+=2")
-        .to("#Tree-Left2", { x: "100vw", scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power1.inOut" },"move2", "+=2")
-        .to("#Bush-Right2", { x: "100vw", scale: 1.5, duration: 150, ease: "power1.inOut" }, "move2", "+=2")
-        .to("#Tree-Right2", { x: "150vw", y: "-10vh", scale: 1.5, duration: 150, ease: "power1.inOut" }, "move2", "+=2") //y position change so it goes higher
-        .to("#Tree-Middle2", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut" }, "move2", "+=2")
+        .to("#Bush-Left2", { x: "2vw", scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power.inOut" }, "move2", "+=2")
+        .to("#Tree-Middle2", { x: "-10vw", scale: 1.5, duration: 150, ease: "power1.inOut" }, "move2", "+=2")
 
 
 // skygradient and back image stays pinned longer, then fades out (order matters, top = animates first)

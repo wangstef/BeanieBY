@@ -51,11 +51,14 @@ body {
 #text2_2{
     top: -10vh;
 }
+/* Arfarf1 */
 #text2_1{
-    top: 15vh;
+    top: 12vh;
+    left: -8vw;
 }
 #text2_1B{
-    top: 20vh;
+    top: 12vh;
+    left:40vw;
     width: 60%;
 }
 #text4B{
@@ -101,14 +104,24 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     z-index: 2;
 }
 
-#Beanie {
-    width: 20%; /* Adjust size */
+#Beanie-sad {
+    width: 80%; /* Adjust size */
     left: 10vw;
-    top: 50vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    top: 0vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
     z-index: 2;
 }
+#Beanie-tail {
+    width: 80%; /* Adjust size */
+    opacity: 0;
+    left: 32vw;
+    top: -10vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
 
 #Bush-Left {
     width: 100%; /* Adjust size */;
@@ -136,9 +149,9 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 }
 
 #Tree-Left {
-    width: 105%; /* Adjust size */;
-    left: 1px;
-    top: -26vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    width: 115%; /* Adjust size */;
+    left: -50vw;
+    top: -29vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
     z-index: 2;
@@ -162,8 +175,15 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 
 
 
-/* Second Scene */
-#Tree-Right2, #Bush-Right2 {
+/*  Scene 2 */
+#Tree-Right2 {
+    width: 40%; /* Adjust size */
+    align-content: center;
+    left: 30vw;
+    position: absolute; /* Overlap images according to how they are stacked in the html*/
+    z-index: 2; /* Make sure they correctly on top of the other images */
+}
+#Bush-Right2 {
     width: 40%; /* Adjust size */
     align-content: center;
     left: 30vw;
@@ -183,7 +203,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 /* The flipped bush on the right */
 #Bush-Left2 { 
     width: 60%; /* Adjust size */;
-    top: 10vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    top: 15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     left: 25vw;
     align-content: center;
     position: absolute; /* Overlap images */
@@ -201,11 +221,46 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 }
 
 #Raccoon {
-    width: 30%; /* Adjust size */
-    left: 15vw;
-    top: 60vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    width: 80%; /* Adjust size */
+    left: 0vw;
+    top: 5vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
     z-index: 2;
 }
+
+
+/* Scene 3 */
+#Bush-Left3{
+    width: 60%; /* Adjust size */
+    align-content: center;
+    left: 0vw;
+    position: absolute; /* Overlap images according to how they are stacked in the html*/
+    z-index: 2; /* Make sure they correctly on top of the other images */
+}
+#Tree-Right3{
+    width: 20%; /* Adjust size */
+    align-content: center;
+    left: 10vw;
+    position: absolute; /* Overlap images according to how they are stacked in the html*/
+    z-index: 2; /* Make sure they correctly on top of the other images */
+}
+#Bush-Right3{
+    width: 30%; /* Adjust size */
+    align-content: center;
+    top:35vh;
+    left: -15vw;
+    position: absolute; /* Overlap images according to how they are stacked in the html*/
+    z-index: 2; /* Make sure they correctly on top of the other images */
+}
+#Bush-Left4{
+    width: 30%; /* Adjust size */
+    align-content: center;
+    top:35vh;
+    left: 10;
+    position: absolute; /* Overlap images according to how they are stacked in the html*/
+    z-index: 2; /* Make sure they correctly on top of the other images */
+}
+
+
 
