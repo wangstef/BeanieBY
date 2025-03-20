@@ -131,6 +131,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 }
 
 
+
 #Bush-Left {
     width: 100%; /* Adjust size */;
     top: -15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
@@ -217,11 +218,30 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     position: absolute; /* Overlap images */
     z-index: 2;
 }
+#Bush-Left2b { 
+    width: 60%; /* Adjust size */;
+    top: 15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    left: 25vw;
+    opacity: 0;
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
 
 #Tree-Middle2 {
     width: 70%; /* Adjust size */
     height: 100vh;
     left: 40vw;
+    top: -5vh; /* Adjust position higher number = lower on page */
+    align-content: center;
+    position: absolute; /* Overlap images, if I dont have it the sky disappears? */
+    z-index: 2; /* Make sure they are on top of the other images */
+}
+#Tree-Middle2b {
+    width: 70%; /* Adjust size */
+    height: 100vh;
+    left: 40vw;
+    opacity: 0;
     top: -5vh; /* Adjust position higher number = lower on page */
     align-content: center;
     position: absolute; /* Overlap images, if I dont have it the sky disappears? */
