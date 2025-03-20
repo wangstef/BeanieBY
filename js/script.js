@@ -29,12 +29,12 @@ timeline.to("#opening-text", {
 
 .to("#sky", {y:"-100vh", duration: 800, ease: "power1.inOut"})
 //text 1_1 fades in and out
-.to("#text1_1", { y: "-40vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text1_1")
+.to("#text1_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text1_1")
 .to("#text1_1", { duration: 100, ease: "power1.inOut" }, "+=20")
 .to("#text1_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
 //text 1_1 fades in and out
-.to("#text1_2", {  y: "-40vh",opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text1_2")
+.to("#text1_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text1_2")
 .to("#text1_2", { duration: 200, ease: "power1.inOut" }, "+=20")
 .to("#text1_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
@@ -63,21 +63,25 @@ timeline.to("#opening-text", {
 
 // Scene 2: House
 timeline.to("#House", { duration: 100, ease: "power1.inOut" })
-        //text 2_1 fades in and out
+        //Arf! Arf! 1 fades in and out
         .to("#text2_1", { duration: 100, ease: "power1.inOut" }, "text2_1")
         .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1")
         .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" }, "text2_1out")
-
+        //Arf! Arf! 2 fades in and out
         .to("#text2_1B", { duration: 100, ease: "power1.inOut" }, "text2_1")
         .to("#text2_1B", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1out")
         .to("#text2_1B", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" },)
-         //text 2_2 fades in and out
+         //What your.. fades in and out
         .to("#text2_2", { duration: 100, ease: "power1.inOut" }, "text2_2")
         .to("#text2_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text2_2")
         .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
+        //Fade to black
         .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" })
+        //House zoom
+        .to("#House", { y: "10vh", scale:1.2 , duration: 100, ease: "power1.inOut" },"fadein1")
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
+
          //text 3A fades in and out
          .to("#text3A", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text3A")
          .to("#text3A", { duration: 150, ease: "power1.inOut" }, "text3A")
@@ -89,7 +93,7 @@ timeline.to("#House", { duration: 100, ease: "power1.inOut" })
 
 
 
-        .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
+        .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
         .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" }, "fadeout1", "+=2")
 
