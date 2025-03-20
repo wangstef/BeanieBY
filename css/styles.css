@@ -263,4 +263,19 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 }
 
 
+#sound-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: url('./img/Sound-on.png') no-repeat center/cover; /* Default ON */
+    cursor: pointer;
+    z-index: 5000; /* Keeps it above other elements */
+    display: block; /* Ensure it stays visible */
+}
+
+.sound-off {
+    background: url('./img/Sound-off.png') no-repeat center/cover;
+}
 

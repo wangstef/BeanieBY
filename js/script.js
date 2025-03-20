@@ -1,3 +1,12 @@
+// Audio
+const DoorOpen = new Audio("./audio/door.mp3"); 
+const Rustle = new Audio("./audio/rustle.mp3"); 
+const Woof = new Audio("./audio/Woof.mp3"); 
+
+function playSound(sound) {
+    sound.currentTime = 0; // Restart sound if it’s already playing
+    sound.play();
+}
 
 
 // Initialize ScrollMagic controller
@@ -31,7 +40,7 @@ timeline.to("#opening-text", {
 
 .to("#sky", {y:"-100vh", duration: 800, ease: "power1.inOut"})
 //text 1_1 fades in and out
-.to("#text1_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text1_1")
+.to("#text1_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(DoorOpen)},"text1_1")
 .to("#text1_1", { duration: 100, ease: "power1.inOut" }, "+=20")
 .to("#text1_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
@@ -64,9 +73,9 @@ timeline.to("#opening-text", {
 
 
 // Scene 2: House
-timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut" })
+timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof)  })
         //Arf! Arf! 1 fades in and out
-        .to("#text2_1", { duration: 100, ease: "power1.inOut" }, "text2_1")
+        .to("#text2_1", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof) }, "text2_1")
         .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1")
         .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" }, "text2_1out")
          //What your.. fades in and out
@@ -117,7 +126,8 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
             duration: 15, 
             repeat: 8, // ⬅️ Adjust based on duration (0.2s * 15 ≈ 3 seconds)
             yoyo: true, 
-            ease: "sine.inOut"
+            ease: "sine.inOut",
+            onStart: () => playSound(Rustle)
         })
         .to("#Bush-Left", { duration: 100, ease: "power1.inOut" })
 
@@ -256,3 +266,26 @@ window.addEventListener("scroll", () => {
 window.onload = function (){
     controller.update(true);
 };
+
+const bgMusic = new Audio("./audio/BG music.mp3");
+bgMusic.loop = true; // Ensure it loops
+bgMusic.volume = 0.5; // Adjust volume if needed
+bgMusic.play();
+
+document.addEventListener("DOMContentLoaded", function () {
+    let bgMusic = document.getElementById("bg-music");
+    let soundIcon = document.getElementById("sound-icon");
+
+    let isPlaying = false; // Start with music off
+
+    soundIcon.addEventListener("click", function () {
+        if (isPlaying) {
+            bgMusic.pause();
+            soundIcon.style.backgroundImage = "url('./img/Sound-off.png')";
+        } else {
+            bgMusic.play();
+            soundIcon.style.backgroundImage = "url('./img/Sound-on.png')";
+        }
+        isPlaying = !isPlaying;
+    });
+});
