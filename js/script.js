@@ -101,10 +101,10 @@ timeline.to("#House", { duration: 100, ease: "power1.inOut" })
 
 // Scene 3 Enter Woods: Pin the image for a short duration
 timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG", { duration: 200, ease: "power1.inOut" })
+       //bush shake
         .to("#Bush-Left", { 
             x: "random(-10, 10)", 
-            y: "random(-15, 15)",
-            // rotation: "random(-2, 2)", 
+            y: "random(-20, 20)",
             duration: 15, 
             repeat: 8, // ⬅️ Adjust based on duration (0.2s * 15 ≈ 3 seconds)
             yoyo: true, 
@@ -203,23 +203,6 @@ var scene = new ScrollMagic.Scene({
 .addTo(controller);
 
 
-
-// Smooth scroll effect to slow down scroll speed
-// let scrollSpeed = 0.2; // Adjust to control speed (lower = slower)
-// let currentScroll = 0;
-// let targetScroll = 0;
-
-// window.addEventListener("wheel", (e) => {
-//     e.preventDefault(); // Prevent default scroll behavior
-//     targetScroll += e.deltaY * scrollSpeed; // Apply custom scroll speed
-// }, { passive: false });
-
-// function smoothScroll() {
-//     currentScroll += (targetScroll - currentScroll) * 0.1; // Smooth effect
-//     window.scrollTo(0, currentScroll);
-//     requestAnimationFrame(smoothScroll);
-// }
-// smoothScroll();
 
 let scrollSpeed = 0.05; // Lower = slower scroll speed
 let targetScroll = window.scrollY;
