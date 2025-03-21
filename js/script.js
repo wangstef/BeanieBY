@@ -2,6 +2,7 @@
 const DoorOpen = new Audio("./audio/door.mp3"); 
 const Rustle = new Audio("./audio/rustle.mp3"); 
 const Woof = new Audio("./audio/Woof.mp3"); 
+const walking = new Audio("./audio/walking.mp3"); 
 
 function playSound(sound) {
     sound.currentTime = 0; // Restart sound if it’s already playing
@@ -35,12 +36,13 @@ timeline.to("#opening-text", {
         start: "top top",  // Start fading when the top of .opening hits the top of the viewport
         end: "bottom top",  // Fully faded when the bottom of .opening reaches the top
         scrub: 1,  // Smooth scrolling effect
+        onStart: () => playSound(DoorOpen)
     }
 }, "title")
 
 .to("#sky", {y:"-100vh", duration: 800, ease: "power1.inOut"})
 //text 1_1 fades in and out
-.to("#text1_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(DoorOpen)},"text1_1")
+.to("#text1_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut"},"text1_1")
 .to("#text1_1", { duration: 100, ease: "power1.inOut" }, "+=20")
 .to("#text1_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
@@ -54,7 +56,8 @@ timeline.to("#opening-text", {
 .to("#fade-to-black", { 
     opacity: 1, 
     duration: 50, 
-    ease: "power1.inOut"
+    ease: "power1.inOut",
+    onStart: () => playSound(walking)
     // scrollTrigger: {
     //     trigger: "#sky",
     //     start: "bottom bottom",  // When the bottom of #sky reaches the bottom of the viewport
@@ -68,14 +71,14 @@ timeline.to("#opening-text", {
     ease: "power1.inOut",}, "skyfade")
 
 .to("#fade-to-black", { duration: 50, ease: "power1.inOut"})
-.to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut"});
+.to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut", onStart: () => playSound(Woof)});
 
 
 
 // Scene 2: House
-timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof)  })
+timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof)})
         //Arf! Arf! 1 fades in and out
-        .to("#text2_1", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof) }, "text2_1")
+        .to("#text2_1", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof)}, "text2_1")
         .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1")
         .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" }, "text2_1out")
          //What your.. fades in and out
