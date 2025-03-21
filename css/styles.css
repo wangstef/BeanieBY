@@ -67,6 +67,16 @@ body {
     left: -2vw;
 }
 
+#text5D_3{
+    width: 100%;
+    top: -15vh;
+    left: 26vw;
+    opacity: 0; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 999;
+}
+
 
 /* Other elements */
 .spacer {
@@ -121,6 +131,15 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     position: absolute; /* Overlap images */
     z-index: 2;
 }
+#Beanie-behind {
+    width: 50%; /* Adjust size */
+    left: 33vw;
+    top: 22vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
 
 
 #Bush-Left {
@@ -192,9 +211,9 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 }
 
 #Tree-Left2 {
-    width: 65%; /* Adjust size */;
-    left: 20vw;
-    top: -26vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    width: 80%; /* Adjust size */;
+    left: 60vw;
+    top: -18vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
     z-index: 2;
@@ -209,12 +228,31 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     position: absolute; /* Overlap images */
     z-index: 2;
 }
+#Bush-Left2b { 
+    width: 60%; /* Adjust size */;
+    top: 15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    left: 25vw;
+    opacity: 0;
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
 
 #Tree-Middle2 {
-    width: 60%; /* Adjust size */
+    width: 70%; /* Adjust size */
     height: 100vh;
     left: 40vw;
-    top:-10vh; /* Adjust position higher number = lower on page */
+    top: -5vh; /* Adjust position higher number = lower on page */
+    align-content: center;
+    position: absolute; /* Overlap images, if I dont have it the sky disappears? */
+    z-index: 2; /* Make sure they are on top of the other images */
+}
+#Tree-Middle2b {
+    width: 70%; /* Adjust size */
+    height: 100vh;
+    left: 40vw;
+    opacity: 0;
+    top: -5vh; /* Adjust position higher number = lower on page */
     align-content: center;
     position: absolute; /* Overlap images, if I dont have it the sky disappears? */
     z-index: 2; /* Make sure they are on top of the other images */
@@ -241,7 +279,8 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 #Tree-Right3{
     width: 20%; /* Adjust size */
     align-content: center;
-    left: 10vw;
+    top: 40vh;
+    left: 3vw;
     position: absolute; /* Overlap images according to how they are stacked in the html*/
     z-index: 2; /* Make sure they correctly on top of the other images */
 }

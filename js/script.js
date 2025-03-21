@@ -21,6 +21,8 @@ var timeline = gsap.timeline();
 gsap.set("#Bush-Left2", { scaleX: -1 });
 gsap.set("#Tree-Left2", { scaleX: -1 });
 gsap.set("#Beanie-tail", { scaleX: -1 });
+gsap.set("#Beanie-behind2", { scale:1.5 });
+
 
 
 // Opening Scene 1 
@@ -42,8 +44,8 @@ timeline.to("#opening-text", {
 
 .to("#sky", {y:"-100vh", duration: 800, ease: "power1.inOut"})
 //text 1_1 fades in and out
-.to("#text1_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut"},"text1_1")
-.to("#text1_1", { duration: 100, ease: "power1.inOut" }, "+=20")
+.to("#text1_1", { opacity: 1, duration: 150, ease: "power1.inOut" },"text1_1","+=10")
+.to("#text1_1", { duration: 200, ease: "power1.inOut" }, "+=20")
 .to("#text1_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
 //text 1_1 fades in and out
@@ -82,8 +84,8 @@ timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut", onStart
         .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1")
         .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" }, "text2_1out")
          //What your.. fades in and out
-         .to("#text2_2", { duration: 100, ease: "power1.inOut" }, "text2_2")
-         .to("#text2_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text2_2")
+         .to("#text2_2", { duration: 200, ease: "power1.inOut" }, "text2_2")
+         .to("#text2_2", { opacity: 1, duration: 200, ease: "power1.inOut" },"text2_2","+=10")
          .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //Beanie sad fades out
         .to("#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut" })
@@ -162,7 +164,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
           .to("#text4C", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },"text4C")
 
           //Raccoon jumps
-          .to("#Raccoon", { y: "-10vw",  duration: 10, rotation: 3, ease: "power0.out" }, "text4C")
+          .to("#Raccoon", { y: "-10vw",  duration: 10, rotation: -10, ease: "power0.out" }, "text4C")
           .to("#Raccoon", { y: "0vw", duration: 10, rotation: 0, ease: "power0.out" })
           //text 4D_1 fades in and out
           .to("#text4D_1", { duration: 100, ease: "power1.inOut" })
@@ -199,17 +201,61 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#Tree-Right3", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
         .to("#Bush-Right3", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
         .to("#Bush-Left4", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
+        .to("#Beanie-behind", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
+        
+        
 
 // Pinning
-    .to("#Bush-Left2, #Tree-Left2, #Bush-Right2, #Tree-Right2, #Tree-Middle", { duration: 20, ease: "power1.inOut" })
+    .to("#Bush-Left2, #Tree-Left2, #Bush-Right2, #Tree-Right2, #Tree-Middle", { duration: 200, ease: "power1.inOut" })
+    
+        
+//Move to reveal beanie
+        //make the back ones zoom too
+        .to("#Bush-Left2,#Bush-Left2b", { x: "2vw", scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power.inOut" }, "move2", "+=2")
+        .to("#Tree-Middle2,#Tree-Middle2b", { x: "-15vw", scale: 1.5, duration: 150, ease: "power1.inOut" }, "move2", "+=2")
+        .to("#Bush-Left2b", { opacity:1, duration: 150, ease: "power.inOut" }, "switchtoback","+=2")
 
-//Move off screen
-        .to("#Bush-Left2", { x: "2vw", scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power.inOut" }, "move2", "+=2")
-        .to("#Tree-Middle2", { x: "-10vw", scale: 1.5, duration: 150, ease: "power1.inOut" }, "move2", "+=2")
+        
+        //text 5A fades in and out
+        .to("#text5A", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5A", { duration: 150, ease: "power1.inOut" })
+        .to("#text5A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+
+        .to("#Bush-Left2", { opacity:0, duration: 150, ease: "power.inOut" }, "switchtoback1","+=2")
+
+        
+
+        //text 5B_1 fades in and out
+        .to("#text5B_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5B_1", { duration: 150, ease: "power1.inOut" })
+        //text 5B_2 fades in and out
+        .to("#text5B_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5B_2", { duration: 150, ease: "power1.inOut" })
+        .to("#text5B_1, #text5B_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+        //text5C fades in and out
+        .to("#text5C", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5C", { duration: 150, ease: "power1.inOut" })
+        .to("#text5C", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+        //text5D_1, then text5D_2, then text5D_3 fades in and then all out
+        .to("#text5D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5D_1", { duration: 150, ease: "power1.inOut" })
+        .to("#text5D_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5D_2", { duration: 150, ease: "power1.inOut" })
+        .to("#text5D_3", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5D_3", { duration: 150, ease: "power1.inOut" })
+        .to("#text5D_1, #text5D_2, #text5D_3", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+
 
 
 // skygradient and back image stays pinned longer, then fades out (order matters, top = animates first)
-    .to("#BG", { opacity: 0, duration: 5, ease: "power1.inOut" }, "+=1");
+    .to("#BG", { opacity: 0, duration: 100, ease: "power1.inOut" }, "+=1");
+
+
+
+
+
+
+
         
 
 // Create a ScrollMagic scene this puts evertyhing together, triggers the animation when the scroll
