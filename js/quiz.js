@@ -46,9 +46,9 @@ quizForm.addEventListener('submit', function (e) {
         resultDiv.innerHTML = `Your answer: ${answer}. ${score ? 'Correct! Time to go get it back!' : 'Note quite...check your notes and try again!'}`;
 
        // Optionally, close the modal after showing the result and unlocking scrolling
-       setTimeout(() => {
-        closeModal();  // Close the modal after 1 second
-    }, 3000); 
+    //    setTimeout(() => {
+    //     closeModal();  // Close the modal after 1 second
+    // }, 3000); 
 
     } else {
         alert("Please select an option!");
