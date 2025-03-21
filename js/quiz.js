@@ -15,8 +15,7 @@ function closeModal() {
     }
 
 
-// Close the modal when the close button is clicked
-closeBtn.addEventListener('click', closeModal);
+
 
 /* // Close the modal if the user clicks outside of the modal content
 window.addEventListener('click', (event) => {
@@ -49,7 +48,7 @@ quizForm.addEventListener('submit', function (e) {
        // Optionally, close the modal after showing the result and unlocking scrolling
        setTimeout(() => {
         closeModal();  // Close the modal after 1 second
-    }, 1000); 
+    }, 3000); 
 
     } else {
         alert("Please select an option!");
