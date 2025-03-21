@@ -304,7 +304,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 
 #sound-icon {
     position: fixed;
-    bottom: 20px;
+    top: 20px;
     right: 20px;
     width: 40px;
     height: 40px;
