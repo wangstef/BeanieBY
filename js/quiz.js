@@ -136,8 +136,12 @@ document.querySelectorAll('.animal-icon').forEach(icon => {
         }
 
         // Play the new sound
-        currentSound = new Audio(this.dataset.sound);
-        currentSound.play();
+        const soundPath = this.dataset.sound;
+        currentSound = new Audio(soundPath);
+        currentSound.load();  // Ensure the sound is loaded
+        currentSound.play().catch(error => {
+            console.error('Error playing sound:', error);  // Log any errors
+        });
 
         // Stop the sound after 3 seconds
         setTimeout(() => {
@@ -149,6 +153,6 @@ document.querySelectorAll('.animal-icon').forEach(icon => {
 
         // Store the selected answer (dataset.correct will be "true" or "false")
         selectedAnswer = this.dataset.correct;
-
     });
 });
+
