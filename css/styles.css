@@ -304,7 +304,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 
 #sound-icon {
     position: fixed;
-    top: 20px;
+    bottom: 20px;
     right: 20px;
     width: 40px;
     height: 40px;
@@ -318,3 +318,20 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     background: url('./img/Sound-off.png') no-repeat center/cover;
 }
 
+
+.button {
+    background-color: blueviolet;
+    color: aquamarine;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: larger;
+    padding: 10vh;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: brown;
+    transform: scale(1.05);
+}
