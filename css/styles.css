@@ -67,6 +67,16 @@ body {
     left: -2vw;
 }
 
+#text5D_3{
+    width: 100%;
+    top: -15vh;
+    left: 26vw;
+    opacity: 0; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 999;
+}
+
 
 /* Other elements */
 .spacer {
