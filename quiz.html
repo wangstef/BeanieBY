@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollMagic Animation</title>
+    <link rel="stylesheet" href="./css/quiz.css">
+    <!-- Fancybox CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <h1>ScrollMagic Animation</h1>
+    </header>
+    
+    <!-- Divider that contains all the animated images -->
+    <div class="container"> 
+        <!-- ORDER of the following matters!!! bottom to top-->
+
+        <!-- Second Scene -->
+        <img id="Beanie" src="./img/Beanie.png" alt="Moving Image">
+        <button id="open-quiz-btn" class="open-quiz-btn">Take the Quiz!</button> <!-- Button next to Beanie -->
+        <img id="Tree-Right2" src="./img/Tree-Right.png" alt="Moving Image">
+        <img id="Bush-Right2" src="./img/Bush-Right.png" alt="Moving Image">
+        <img id="Tree-Middle2" src="./img/Tree-Middle.png" alt="Moving Image">
+        <img id="Bush-Left2" src="./img/Bush-Left.png" alt="Moving Image">
+        <img id="Tree-Left2" src="./img/Tree-Left.png" alt="Moving Image">
+
+        <!-- First scene -->
+        <div class="sky"></div> <!-- gradient of sky behind, test to see if I can use div in the js = yes we can!-->
+        <img id="BG" src="./img/BG.png" alt="Moving Image">
+        <img id="Tree-Right" src="./img/Tree-Right.png" alt="Moving Image">
+        <img id="Bush-Right" src="./img/Bush-Right.png" alt="Moving Image">
+        <img id="Tree-Middle" src="./img/Tree-Middle.png" alt="Moving Image">
+        <img id="Raccoon" src="./img/raccoon.png" alt="Moving Image">
+        <img id="Bush-Left" src="./img/Bush-Left.png" alt="Moving Image">
+        <img id="Tree-Left" src="./img/Tree-Left.png" alt="Moving Image">
+        <img id="Notebook-Raccoon" src="./img/raccoon-notepad.png" alt="Notebook-Raccoon">
+    
+       <!-- Lightbox Modal -->
+<div id="quiz-lightbox" class="lightbox">
+    <div class="lightbox-content">
+        <span id="close-btn" class="close-btn">&times;</span>
+        <h2>Who do you think stole my Bandana?</h2>
+        <p>Click on your animal notes to review the clues!</p>
+
+        <!-- Gallery Section -->
+        <div id="image-gallery" class="gallery-container">
+        </div>
+
+            <div class="gallery-controls">
+                <button id="prev-btn" class="gallery-btn"> </button> 
+                <button id="next-btn" class="gallery-btn"> </button>  
+                
+
+            <div class="gallery-images">
+
+                <a href="./img/raccoon-notepad.png" data-fancybox="gallery">
+                <img src="./img/raccoon-notepad.png" alt="Notebook-Raccoon" class="gallery-image">
+                </a>
+
+                <a href="./img/skunk-notepad.png" data-fancybox="gallery">
+                    <img src="./img/skunk-notepad.png" alt="skunk-notepad" class="gallery-image">
+                    </a>
+
+                    <a href="./img/rat-notepad.png" data-fancybox="gallery">
+                        <img src="./img/rat-notepad.png" alt="rat-notepad" class="gallery-image">
+                        </a>
+
+                <!-- Add more images here -->
+            </div>
+        </div>
+
+        <!-- Quiz Form -->
+        <form id="quiz-form">
+            <div class="quiz-options">
+
+                <!-- Animal icons as options -->
+                <label class="quiz-option">
+                    <input type="radio" name="quiz" value="Raccoon" data-correct="true">
+                    <img src="./img/raccoon.png" alt="Raccoon" class="animal-icon"  data-sound="./audio/raccoon.mp3">
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz" value="Skunk" data-correct="false">
+                    <img src="./img/Skunk.png" alt="Skunk" class="animal-icon"  data-sound="./audio/skunk.mp3">
+                </label>
+                <label class="quiz-option">
+                    <input type="radio" name="quiz" value="rat" data-correct="false">
+                    <img src="./img/rat.png" alt="rat" class="animal-icon"  data-sound="./audio/rat.mp3">
+                </label>
+            </div>
+            <button type="submit" id="submit-button">Submit</button> <!-- Added button ID -->
+        </form>
+
+        <div id="result"></div>
+    </div>
+</div>
+
+<!-- Full-Screen Gallery Modal -->
+<div id="full-screen-gallery" class="full-screen-gallery">
+    <span id="close-fullscreen" class="close-btn">&times;</span>
+    <div class="full-screen-gallery-content">
+        <img id="full-screen-img" src="" alt="Full-Screen Image" class="full-screen-image" />
+    </div>
+</div>
+
+    
+
+<!-- Spacer to allow for scrolling -->
+<div class="spacer"></div>
+
+
+
+
+    <footer>
+
+        <p>Yay! You've reached the end of the page!</p>
+    
+    </footer>
+
+    <!-- Libraries so that the scroll magic works... -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
+    <script src="./js/quiz.js"></script>
+
+
+
+</body>
+
+</html> 
