@@ -12,205 +12,65 @@ body {
     align-items: center;
 }
 
-/* Header and footer styling */
-header,footer {
-   height: 100vh;
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-family: "Montserrat", sans-serif;
-   background-color: #dcf6ff;
-}
-
-/* styling for the header */
-header h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-}
-
-.spacer {
-    height: 100vh; /* Creates an extra blank space for scrolling */
-}
-
-
-
-/* Defines the container for the images.. not sure exactly how this works 
-but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
-.container {
-    position: relative;
-    height: 100vh; /* Adjust size of the area that the images will be contained in*/
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-/* hill 3 and hill 2, kept together because they move together but that is not necessary so long as they 
-have the same timeline tag "move1" in the js file */
-
-#Bush-Left {
-    width: 100%; /* Adjust size */;
-    top: -15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
-    align-content: center;
-    position: absolute; /* Overlap images */
-    z-index: 2;
-}
-
-#Notebook-Raccoon {
-    width: 35%; /* Adjust size */
-    left: 30vw;
-    top: 100vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
-    align-content: center;
-    position: absolute; /* Overlap images */
-    z-index: 2;
-}
-
-#Tree-Right, #Bush-Right {
-    width: 80%; /* Adjust size */
-    align-content: center;
-    left: 30vw;
-    position: absolute; /* Overlap images according to how they are stacked in the html*/
-    z-index: 2; /* Make sure they correctly on top of the other images */
-}
-
-/* hill 4 and 5 */
-#Tree-Left {
-    width: 105%; /* Adjust size */;
-    left: 1px;
-    top: -26vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
-    align-content: center;
-    position: absolute; /* Overlap images */
-    z-index: 2;
-}
-
-#Tree-Middle {
-    width: 100%; /* Adjust size */
-    height: 100vh;
-    top:-10vh; /* Adjust position higher number = lower on page */
-    align-content: center;
-    position: absolute; /* Overlap images, if I dont have it the sky disappears? */
-    z-index: 2; /* Make sure they are on top of the other images */
-}
-
-#BG {
-    width: 100%; /* Adjust size */
-    height: 100vh;
-    align-content: center;
-    position: absolute; /* Overlap images */
-}
-
-
-
-/* Second Scene */
-/* hill 3 and hill 2, kept together because they move together but that is not necessary so long as they 
-have the same timeline tag "move1" in the js file */
-#Tree-Right2, #Bush-Right2 {
-    width: 40%; /* Adjust size */
-    align-content: center;
-    left: 30vw;
-    position: absolute; /* Overlap images according to how they are stacked in the html*/
-    z-index: 2; /* Make sure they correctly on top of the other images */
-}
-
-/* hill 4 and 5 */
-#Tree-Left2 {
-    width: 65%; /* Adjust size */;
-    left: 20vw;
-    top: -26vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
-    align-content: center;
-    position: absolute; /* Overlap images */
-    z-index: 2;
-}
-
-/* The flipped bush on the right */
-#Bush-Left2 { 
-    width: 60%; /* Adjust size */;
-    top: 10vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
-    left: 25vw;
-    align-content: center;
-    position: absolute; /* Overlap images */
-    z-index: 2;
-}
-
-#Tree-Middle2 {
-    width: 60%; /* Adjust size */
-    height: 100vh;
-    left: 40vw;
-    top:-10vh; /* Adjust position higher number = lower on page */
-    align-content: center;
-    position: absolute; /* Overlap images, if I dont have it the sky disappears? */
-    z-index: 2; /* Make sure they are on top of the other images */
-}
-
-#Raccoon {
-    width: 30%; /* Adjust size */
-    left: 15vw;
-    top: 60vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
-    align-content: center;
-    position: absolute; /* Overlap images */
-    z-index: 2;
-}
-
-#Beanie {
-    width: 50%; /* Adjust size */
-    align-content: center;
-    position: absolute; /* Overlap images */
-    z-index: 2;
-   
-}
-
-/* Lightbox Quiz Styles */
+/* Modal Styling */
 .lightbox {
-    display: none; /* Hidden by default */
     position: fixed;
-    top: 0;
-    left: 0;
+    display: flex;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensures the lightbox is on top */
+    z-index: 1000;
 }
 
 .lightbox-content {
-    background-color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    background-color: #d8cab1;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: 80vw;
+    height: 80vh;
+
+ /* Add paper texture */
+
+ background-image: url("../img/papertexture.jpg"); /* Adjust path */
+ background-size: cover;  /* Ensures it covers the area */
+ background-repeat: no-repeat;
+ background-blend-mode: multiply; /* Enhances the texture */
+ opacity: 0.95; /* Slight transparency */
+
 }
 
-#close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    cursor: pointer;
-} 
 
 
-
-/* Quiz Options */
+/* Quiz Options container */
 .quiz-options {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
 }
 
+/* options */
 .quiz-option {
-    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: -20px;
 }
+/* hide the radio buttons */
+/* .quiz-option input {
+    display: none;
+} */
 
 .animal-icon {
-    width: 200px;
-    height: 200px;
+    width: 20%;
     cursor: pointer;
+    justify-content: space-evenly;
+    align-items: center;
     transition: transform 0.2s ease-in-out, filter 0.2s;
 }
 
@@ -220,6 +80,8 @@ have the same timeline tag "move1" in the js file */
 }
 button {
     padding: 10px;
+    justify-content: center;
+    align-items: center;
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -236,7 +98,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
     z-index: 2000; /* Ensures the gallery is on top of the lightbox */
 }
 
@@ -276,64 +138,19 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Modal Styling */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.lightbox-content {
-    position: relative;
-    background-color: #d8cab1;
-    padding: 20px;
-    border-radius: 20px;
-    width: 60%;
-    max-width: 800px;
-    overflow: hidden;
- /* Add paper texture */
-
- background-image: url("../img/papertexture.jpg"); /* Adjust path */
- background-size: cover;  /* Ensures it covers the area */
- background-repeat: no-repeat;
- background-blend-mode: multiply; /* Enhances the texture */
- opacity: 0.95; /* Slight transparency */
-
-
-
-}
-
 /* Other Modal content styling */
 #quiz-form {
     margin-top: 20px;
 }
 
 #result {
-    margin-top: 10px;
-    font-size: 16px;
+    font-size: 70px;
     font-weight: bold;
+    justify-content: center;
     color: #333;
 }
 
-/* .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    cursor: pointer;
-} */ 
 
-/* Spacer to allow for scrolling */
-.spacer {
-    height: 50px;
-}
 
 /* Full-Screen Gallery */
 .full-screen-gallery {
@@ -386,94 +203,5 @@ button:hover {
     transform: scale(1.05); /* Slightly enlarge the image when hovered */
 }
 
-/* Style for the lightbox modal */
-.modal {
-    position: relative;
-    background-color: #fff; /* White background for the modal */
-    border-radius: 15px; /* Rounded corners for the main bubble */
-    padding: 20px;
-    max-width: 500px;
-    margin: auto;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-    z-index: 1000; /* Ensure it stays on top of other elements */
-}
 
-/* Add the "thought bubble" tail using a pseudo-element */
-.modal::after {
-    content: "";
-    position: absolute;
-    bottom: -20px; /* Adjust the position of the tail */
-    left: 50%; /* Center the tail */
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent; /* Creates the left part of the tail */
-    border-right: 10px solid transparent; /* Creates the right part of the tail */
-    border-top: 20px solid #fff; /* Creates the upward part of the tail, matching the modal background */
-}
 
-/* Optional: Style for the modal overlay (to dim the background) */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Dark overlay background */
-    z-index: 999; /* Ensure it stays below the modal */
-}
-
-body {
-    background-color:black;
-    display:flex;
-    flex-flow:row wrap;
-    justify-content:center;
-    margin:0;
-    height:100vh;
-    align-items:center;
-    align-content:center;
-    padding:0 10%;
-  }
-  
-.thought {
-    display:flex;
-    background-color:#fff;
-    padding:20px;
-    border-radius:30px;
-    min-width:40px;
-    max-width:220px;
-    min-height:40px;
-    margin:20px;
-    position:relative;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    z-index: 1;
-  }
-  .thought:before,
-  .thought:after {
-    content:"";
-    background-color:#fff;
-    border-radius:50%;
-    display:block;
-    position:absolute;
-    z-index:-1;
-  }
-  .thought:before {
-    width:44px;
-    height:44px;
-    top:-12px;
-    left:28px;
-    box-shadow:-50px 30px 0 -12px #fff;
-  }
-  .thought:after {
-    bottom:-10px;
-    right:26px;
-    width:30px;
-    height:30px;
-    box-shadow:40px -34px 0 0 #fff,
-               -28px -6px 0 -2px #fff,
-               -24px 17px 0 -6px #fff,
-               -5px 25px 0 -10px #fff;
-    
-  }
