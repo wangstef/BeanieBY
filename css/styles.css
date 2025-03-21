@@ -320,10 +320,17 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 
 
 /* Styling the button */
-.button {
+.button_container {
+    position: absolute;
+    z-index: 1000;
+    top: 80vh;
+}
+
+#quiz_button {
+    opacity: 0;
     background-color: #8A2BE2; /* A vibrant purple shade */
     color: #F0FFFF; /* Light cyan for contrast */
-    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-family: "Vollkorn";
     font-size: 2rem; /* Larger font size for better visibility */
     padding: 20px 40px; /* More padding to make it larger */
     border: none;
@@ -331,17 +338,19 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
-  }
+  
+
+}
   
   /* Hover effect for the button */
-  .button:hover {
+  #quiz_button:hover {
     background-color: #D2691E; /* A deep brownish shade for hover */
     transform: scale(1.1); /* Slightly enlarges the button */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Bigger shadow on hover */
   }
   
   /* Optional: Focus effect */
-  .button:focus {
+  #quiz_button:focus {
     outline: none; /* Remove the default focus outline */
     box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.5); /* Subtle focus ring */
   }

@@ -243,14 +243,8 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5D_2", { duration: 150, ease: "power1.inOut" })
         .to("#text5D_3", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
         .to("#text5D_3", { duration: 150, ease: "power1.inOut" })
-        .to("#text5D_1, #text5D_2, #text5D_3", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
-
-
-
-// skygradient and back image stays pinned longer, then fades out (order matters, top = animates first)
-    .to("#BG", { opacity: 0, duration: 100, ease: "power1.inOut" }, "+=1");
-
-
+        // .to("#text5D_1, #text5D_2, #text5D_3", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+        .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
 
 
 
