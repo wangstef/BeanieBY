@@ -63,9 +63,9 @@ body {
     margin-top: -20px;
 }
 /* hide the radio buttons */
-/* .quiz-option input {
+.quiz-option input {
     display: none;
-} */
+}
 
 .animal-icon {
     width: 60%;

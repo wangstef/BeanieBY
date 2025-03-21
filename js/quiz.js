@@ -43,7 +43,7 @@ quizForm.addEventListener('submit', function (e) {
 
         // Display the result
         const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = `Your answer: ${answer}. ${score ? 'Correct! Time to go get it back!' : 'Note quite...check your notes and try again!'}`;
+        resultDiv.innerHTML = `Your answer: ${answer}. ${score ? 'Correct! Time to go get it back!' : 'Not quite...check your notes and try again!'}`;
 
        // Optionally, close the modal after showing the result and unlocking scrolling
     //    setTimeout(() => {
