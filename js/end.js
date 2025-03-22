@@ -1,4 +1,22 @@
+// Audio - SFX
+const BigDogBark = new Audio("./audio/bigdogbark.wav"); 
+const walking = new Audio("./audio/walking_forest.mp3");  
+const Rustle = new Audio("./audio/rustle.mp3"); 
+const raccoonwater = new Audio("./audio/raccoonwater.mp3");
+const Woof = new Audio("./audio/Woof.mp3"); 
+const mystery2 = new Audio("./audio/mystery2.mp3");
+const Win = new Audio("./audio/win.mp3"); 
+const panting = new Audio("./audio/dogpanting.wav");
+const fireplace = new Audio("./audio/fireplace.mp3");
 
+// Audio - Narration
+
+
+
+// Function to play audio
+function playSound(audio) {
+    audio.play();  // Call the play() method on the audio object
+}
 
 // Initialize ScrollMagic controller
 var controller = new ScrollMagic.Controller();
@@ -17,20 +35,34 @@ gsap.set("#Beanie-sad-tailup", { scale:1.5 });
 // Pinning
 timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
         //its raccoon... fades in
-        .to("#text5E", { opacity: 1, duration: 200, ease: "power1.inOut" })
+        .to("#text5E", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(Woof) })
         .to("#text5E", { opacity: 0, duration: 100, ease: "power1.inOut" })
 
         
         //Fade to black
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" })
         //We follow beanie... fades in
-        .to("#text6A_1", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(nobeaniewait) })
+        .to("#text6A_1", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(raccoonwater)})
         .to("#text6A_1", { duration: 150, ease: "power1.inOut" })
         .to("#text6A_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" }, "text6A_1out")
         // Turns out... fades in
+
         .to("#text6A_2", {  y: "-70vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(nobeaniewait) },"text6A_1out")
         .to("#text6A_2", { duration: 150, ease: "power1.inOut" })
         .to("#text6A_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+            const fireplaceAudio = new Audio("./audio/fireplace.mp3");
+            fireplaceAudio.play();
+    
+            // Set the volume to make it quieter (e.g., 0.2 means 20% of the original volume)
+            fireplaceAudio.volume = 0.6;
+    
+            // Stop the audio after 3 seconds
+            setTimeout(() => {
+                fireplaceAudio.pause();
+                fireplaceAudio.currentTime = 0; // Reset to the start
+            }, 9000); // 3000 ms = 3 seconds
+        }},)
+
         //Outside fades
         .to("#staticwoods", { opacity: 0 })
         .to("#House,#Beanie-happy", { opacity:1})
@@ -39,9 +71,11 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
 
 
 // End Scene 6: House
-        //After an long... fades in
-        .to("#text6B_1", { opacity: 1, duration: 200, ease: "power1.inOut" })
-        .to("#text6B_1", { opacity: 0, duration: 100, ease: "power1.inOut" })
+
+        //text fades in
+        .to("#text6B_1", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(panting)})
+        .to("#text6B_1", { opacity: 0, duration: 100, ease: "power1.inOut"})
+
   
         //text fades in
         .to("#text6B_2", { opacity: 1, duration: 200, ease: "power1.inOut" })
