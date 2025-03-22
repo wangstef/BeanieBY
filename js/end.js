@@ -1,13 +1,3 @@
-// Audio
-const DoorOpen = new Audio("./audio/door.mp3"); 
-const Rustle = new Audio("./audio/rustle.mp3"); 
-const Woof = new Audio("./audio/Woof.mp3"); 
-const walking = new Audio("./audio/walking.mp3"); 
-
-function playSound(sound) {
-    sound.currentTime = 0; // Restart sound if it’s already playing
-    sound.play();
-}
 
 
 // Initialize ScrollMagic controller
@@ -125,27 +115,3 @@ window.onload = function (){
     controller.update(true);
 };
 
-
-//Add audio
-const bgMusic = new Audio("./audio/BG music.mp3");
-bgMusic.loop = true; // Ensure it loops
-bgMusic.volume = 0.5; // Adjust volume if needed
-bgMusic.play();
-
-document.addEventListener("DOMContentLoaded", function () {
-    let bgMusic = document.getElementById("bg-music");
-    let soundIcon = document.getElementById("sound-icon");
-
-    let isPlaying = false; // Start with music off
-
-    soundIcon.addEventListener("click", function () {
-        if (isPlaying) {
-            bgMusic.pause();
-            soundIcon.style.backgroundImage = "url('./img/Sound-off.png')";
-        } else {
-            bgMusic.play();
-            soundIcon.style.backgroundImage = "url('./img/Sound-on.png')";
-        }
-        isPlaying = !isPlaying;
-    });
-});
