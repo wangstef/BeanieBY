@@ -3,11 +3,16 @@ const DoorOpen = new Audio("./audio/door.mp3");
 const Rustle = new Audio("./audio/rustle.mp3"); 
 const Woof = new Audio("./audio/Woof.mp3"); 
 const walking = new Audio("./audio/walking_forest.mp3"); 
+const swoosh = new Audio("./audio/swoosh.mp3"); 
 const gasp = new Audio("./audio/gasp.mp3"); 
+const What = new Audio("./audio/What!.mp3");
 const mystery = new Audio("./audio/mystery.mp3"); 
+const mystery2 = new Audio("./audio/mystery2.mp3"); 
+const ghost = new Audio("./audio/ghost.mp3"); 
 const waterdroplets = new Audio("./audio/waterdroplets.mp3"); 
 const nobeaniewait = new Audio("./audio/NoBeanieWait.mp3"); 
 const Hurry = new Audio("./audio/Hurry.mp3"); 
+const Win = new Audio("./audio/win.mp3"); 
 const Thereyouare = new Audio("./audio/Thereyouare.mp3"); 
 const BigDogBark = new Audio("./audio/bigdogbark.wav"); 
 const BeanieWhimper = new Audio("./audio/dogwhimpering.wav");
@@ -16,7 +21,23 @@ const StopSinging = new Audio("./audio/stopsinging.mp3");
 const DunkDinner = new Audio("./audio/dunkmydinner.mp3");
 const letmeeat = new Audio("./audio/letmeeat.mp3");
 const Notebook = new Audio("./audio/notebook_ding.mp3"); 
-const ToadSinging = new Audio("./audio/toad_singing.mp3");
+const ToadSinging = new Audio("./audio/toad.mp3");
+function playSoundLoop(times) {
+    let count = 0;
+    ToadSinging.play();
+    ToadSinging.addEventListener("ended", function() {
+        count++;
+        if (count < times) {
+            ToadSinging.currentTime = 0; // Reset to start
+            ToadSinging.play(); // Play again
+        }
+    });
+}
+playSoundLoop(5); // Plays the sound 3 times
+
+const DogRunning = new Audio("./audio/dogrunning.mp3");
+const CanYouTellMe = new Audio("./audio/CanYouTellMe.mp3");
+const HelloRaccoon = new Audio("./audio/HelloRaccoon.mp3");
 
 
 
@@ -66,7 +87,7 @@ timeline.to("#opening-text", {
 .to("#text1_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut",  onStart: () => playSound(BeanieWhimper) },)
 
 //text 1_1 fades in and out
-.to("#text1_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(mystery)},"text1_2")
+.to("#text1_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(ghost)},"text1_2")
 .to("#text1_2", { duration: 200, ease: "power1.inOut"  }, "+=20")
 .to("#text1_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" , onStart: () => playSound(DoorOpen) },)
 
@@ -100,11 +121,11 @@ timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut"})
         .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" , onStart: () => playSound(Woof) },"text2_1")
         .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Woof) }, "text2_1out")
          //What your.. fades in and out
-         .to("#text2_2", { duration: 200, ease: "power1.inOut" }, "text2_2")
-         .to("#text2_2", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(gasp)},"text2_2","+=10")
+         .to("#text2_2", { duration: 200, ease: "power1.inOut", onStart: () => playSound(Gasp) }, "text2_2")
+         .to("#text2_2", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(What)},"text2_2","+=10")
          .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //Beanie sad fades out
-        .to("#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut" })
+        .to("#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut", onStart: () => playSound(DogRunning)})
         //Beanie tail fades in
         .to("#Beanie-tail", { opacity:1, duration: 100, ease: "power1.inOut" },"tail_in")
         //Arf! Arf! 2 fades in and out
@@ -116,7 +137,7 @@ timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut"})
         
 
         //Fade to black
-        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut", onStart: () => playSound(walking) })
+        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut", onStart: () => playSound(swoosh) })
         //House zoom
         .to("#House", { y: "10vh", scale:1.2 , duration: 100, ease: "power1.inOut"},"fadein1")
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
@@ -127,14 +148,14 @@ timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut"})
          .to("#text3A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
          //text 3B fades in and out
          .to("#text3B", { y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Hurry) },"text3B")
-         .to("#text3B", { duration: 300, ease: "power1.inOut" }, "text3B")
+         .to("#text3B", { duration: 300, ease: "power1.inOut"}, "text3B")
          .to("#text3B", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
 
 
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
-        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut", onStart: () => playSound(ToadSinging) }, "fadeout1", "+=2" )
+        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" }, "fadeout1", "+=2" )
 
         
 
@@ -175,7 +196,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#Notebook-Raccoon", { y: "10vw", scale: 1.5, duration: 100, ease: "power1.inOut" }, "notebook2", "+=2")
         
           //text 4C fades in and out
-          .to("#text4C", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+          .to("#text4C", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(HelloRaccoon) })
           .to("#text4C", { duration: 100, ease: "power1.inOut" },"+=20")
           .to("#text4C", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },"text4C")
 
@@ -227,7 +248,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         
 //Move to reveal beanie
         //make the back ones zoom too
-        .to("#Bush-Left2,#Bush-Left2b", { x: "2vw", scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power.inOut" }, "move2", "+=2")
+        .to("#Bush-Left2,#Bush-Left2b", { x: "2vw", scaleX: -1.5, scaleY: 1.5, duration: 150, ease: "power.inOut", onStart: () => playSound(Win) }, "move2", "+=2")
         .to("#Tree-Middle2,#Tree-Middle2b", { x: "-15vw", scale: 1.5, duration: 150, ease: "power1.inOut" }, "move2", "+=2")
         .to("#Bush-Left2b", { opacity:1, duration: 150, ease: "power.inOut" }, "switchtoback","+=2")
 
@@ -249,18 +270,18 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5B_2", { duration: 150, ease: "power1.inOut" })
         .to("#text5B_1, #text5B_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //text5C fades in and out
-        .to("#text5C", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Detective) })
+        .to("#text5C", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(CanYouTellMe) })
         .to("#text5C", { duration: 150, ease: "power1.inOut" })
         .to("#text5C", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //text5D_1, then text5D_2, then text5D_3 fades in and then all out
-        .to("#text5D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(Detective)})
         .to("#text5D_1", { duration: 150, ease: "power1.inOut" })
         .to("#text5D_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
         .to("#text5D_2", { duration: 150, ease: "power1.inOut" })
         .to("#text5D_3", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
         .to("#text5D_3", { duration: 150, ease: "power1.inOut" })
         // .to("#text5D_1, #text5D_2, #text5D_3", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
-        .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(mystery2) })
 
 
 
