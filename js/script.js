@@ -1,17 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Now we know the page is fully loaded, so the buttons can be rendered properly
-    const sfxIcon = document.createElement("div");
-    sfxIcon.id = "sfx-icon";
-    sfxIcon.classList.add("sound-on");
-    sfxIcon.onclick = toggleSFX;
-    document.getElementById("sound-controls").appendChild(sfxIcon);
-
-    const narrationIcon = document.createElement("div");
-    narrationIcon.id = "narration-icon";
-    narrationIcon.classList.add("sound-on");
-    narrationIcon.onclick = toggleNarration;
-    document.getElementById("sound-controls").appendChild(narrationIcon);
-});
 // Audio - SFX
 const DoorOpen = new Audio("./audio/door.mp3");
 const Rustle = new Audio("./audio/rustle.mp3"); 
@@ -58,17 +44,17 @@ let narrationEnabled = true;
 
 function toggleSFX() {
     sfxEnabled = !sfxEnabled;
-    // Update button text
-    sfxButton.textContent = `SFX: ${sfxEnabled ? "ON" : "OFF"}`;
+    const sfxIcon = document.getElementById('sfx-icon');
+    // Update button text and background based on state
+    sfxIcon.style.backgroundImage = `url('./img/sound-${sfxEnabled ? "on" : "off"}.png')`;
 }
 
 function toggleNarration() {
     narrationEnabled = !narrationEnabled;
-    // Update button text
-    narrationButton.textContent = `Narration: ${narrationEnabled ? "ON" : "OFF"}`;
+    const narrationIcon = document.getElementById('narration-icon');
+    // Update button text and background based on state
+    narrationIcon.style.backgroundImage = `url('./img/sound-${narrationEnabled ? "on" : "off"}.png')`;
 }
-
-
 
 // Function to play a sound
 function playSound(sound) {
@@ -111,13 +97,6 @@ document.body.appendChild(narrationButton);
 
 // Start looping ToadSinging (fixing argument)
 playSoundLoop(ToadSinging, 4);
-
-
-
-
-
-
-
 
 
 // Initialize ScrollMagic controller

@@ -311,6 +311,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     gap: 10px;
     z-index: 5000; /* Ensures they are on top of other content */
     visibility: visible;
+    overflow: visible;
 }
 
 #sfx-icon, #narration-icon, #sound-icon {
