@@ -98,6 +98,7 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
 
         .to("#title", { opacity: 1, duration: 200, ease: "power1.inOut" })
+        .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut"})
 
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")

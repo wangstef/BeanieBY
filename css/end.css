@@ -159,3 +159,40 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     background: url('./img/BGSound_Off.png') no-repeat center/cover;
 }
 
+
+
+/* Styling the button */
+.button_container {
+    position: absolute;
+    z-index: 1000;
+    top: 80vh;
+}
+
+#quiz_button {
+    opacity: 0;
+    background-color: #8382ce; /* A vibrant purple shade */
+    color: #F0FFFF; /* Light cyan for contrast */
+    font-family: "Vollkorn";
+    font-size: 2rem; /* Larger font size for better visibility */
+    padding: 20px 40px; /* More padding to make it larger */
+    border: none;
+    border-radius: 15px; /* Rounded edges for a more playful feel */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
+  
+
+}
+  
+  /* Hover effect for the button */
+  #quiz_button:hover {
+    background-color: #D2691E; /* A deep brownish shade for hover */
+    transform: scale(1.1); /* Slightly enlarges the button */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Bigger shadow on hover */
+  }
+  
+  /* Optional: Focus effect */
+  #quiz_button:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.5); /* Subtle focus ring */
+  }
