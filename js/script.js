@@ -181,13 +181,13 @@ timeline.to("#opening-text", {
     duration: 50, 
     ease: "power1.inOut",}, "skyfade")
 
-.to("#fade-to-black", { duration: 50, ease: "power1.inOut"})
+.to("#fade-to-black", { duration: 50, ease: "power1.inOut"},"fadetoblack1")
 .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut"});
 
 
 
 // Scene 2: House
-timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut"})
+timeline.to("#House,#Beanie-sad", { opacity:1, duration: 100, ease: "power1.inOut"},"fadetoblack1")
         //Arf! Arf! 1 fades in and out
         .to("#text2_1", { duration: 100, ease: "power1.inOut" }, "text2_1")
         .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" , onStart: () => playSound(Woof) },"text2_1")
@@ -213,6 +213,7 @@ timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut"})
         //House zoom
         .to("#House", { y: "10vh", scale:1.2 , duration: 100, ease: "power1.inOut"},"fadein1")
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
+        .to("#House,#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut"})
 
          //text 3A fades in and out
          .to("#text3A", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(nobeaniewait) },"text3A")
@@ -310,7 +311,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#Tree-Right3", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
         .to("#Bush-Right3", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
         .to("#Bush-Left4", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
-        .to("#Beanie-behind", { opacity:0, scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
+        .to("#Beanie-behind", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
         
         
 
@@ -329,8 +330,6 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5A", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Thereyouare) })
         .to("#text5A", { duration: 150, ease: "power1.inOut" })
         .to("#text5A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
-
-        .to("#Bush-Left2", { opacity:0, duration: 150, ease: "power.inOut" }, "switchtoback1","+=2")
 
         
 
