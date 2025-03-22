@@ -131,3 +131,31 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     position: absolute; /* Overlap images */
     z-index: 2;
 }
+
+/* sound toggles */
+#sound-controls {
+    position: fixed; /* Keep it fixed on the screen */
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;
+    z-index: 5000; /* Ensures they are on top of other content */
+    visibility: visible;
+}
+
+#sfx-icon, #narration-icon, #sound-icon {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.sound-on {
+    background: url('./img/BGSound_On.png') no-repeat center/cover;
+}
+
+.sound-off {
+    background: url('./img/BGSound_Off.png') no-repeat center/cover;
+}
+
