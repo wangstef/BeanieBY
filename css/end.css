@@ -35,6 +35,14 @@ body {
     position: absolute; /* Overlap images */
     z-index: 999; 
 }
+#text6B_2{
+    width: 100%; /* Adjust size */;
+    top: -70vh;
+    opacity: 0; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 999; 
+}
 
 .text {
     width: 100%; /* Adjust size */;
@@ -53,7 +61,13 @@ body {
     z-index: 999;
 }
 
-
+#title{
+    width: 100%; /* Adjust size */;
+    opacity: 0; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 999;
+}
 
 /* Other elements */
 .spacer {

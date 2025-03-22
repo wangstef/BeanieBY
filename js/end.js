@@ -44,11 +44,12 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
         //We follow beanie... fades in
         .to("#text6A_1", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(raccoonwater)})
         .to("#text6A_1", { duration: 150, ease: "power1.inOut" })
-        .to("#text6A_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+        .to("#text6A_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" }, "text6A_1out")
         // Turns out... fades in
-        .to("#text6A_2", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut"})
-        .to("#text6A_2", { duration: 150, ease: "power1.inOut", onStart: () => playSound(mystery2)  })
-        .to("#text6A_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut", onStart: () => {
+
+        .to("#text6A_2", {  y: "-70vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(nobeaniewait) },"text6A_1out")
+        .to("#text6A_2", { duration: 150, ease: "power1.inOut" })
+        .to("#text6A_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
             const fireplaceAudio = new Audio("./audio/fireplace.mp3");
             fireplaceAudio.play();
     
@@ -61,6 +62,7 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
                 fireplaceAudio.currentTime = 0; // Reset to the start
             }, 9000); // 3000 ms = 3 seconds
         }},)
+
         //Outside fades
         .to("#staticwoods", { opacity: 0 })
         .to("#House,#Beanie-happy", { opacity:1})
@@ -69,15 +71,23 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
 
 
 // End Scene 6: House
+
         //text fades in
         .to("#text6B_1", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(panting)})
         .to("#text6B_1", { opacity: 0, duration: 100, ease: "power1.inOut"})
-  
 
+  
+        //text fades in
+        .to("#text6B_2", { opacity: 1, duration: 200, ease: "power1.inOut" })
+        .to("#text6B_2", { opacity: 0, duration: 100, ease: "power1.inOut" })
+  
 
         //Fade to black
         .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
+
+        .to("#title", { opacity: 1, duration: 200, ease: "power1.inOut" })
+        .to("#title", { opacity: 0, duration: 100, ease: "power1.inOut" })
 
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
