@@ -325,9 +325,9 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 
 /* Styling the button */
 .button_container {
-    position: absolute;
+    position: relative;
     z-index: 1000;
-    top: 80vh;
+    top: 10vh;
 }
 
 #quiz_button {
@@ -336,12 +336,12 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     color: #F0FFFF; /* Light cyan for contrast */
     font-family: "Vollkorn";
     font-size: 2rem; /* Larger font size for better visibility */
-    padding: 20px 40px; /* More padding to make it larger */
     border: none;
     border-radius: 15px; /* Rounded edges for a more playful feel */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
+    
   
 
 }
