@@ -26,9 +26,10 @@ window.addEventListener('click', (event) => {
 */
 
 
-
 // Handle quiz form submission
 const quizForm = document.getElementById('quiz-form');
+const quizButton = document.getElementById('quiz_button'); // Get the button
+
 quizForm.addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent form submission
 
@@ -45,10 +46,12 @@ quizForm.addEventListener('submit', function (e) {
         const resultDiv = document.getElementById('result');
         resultDiv.innerHTML = `Your answer: ${answer}. ${score ? 'Correct! Time to go get it back!' : 'Not quite...check your notes and try again!'}`;
 
-       // Optionally, close the modal after showing the result and unlocking scrolling
-    //    setTimeout(() => {
-    //     closeModal();  // Close the modal after 1 second
-    // }, 3000); 
+        // Show the "Continue" button if the answer is correct, otherwise hide it
+        if (score === 1) {
+            quizButton.style.display = 'block'; // Show button if the answer is correct
+        } else {
+            quizButton.style.display = 'none'; // Hide button if the answer is incorrect
+        }
 
     } else {
         alert("Please select an option!");
@@ -126,9 +129,14 @@ let currentSound = null; // Store the currently playing audio
 let correctSound = new Audio('./audio/win.mp3'); // Correct answer sound
 let wrongSound = new Audio('./audio/lose.mp3'); // Wrong answer sound
 let selectedAnswer = null; // Store the selected answer
+let animalIcons = document.querySelectorAll('.animal-icon');  // Get all animal icons
 
 document.querySelectorAll('.animal-icon').forEach(icon => {
     icon.addEventListener('click', function() {
+        animalIcons.forEach(i => i.classList.remove('selected'));
+        
+        // Add 'selected' class to the clicked icon
+        icon.classList.add('selected');
         // Stop the previous sound if it's playing
         if (currentSound) {
             currentSound.pause();
