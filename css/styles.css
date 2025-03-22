@@ -107,6 +107,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 }
 
 #House {
+    opacity: 0;
     width: 100%; /* Adjust size */
     height: 100vh;
     align-content: center;
@@ -115,6 +116,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 }
 
 #Beanie-sad {
+    opacity: 0;
     width: 80%; /* Adjust size */
     left: 10vw;
     top: 0vh; /* Adjust position so that the original image starts lower for js to make it go higher*/

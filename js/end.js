@@ -8,54 +8,49 @@ var controller = new ScrollMagic.Controller();
 var timeline = gsap.timeline();
 
 // Set initial positions for images that need to be flipped
-gsap.set("#Bush-Left2", { scaleX: -1 });
-gsap.set("#Tree-Left2", { scaleX: -1 });
-gsap.set("#Beanie-tail", { scaleX: -1 });
-gsap.set("#Beanie-behind2", { scale:1.5 });
+gsap.set("#Beanie-sad-tailup", { scale:1.5 });
 
 
-// End Scene 5E and 6: House
-timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof)})
-        //Arf! Arf! 1 fades in and out
-        .to("#text2_1", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof)}, "text2_1")
-        .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1")
-        .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" }, "text2_1out")
-         //What your.. fades in and out
-         .to("#text2_2", { duration: 200, ease: "power1.inOut" }, "text2_2")
-         .to("#text2_2", { opacity: 1, duration: 250, ease: "power1.inOut" },"text2_2","+=10")
-         .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
-        //Beanie sad fades out
-        .to("#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut" })
-        //Beanie tail fades in
-        .to("#Beanie-tail", { opacity:1, duration: 100, ease: "power1.inOut" },"tail_in")
-        //Arf! Arf! 2 fades in and out
-        .to("#text2_1B", { duration: 100, ease: "power1.inOut" })
-        .to("#text2_1B", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"tail_in")
-        .to("#text2_1B", { opacity: 0, duration: 150, ease: "power1.inOut" },"text2_1Bout","+=10")
-        //Beanie tail fades in
-        .to("#Beanie-tail", { opacity:0, duration: 100, ease: "power1.inOut" },"text2_1Bout")
+
+
+// Scene 5E
+// Pinning
+timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
+        //its raccoon... fades in
+        .to("#text5E", { opacity: 1, duration: 200, ease: "power1.inOut" })
+        .to("#text5E", { opacity: 0, duration: 100, ease: "power1.inOut" })
+
         
+        //Fade to black
+        .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" })
+        //We follow beanie... fades in
+        .to("#text6A_1", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(nobeaniewait) })
+        .to("#text6A_1", { duration: 150, ease: "power1.inOut" })
+        .to("#text6A_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+        // Turns out... fades in
+        .to("#text6A_2", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(nobeaniewait) })
+        .to("#text6A_2", { duration: 150, ease: "power1.inOut" })
+        .to("#text6A_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+        //Outside fades
+        .to("#staticwoods", { opacity: 0 })
+        .to("#House,#Beanie-happy", { opacity:1})
+        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" })
+
+
+
+// End Scene 6: House
+        //text fades in
+        .to("#text6B_1", { opacity: 1, duration: 200, ease: "power1.inOut" })
+        .to("#text6B_1", { opacity: 0, duration: 100, ease: "power1.inOut" })
+  
+
 
         //Fade to black
         .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" })
-        //House zoom
-        .to("#House", { y: "10vh", scale:1.2 , duration: 100, ease: "power1.inOut" },"fadein1")
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
-
-         //text 3A fades in and out
-         .to("#text3A", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text3A")
-         .to("#text3A", { duration: 150, ease: "power1.inOut" }, "text3A")
-         .to("#text3A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
-         //text 3B fades in and out
-         .to("#text3B", { y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text3B")
-         .to("#text3B", { duration: 300, ease: "power1.inOut" }, "text3B")
-         .to("#text3B", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
-
-
 
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
-        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" }, "fadeout1", "+=2")
 
         
         // Create a ScrollMagic scene this puts evertyhing together, triggers the animation when the scroll
