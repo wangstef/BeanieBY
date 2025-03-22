@@ -1,51 +1,123 @@
-// Audio
-const DoorOpen = new Audio("./audio/door.mp3"); 
+document.addEventListener("DOMContentLoaded", function () {
+    // Now we know the page is fully loaded, so the buttons can be rendered properly
+    const sfxIcon = document.createElement("div");
+    sfxIcon.id = "sfx-icon";
+    sfxIcon.classList.add("sound-on");
+    sfxIcon.onclick = toggleSFX;
+    document.getElementById("sound-controls").appendChild(sfxIcon);
+
+    const narrationIcon = document.createElement("div");
+    narrationIcon.id = "narration-icon";
+    narrationIcon.classList.add("sound-on");
+    narrationIcon.onclick = toggleNarration;
+    document.getElementById("sound-controls").appendChild(narrationIcon);
+});
+// Audio - SFX
+const DoorOpen = new Audio("./audio/door.mp3");
 const Rustle = new Audio("./audio/rustle.mp3"); 
 const Woof = new Audio("./audio/Woof.mp3"); 
-const walking = new Audio("./audio/walking_forest.mp3"); 
+const walking = new Audio("./audio/walking_forest.mp3");  
 const swoosh = new Audio("./audio/swoosh.mp3"); 
 const gasp = new Audio("./audio/gasp.mp3"); 
-const What = new Audio("./audio/What!.mp3");
 const mystery = new Audio("./audio/mystery.mp3"); 
 const mystery2 = new Audio("./audio/mystery2.mp3"); 
 const ghost = new Audio("./audio/ghost.mp3"); 
 const waterdroplets = new Audio("./audio/waterdroplets.mp3"); 
-const nobeaniewait = new Audio("./audio/NoBeanieWait.mp3"); 
-const Hurry = new Audio("./audio/Hurry.mp3"); 
 const Win = new Audio("./audio/win.mp3"); 
-const Thereyouare = new Audio("./audio/Thereyouare.mp3"); 
 const BigDogBark = new Audio("./audio/bigdogbark.wav"); 
 const BeanieWhimper = new Audio("./audio/dogwhimpering.wav");
 const Detective = new Audio("./audio/detectivemusic.mp3");
+const Notebook = new Audio("./audio/notebook_ding.mp3"); 
+const DogRunning = new Audio("./audio/dogrunning.mp3");
+const ToadSinging = new Audio("./audio/toad.mp3");
+
+// Audio - Narration
+const What = new Audio("./audio/What!.mp3");
+const nobeaniewait = new Audio("./audio/NoBeanieWait.mp3"); 
+const Hurry = new Audio("./audio/Hurry.mp3"); 
+const Thereyouare = new Audio("./audio/Thereyouare.mp3"); 
 const StopSinging = new Audio("./audio/stopsinging.mp3");
 const DunkDinner = new Audio("./audio/dunkmydinner.mp3");
 const letmeeat = new Audio("./audio/letmeeat.mp3");
-const Notebook = new Audio("./audio/notebook_ding.mp3"); 
-const ToadSinging = new Audio("./audio/toad.mp3");
-function playSoundLoop(times) {
-    let count = 0;
-    ToadSinging.play();
-    ToadSinging.addEventListener("ended", function() {
-        count++;
-        if (count < times) {
-            ToadSinging.currentTime = 0; // Reset to start
-            ToadSinging.play(); // Play again
-        }
-    });
-}
-playSoundLoop(5); // Plays the sound 3 times
-
-const DogRunning = new Audio("./audio/dogrunning.mp3");
 const CanYouTellMe = new Audio("./audio/CanYouTellMe.mp3");
 const HelloRaccoon = new Audio("./audio/HelloRaccoon.mp3");
 
+// Store SFX & Narration in arrays for better control
+const sfxSounds = [
+    DoorOpen, Rustle, Woof, walking, swoosh, gasp, mystery, mystery2, ghost, waterdroplets, 
+    Win, BigDogBark, BeanieWhimper, Detective, Notebook, DogRunning, ToadSinging
+];
+
+const narrationSounds = [
+    What, nobeaniewait, Hurry, Thereyouare, StopSinging, DunkDinner, letmeeat, CanYouTellMe, HelloRaccoon
+];
+
+// Sound toggles
+let sfxEnabled = true;
+let narrationEnabled = true;
+
+function toggleSFX() {
+    sfxEnabled = !sfxEnabled;
+    // Update button text
+    sfxButton.textContent = `SFX: ${sfxEnabled ? "ON" : "OFF"}`;
+}
+
+function toggleNarration() {
+    narrationEnabled = !narrationEnabled;
+    // Update button text
+    narrationButton.textContent = `Narration: ${narrationEnabled ? "ON" : "OFF"}`;
+}
 
 
 
+// Function to play a sound
 function playSound(sound) {
-    sound.currentTime = 0; // Restart sound if it’s already playing
+    if (sfxSounds.includes(sound) && !sfxEnabled) return;
+    if (narrationSounds.includes(sound) && !narrationEnabled) return;
+
+    sound.currentTime = 0; // Restart sound if it's already playing
     sound.play();
 }
+
+// Function to loop a sound a set number of times
+function playSoundLoop(sound, times) {
+    if (sfxSounds.includes(sound) && !sfxEnabled) return;
+    if (narrationSounds.includes(sound) && !narrationEnabled) return;
+
+    let count = 0;
+    sound.play();
+    sound.addEventListener("ended", function () {
+        if ((sfxSounds.includes(sound) && !sfxEnabled) || 
+            (narrationSounds.includes(sound) && !narrationEnabled)) return;
+
+        count++;
+        if (count < times) {
+            sound.currentTime = 0; // Reset to start
+            sound.play(); // Play again
+        }
+    });
+}
+
+// Toggle buttons
+const sfxButton = document.createElement("button");
+sfxButton.textContent = "SFX: ON";
+sfxButton.onclick = toggleSFX;
+document.body.appendChild(sfxButton);
+
+const narrationButton = document.createElement("button");
+narrationButton.textContent = "Narration: ON";
+narrationButton.onclick = toggleNarration;
+document.body.appendChild(narrationButton);
+
+// Start looping ToadSinging (fixing argument)
+playSoundLoop(ToadSinging, 4);
+
+
+
+
+
+
+
 
 
 // Initialize ScrollMagic controller
@@ -273,7 +345,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5C", { duration: 150, ease: "power1.inOut" })
         .to("#text5C", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //text5D_1, then text5D_2, then text5D_3 fades in and then all out
-        .to("#text5D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(Detective)})
+        .to("#text5D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut"})
         .to("#text5D_1", { duration: 150, ease: "power1.inOut" })
         .to("#text5D_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
         .to("#text5D_2", { duration: 150, ease: "power1.inOut" })

@@ -16,14 +16,20 @@
 
 </head>
 <body>
-    
-    <audio id="bg-music" loop>
-        <source src="./audio/BG music.mp3" type="audio/mpeg">
-    </audio>
-    
-    <div id="sound-icon" class="sound-on">
-         .
+
+   <!-- Audio elements -->
+   <audio id="bg-music" loop>
+    <source src="./audio/BG music.mp3" type="audio/mpeg">
+</audio>
+
+ <!-- Container for sound controls -->
+    <div id="sound-controls">
+        <!-- Sound icons for each toggle -->
+        <div id="sound-icon" class="sound-on" onclick="toggleBackgroundMusic()"></div> <!-- For BG Music -->
+        <div id="sfx-icon" class="sound-on" onclick="toggleSFX()"></div> <!-- For SFX -->
+        <div id="narration-icon" class="sound-on" onclick="toggleNarration()"></div> <!-- For Narration -->
     </div>
+
 
     <!-- Opening -->
     <img id="sky" src="./img/Background-Gradient.png" alt="A blue and purple watercolour gradient for the sky">
