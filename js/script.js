@@ -2,7 +2,7 @@
 const DoorOpen = new Audio("./audio/door.mp3"); 
 const Rustle = new Audio("./audio/rustle.mp3"); 
 const Woof = new Audio("./audio/Woof.mp3"); 
-const walking = new Audio("./audio/walking.mp3"); 
+const walking = new Audio("./audio/walking_forest.mp3"); 
 const gasp = new Audio("./audio/gasp.mp3"); 
 const mystery = new Audio("./audio/mystery.mp3"); 
 const waterdroplets = new Audio("./audio/waterdroplets.mp3"); 
@@ -11,7 +11,13 @@ const Hurry = new Audio("./audio/Hurry.mp3");
 const Thereyouare = new Audio("./audio/Thereyouare.mp3"); 
 const BigDogBark = new Audio("./audio/bigdogbark.wav"); 
 const BeanieWhimper = new Audio("./audio/dogwhimpering.wav");
-const Detective = new Audio("./audio/detective.mp3");
+const Detective = new Audio("./audio/detectivemusic.mp3");
+const StopSinging = new Audio("./audio/stopsinging.mp3");
+const DunkDinner = new Audio("./audio/dunkmydinner.mp3");
+const letmeeat = new Audio("./audio/letmeeat.mp3");
+const Notebook = new Audio("./audio/notebook_ding.mp3"); 
+const ToadSinging = new Audio("./audio/toad_singing.mp3");
+
 
 
 
@@ -110,9 +116,9 @@ timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut"})
         
 
         //Fade to black
-        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" })
+        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut", onStart: () => playSound(walking) })
         //House zoom
-        .to("#House", { y: "10vh", scale:1.2 , duration: 100, ease: "power1.inOut" },"fadein1")
+        .to("#House", { y: "10vh", scale:1.2 , duration: 100, ease: "power1.inOut"},"fadein1")
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
 
          //text 3A fades in and out
@@ -128,12 +134,12 @@ timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut"})
 
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
-        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" }, "fadeout1", "+=2")
+        .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut", onStart: () => playSound(ToadSinging) }, "fadeout1", "+=2" )
 
         
 
 // Scene 3 Enter Woods: Pin the image for a short duration
-timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG", { duration: 200, ease: "power1.inOut" })
+timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG", { duration: 200, ease: "power1.inOut", onStart: () => playSound(ToadSinging)})
        //bush shake
         .to("#Bush-Left", { 
             x: "random(-10, 10)", 
@@ -152,18 +158,18 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 // Scene 4: Encounter Raccoon
         .to("#Bush-Left", { x: "-100vw", y: "-10vh", scale: 1.5, duration: 100, ease: "power.inOut" }, "bush1", "+=2")
           //text 4A fades in and out
-          .to("#text4A", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"bush1")
+          .to("#text4A", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(StopSinging)},"bush1")
           .to("#text4A", { duration: 100, ease: "power1.inOut" }, "text4A")
           .to("#text4A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
           //text 4B fades in and out
-          .to("#text4B", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+          .to("#text4B", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(DunkDinner)})
           .to("#text4B", { duration: 100, ease: "power1.inOut" })
           .to("#text4B", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" })
 
 //pinning the scene
 .to("#Raccoon", { duration: 100, ease: "power1.inOut" })
 //Notebook 1: Raccoon
-        .to("#Notebook-Raccoon", { y: "-50vw", scale: 1.5, duration: 60, ease: "power0.out" }, "notebook1", "+=2")
+        .to("#Notebook-Raccoon", { y: "-50vw", scale: 1.5, duration: 60, ease: "power0.out", onStart: () => playSound(Notebook)}, "notebook1", "+=2")
         //pinning the notebook
         .to("#Notebook-Raccoon", { duration: 300, ease: "power1.inOut" }, "+=15")
         .to("#Notebook-Raccoon", { y: "10vw", scale: 1.5, duration: 100, ease: "power1.inOut" }, "notebook2", "+=2")
@@ -177,7 +183,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
           .to("#Raccoon", { y: "-10vw",  duration: 10, rotation: -10, ease: "power0.out" }, "text4C")
           .to("#Raccoon", { y: "0vw", duration: 10, rotation: 0, ease: "power0.out" })
           //text 4D_1 fades in and out
-          .to("#text4D_1", { duration: 100, ease: "power1.inOut" })
+          .to("#text4D_1", { duration: 100, ease: "power1.inOut" , onStart: () => playSound(letmeeat) })
           .to("#text4D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
           //text 4D_2 fades in and out
           .to("#text4D_2", { duration: 100, ease: "power1.inOut" })
@@ -189,7 +195,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
           .to("#text4D_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" }, "text4Dfadeout")
 
         //things leaves
-        .to("#Raccoon", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut" },"move1", "+=1")
+        .to("#Raccoon", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut", onStart: () => playSound(walking)},"move1", "+=1")
         .to("#Tree-Left", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut" },"move1", "+=1")
         .to("#Bush-Right", { x: "100vw", scale: 1.5, duration: 50, ease: "power1.inOut" }, "move1", "+=1")
         .to("#Tree-Right", { x: "150vw", y: "-10vh", scale: 1.5, duration: 50, ease: "power1.inOut" }, "move1", "+=1") //y position change so it goes higher
@@ -243,7 +249,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5B_2", { duration: 150, ease: "power1.inOut" })
         .to("#text5B_1, #text5B_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //text5C fades in and out
-        .to("#text5C", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5C", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Detective) })
         .to("#text5C", { duration: 150, ease: "power1.inOut" })
         .to("#text5C", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //text5D_1, then text5D_2, then text5D_3 fades in and then all out
