@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Now we know the page is fully loaded, so the buttons can be rendered properly
+    // SFX Icon
     const sfxIcon = document.createElement("div");
     sfxIcon.id = "sfx-icon";
     sfxIcon.classList.add("sound-on");
     sfxIcon.onclick = toggleSFX;
     document.getElementById("sound-controls").appendChild(sfxIcon);
 
+    // Narration Icon
     const narrationIcon = document.createElement("div");
     narrationIcon.id = "narration-icon";
     narrationIcon.classList.add("sound-on");
     narrationIcon.onclick = toggleNarration;
     document.getElementById("sound-controls").appendChild(narrationIcon);
 });
+
 // Audio - SFX
 const DoorOpen = new Audio("./audio/door.mp3");
 const Rustle = new Audio("./audio/rustle.mp3"); 
@@ -56,18 +58,21 @@ const narrationSounds = [
 let sfxEnabled = true;
 let narrationEnabled = true;
 
+// Toggle SFX
 function toggleSFX() {
     sfxEnabled = !sfxEnabled;
-    // Update button text
-    sfxButton.textContent = `SFX: ${sfxEnabled ? "ON" : "OFF"}`;
+    document.getElementById("sfx-icon").style.backgroundImage = sfxEnabled 
+        ? "url('./img/SFX_On.png')" 
+        : "url('./img/SFX_Off.png')";
 }
 
+// Toggle Narration
 function toggleNarration() {
     narrationEnabled = !narrationEnabled;
-    // Update button text
-    narrationButton.textContent = `Narration: ${narrationEnabled ? "ON" : "OFF"}`;
+    document.getElementById("narration-icon").style.backgroundImage = narrationEnabled 
+        ? "url('./img/Narration_On.png')" 
+        : "url('./img/Narration_Off.png')";
 }
-
 
 
 // Function to play a sound
@@ -422,7 +427,7 @@ window.onload = function (){
 
 
 
-//Add audio
+//Add Background Music with toggle button
 const bgMusic = new Audio("./audio/BG music.mp3");
 bgMusic.loop = true; // Ensure it loops
 bgMusic.volume = 0.5; // Adjust volume if needed
@@ -437,11 +442,12 @@ document.addEventListener("DOMContentLoaded", function () {
     soundIcon.addEventListener("click", function () {
         if (isPlaying) {
             bgMusic.pause();
-            soundIcon.style.backgroundImage = "url('./img/Sound-off.png')";
+            soundIcon.style.backgroundImage = "url('./img/BGSound_Off.png')";
         } else {
             bgMusic.play();
-            soundIcon.style.backgroundImage = "url('./img/Sound-on.png')";
+            soundIcon.style.backgroundImage = "url('./img/BGSound_On.png')";
         }
         isPlaying = !isPlaying;
     });
 });
+
