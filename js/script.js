@@ -32,6 +32,9 @@ const Detective = new Audio("./audio/detectivemusic.mp3");
 const Notebook = new Audio("./audio/notebook_ding.mp3"); 
 const DogRunning = new Audio("./audio/dogrunning.mp3");
 const ToadSinging = new Audio("./audio/toad.mp3");
+const ding1 = new Audio("./audio/ding1.mp3");
+const ding2 = new Audio("./audio/ding2.mp3");
+const ding3 = new Audio("./audio/ding3.mp3");
 
 // Audio - Narration
 const What = new Audio("./audio/What!.mp3");
@@ -47,7 +50,7 @@ const HelloRaccoon = new Audio("./audio/HelloRaccoon.mp3");
 // Store SFX & Narration in arrays for better control
 const sfxSounds = [
     DoorOpen, Rustle, Woof, walking, swoosh, gasp, mystery, mystery2, ghost, waterdroplets, 
-    Win, BigDogBark, BeanieWhimper, Detective, Notebook, DogRunning, ToadSinging
+    Win, BigDogBark, BeanieWhimper, Detective, Notebook, DogRunning, ToadSinging, ding1, ding2, ding3
 ];
 
 const narrationSounds = [
@@ -352,11 +355,11 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5C", { duration: 150, ease: "power1.inOut" })
         .to("#text5C", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //text5D_1, then text5D_2, then text5D_3 fades in and then all out
-        .to("#text5D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut"})
+        .to("#text5D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(ding1) })
         .to("#text5D_1", { duration: 150, ease: "power1.inOut" })
-        .to("#text5D_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5D_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(ding3) })
         .to("#text5D_2", { duration: 150, ease: "power1.inOut" })
-        .to("#text5D_3", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5D_3", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(ding2) })
         .to("#text5D_3", { duration: 150, ease: "power1.inOut" })
         // .to("#text5D_1, #text5D_2, #text5D_3", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(mystery2) })
