@@ -274,7 +274,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5C", { duration: 150, ease: "power1.inOut" })
         .to("#text5C", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //text5D_1, then text5D_2, then text5D_3 fades in and then all out
-        .to("#text5D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(Detective)})
+        .to("#text5D_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut"})
         .to("#text5D_1", { duration: 150, ease: "power1.inOut" })
         .to("#text5D_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
         .to("#text5D_2", { duration: 150, ease: "power1.inOut" })

@@ -47,10 +47,16 @@ quizForm.addEventListener('submit', function (e) {
         resultDiv.innerHTML = `Your answer: ${answer}. ${score ? 'Correct! Time to go get it back!' : 'Not quite...check your notes and try again!'}`;
 
         // Show the "Continue" button if the answer is correct, otherwise hide it
+        quizButton.style.display = score === 1 ? 'block' : 'none';
+
+        // Play the correct or incorrect sound
+        const correctSound = new Audio('./audio/correct.mp3');  // Change to your correct sound file
+        const incorrectSound = new Audio('./audio/incorrect.mp3'); // Change to your incorrect sound file
+        
         if (score === 1) {
-            quizButton.style.display = 'block'; // Show button if the answer is correct
+            correctSound.play();
         } else {
-            quizButton.style.display = 'none'; // Hide button if the answer is incorrect
+            incorrectSound.play();
         }
 
     } else {
