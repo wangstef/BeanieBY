@@ -3,6 +3,17 @@ const DoorOpen = new Audio("./audio/door.mp3");
 const Rustle = new Audio("./audio/rustle.mp3"); 
 const Woof = new Audio("./audio/Woof.mp3"); 
 const walking = new Audio("./audio/walking.mp3"); 
+const gasp = new Audio("./audio/gasp.mp3"); 
+const mystery = new Audio("./audio/mystery.mp3"); 
+const waterdroplets = new Audio("./audio/waterdroplets.mp3"); 
+const nobeaniewait = new Audio("./audio/NoBeanieWait.mp3"); 
+const Hurry = new Audio("./audio/Hurry.mp3"); 
+const Thereyouare = new Audio("./audio/Thereyouare.mp3"); 
+const BigDogBark = new Audio("./audio/bigdogbark.wav"); 
+const BeanieWhimper = new Audio("./audio/dogwhimpering.wav");
+const Detective = new Audio("./audio/detective.mp3");
+
+
 
 function playSound(sound) {
     sound.currentTime = 0; // Restart sound if it’s already playing
@@ -38,28 +49,27 @@ timeline.to("#opening-text", {
         start: "top top",  // Start fading when the top of .opening hits the top of the viewport
         end: "bottom top",  // Fully faded when the bottom of .opening reaches the top
         scrub: 1,  // Smooth scrolling effect
-        onStart: () => playSound(DoorOpen)
+        
     }
 }, "title")
 
 .to("#sky", {y:"-100vh", duration: 800, ease: "power1.inOut"})
 //text 1_1 fades in and out
-.to("#text1_1", { opacity: 1, duration: 150, ease: "power1.inOut" },"text1_1","+=10")
+.to("#text1_1", { opacity: 1, duration: 150, ease: "power1.inOut", onStart: () => playSound(waterdroplets) },"text1_1","+=10")
 .to("#text1_1", { duration: 200, ease: "power1.inOut" }, "+=20")
-.to("#text1_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+.to("#text1_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut",  onStart: () => playSound(BeanieWhimper) },)
 
 //text 1_1 fades in and out
-.to("#text1_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text1_2")
-.to("#text1_2", { duration: 200, ease: "power1.inOut" }, "+=20")
-.to("#text1_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
+.to("#text1_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(mystery)},"text1_2")
+.to("#text1_2", { duration: 200, ease: "power1.inOut"  }, "+=20")
+.to("#text1_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" , onStart: () => playSound(DoorOpen) },)
 
 
 
 .to("#fade-to-black", { 
     opacity: 1, 
     duration: 50, 
-    ease: "power1.inOut",
-    onStart: () => playSound(walking)
+    ease: "power1.inOut"
     // scrollTrigger: {
     //     trigger: "#sky",
     //     start: "bottom bottom",  // When the bottom of #sky reaches the bottom of the viewport
@@ -73,27 +83,27 @@ timeline.to("#opening-text", {
     ease: "power1.inOut",}, "skyfade")
 
 .to("#fade-to-black", { duration: 50, ease: "power1.inOut"})
-.to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut", onStart: () => playSound(Woof)});
+.to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut"});
 
 
 
 // Scene 2: House
-timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof)})
+timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut"})
         //Arf! Arf! 1 fades in and out
-        .to("#text2_1", { duration: 100, ease: "power1.inOut", onStart: () => playSound(Woof)}, "text2_1")
-        .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"text2_1")
-        .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" }, "text2_1out")
+        .to("#text2_1", { duration: 100, ease: "power1.inOut" }, "text2_1")
+        .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" , onStart: () => playSound(Woof) },"text2_1")
+        .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Woof) }, "text2_1out")
          //What your.. fades in and out
          .to("#text2_2", { duration: 200, ease: "power1.inOut" }, "text2_2")
-         .to("#text2_2", { opacity: 1, duration: 200, ease: "power1.inOut" },"text2_2","+=10")
+         .to("#text2_2", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(gasp)},"text2_2","+=10")
          .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //Beanie sad fades out
         .to("#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut" })
         //Beanie tail fades in
         .to("#Beanie-tail", { opacity:1, duration: 100, ease: "power1.inOut" },"tail_in")
         //Arf! Arf! 2 fades in and out
-        .to("#text2_1B", { duration: 100, ease: "power1.inOut" })
-        .to("#text2_1B", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" },"tail_in")
+        .to("#text2_1B", { duration: 100, ease: "power1.inOut" , onStart: () => playSound(Woof)})
+        .to("#text2_1B", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut", onStart: () => playSound(Woof) },"tail_in")
         .to("#text2_1B", { opacity: 0, duration: 150, ease: "power1.inOut" },"text2_1Bout","+=10")
         //Beanie tail fades in
         .to("#Beanie-tail", { opacity:0, duration: 100, ease: "power1.inOut" },"text2_1Bout")
@@ -106,11 +116,11 @@ timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut", onStart
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
 
          //text 3A fades in and out
-         .to("#text3A", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text3A")
+         .to("#text3A", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(nobeaniewait) },"text3A")
          .to("#text3A", { duration: 150, ease: "power1.inOut" }, "text3A")
          .to("#text3A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
          //text 3B fades in and out
-         .to("#text3B", { y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text3B")
+         .to("#text3B", { y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Hurry) },"text3B")
          .to("#text3B", { duration: 300, ease: "power1.inOut" }, "text3B")
          .to("#text3B", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
@@ -217,7 +227,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 
         
         //text 5A fades in and out
-        .to("#text5A", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5A", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Thereyouare) })
         .to("#text5A", { duration: 150, ease: "power1.inOut" })
         .to("#text5A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
 
@@ -226,10 +236,10 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         
 
         //text 5B_1 fades in and out
-        .to("#text5B_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5B_1", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(BigDogBark) })
         .to("#text5B_1", { duration: 150, ease: "power1.inOut" })
         //text 5B_2 fades in and out
-        .to("#text5B_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
+        .to("#text5B_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(BigDogBark) })
         .to("#text5B_2", { duration: 150, ease: "power1.inOut" })
         .to("#text5B_1, #text5B_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //text5C fades in and out
