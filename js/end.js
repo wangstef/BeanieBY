@@ -49,19 +49,8 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
 
         .to("#text6A_2", {  y: "-70vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(nobeaniewait) },"text6A_1out")
         .to("#text6A_2", { duration: 150, ease: "power1.inOut" })
-        .to("#text6A_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
-            const fireplaceAudio = new Audio("./audio/fireplace.mp3");
-            fireplaceAudio.play();
-    
-            // Set the volume to make it quieter (e.g., 0.2 means 20% of the original volume)
-            fireplaceAudio.volume = 0.6;
-    
-            // Stop the audio after 3 seconds
-            setTimeout(() => {
-                fireplaceAudio.pause();
-                fireplaceAudio.currentTime = 0; // Reset to the start
-            }, 9000); // 3000 ms = 3 seconds
-        }},)
+        .to("#text6A_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut", 
+        })
 
         //Outside fades
         .to("#staticwoods", { opacity: 0 })
@@ -87,7 +76,6 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
 
         .to("#title", { opacity: 1, duration: 200, ease: "power1.inOut" })
-        .to("#title", { opacity: 0, duration: 100, ease: "power1.inOut" })
 
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
