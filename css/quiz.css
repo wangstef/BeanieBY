@@ -23,14 +23,17 @@ body {
     color: #07213c;
     text-align:center;
     display: flex;
-    margin-top: 10vh;
-    font-size: 30px;
+    margin-top: auto;
+    margin: auto;
+    font-size: 50px;
 }
 
 p {
     color: #07213c;
     margin-top: -2vh; /* Adds space between paragraphs */
     text-align: justify; /* Aligns text evenly (optional) */
+    font-size: 30px; /* Adjust font size */
+    margin: auto;
   }
 
 /* Modal Styling */
@@ -110,10 +113,10 @@ p {
     font-family: "vollkorn";
     background-color: #4CAF50; /* Green background */
     color: white; /* White text */
-    font-size: 16px; /* Set font size */
+    font-size: 20px; /* Set font size */
     padding: 15px 32px; /* Add padding to make it bigger */
     border: none; /* Remove the default border */
-    border-radius: 8px; /* Round the corners */
+    border-radius: 10px; /* Round the corners */
     cursor: pointer; /* Show pointer on hover */
     transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transitions */
 }
@@ -187,7 +190,7 @@ p {
 }
 
 #result {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -268,6 +271,7 @@ a {
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
     z-index: 9999;
+    margin: auto;
   }
 
   #quiz_button {

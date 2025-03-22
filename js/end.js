@@ -9,8 +9,30 @@ const Win = new Audio("./audio/win.mp3");
 const panting = new Audio("./audio/dogpanting.wav");
 const fireplace = new Audio("./audio/fireplace.mp3");
 
-// Audio - Narration
+// Store SFX & Narration in arrays for better control
+const sfxSounds = [ BigDogBark, walking, Rustle, raccoonwater, Woof, mystery2, Win, panting, fireplace ];
 
+// Audio - Narration (currently none)
+
+// Sound toggles
+let sfxEnabled = true;
+let narrationEnabled = true;
+
+// Toggle SFX
+function toggleSFX() {
+    sfxEnabled = !sfxEnabled;
+    document.getElementById("sfx-icon").style.backgroundImage = sfxEnabled 
+        ? "url('./img/SFX_On.png')" 
+        : "url('./img/SFX_Off.png')";
+}
+
+// Toggle Narration (currently none)
+// function toggleNarration() {
+//     narrationEnabled = !narrationEnabled;
+//     document.getElementById("narration-icon").style.backgroundImage = narrationEnabled 
+//         ? "url('./img/Narration_On.png')" 
+//         : "url('./img/Narration_Off.png')";
+// }
 
 
 // Function to play audio
@@ -138,3 +160,27 @@ window.onload = function (){
     controller.update(true);
 };
 
+
+//Add Background Music with toggle button
+const bgMusic = new Audio("./audio/BG music.mp3");
+bgMusic.loop = true; // Ensure it loops
+bgMusic.volume = 0.5; // Adjust volume if needed
+bgMusic.play();
+
+document.addEventListener("DOMContentLoaded", function () {
+    let bgMusic = document.getElementById("bg-music");
+    let soundIcon = document.getElementById("sound-icon");
+
+    let isPlaying = false; // Start with music off
+
+    soundIcon.addEventListener("click", function () {
+        if (isPlaying) {
+            bgMusic.pause();
+            soundIcon.style.backgroundImage = "url('./img/BGSound_Off.png')";
+        } else {
+            bgMusic.play();
+            soundIcon.style.backgroundImage = "url('./img/BGSound_On.png')";
+        }
+        isPlaying = !isPlaying;
+    });
+});
