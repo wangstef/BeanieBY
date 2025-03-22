@@ -125,8 +125,8 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 #Beanie-tail {
     width: 80%; /* Adjust size */
     opacity: 0;
-    left: 32vw;
-    top: -10vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    left: 36vw;
+    top: -15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
     z-index: 2;

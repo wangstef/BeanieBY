@@ -22,7 +22,7 @@ timeline.to("#House,#Beanie-sad", { duration: 100, ease: "power1.inOut", onStart
         .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut" }, "text2_1out")
          //What your.. fades in and out
          .to("#text2_2", { duration: 200, ease: "power1.inOut" }, "text2_2")
-         .to("#text2_2", { opacity: 1, duration: 200, ease: "power1.inOut" },"text2_2","+=10")
+         .to("#text2_2", { opacity: 1, duration: 250, ease: "power1.inOut" },"text2_2","+=10")
          .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //Beanie sad fades out
         .to("#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut" })
