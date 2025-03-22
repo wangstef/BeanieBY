@@ -135,7 +135,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 }
 #Beanie-behind {
     width: 50%; /* Adjust size */
-    left: 33vw;
+    left: 34vw;
     top: 22vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
@@ -180,7 +180,6 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 
 #Tree-Middle {
     width: 100%; /* Adjust size */
-    height: 100vh;
     top:-10vh; /* Adjust position higher number = lower on page */
     align-content: center;
     position: absolute; /* Overlap images, if I dont have it the sky disappears? */
@@ -230,40 +229,31 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     position: absolute; /* Overlap images */
     z-index: 2;
 }
-#Bush-Left2b { 
-    width: 60%; /* Adjust size */;
-    top: 15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
-    left: 25vw;
-    opacity: 0;
-    align-content: center;
-    position: absolute; /* Overlap images */
-    z-index: 2;
-}
+
 
 #Tree-Middle2 {
-    width: 70%; /* Adjust size */
-    height: 100vh;
-    left: 40vw;
+    width: 85%; /* Adjust size */
+    left: 35vw;
     top: -5vh; /* Adjust position higher number = lower on page */
     align-content: center;
     position: absolute; /* Overlap images, if I dont have it the sky disappears? */
     z-index: 2; /* Make sure they are on top of the other images */
 }
-#Tree-Middle2b {
-    width: 70%; /* Adjust size */
-    height: 100vh;
-    left: 40vw;
-    opacity: 0;
-    top: -5vh; /* Adjust position higher number = lower on page */
-    align-content: center;
-    position: absolute; /* Overlap images, if I dont have it the sky disappears? */
-    z-index: 2; /* Make sure they are on top of the other images */
-}
+
 
 #Raccoon {
     width: 80%; /* Adjust size */
     left: 0vw;
     top: 5vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2;
+}
+
+#Puddle {
+    width: 80%; /* Adjust size */
+    left: 15vw;
+    top: 65vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
     z-index: 2;
@@ -342,7 +332,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 
 #quiz_button {
     opacity: 0;
-    background-color: #8A2BE2; /* A vibrant purple shade */
+    background-color: #8382ce; /* A vibrant purple shade */
     color: #F0FFFF; /* Light cyan for contrast */
     font-family: "Vollkorn";
     font-size: 2rem; /* Larger font size for better visibility */

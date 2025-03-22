@@ -288,12 +288,14 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
           .to("#text4D_2", { duration: 100, ease: "power1.inOut" })
           .to("#text4D_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
           .to("#text4D_2", { scale: 1.2, duration: 50, repeat: 2, yoyo: true, ease: "sine.inOut",transformOrigin: "center center"})
+          
           .to("#text4D_2", { duration: 100, ease: "power1.inOut" })
           //text 4D fades together
           .to("#text4D_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" }, "text4Dfadeout")
           .to("#text4D_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" }, "text4Dfadeout")
 
         //things leaves
+        .to("#Puddle", { y: "100vw", scale: 1.5, duration: 50, ease: "power1.inOut", onStart: () => playSound(walking)},"move1", "+=1")
         .to("#Raccoon", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut", onStart: () => playSound(walking)},"move1", "+=1")
         .to("#Tree-Left", { x: "-100vw", scale: 1.5, duration: 50, ease: "power1.inOut" },"move1", "+=1")
         .to("#Bush-Right", { x: "100vw", scale: 1.5, duration: 50, ease: "power1.inOut" }, "move1", "+=1")
