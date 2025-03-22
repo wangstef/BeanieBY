@@ -201,7 +201,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#Tree-Right3", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
         .to("#Bush-Right3", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
         .to("#Bush-Left4", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
-        .to("#Beanie-behind", { scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
+        .to("#Beanie-behind", { opacity:0, scale: 1.5, duration: 150, ease: "power1.inOut" }, "move1","+=2")
         
         
 
@@ -310,6 +310,9 @@ window.onload = function (){
     controller.update(true);
 };
 
+
+
+//Add audio
 const bgMusic = new Audio("./audio/BG music.mp3");
 bgMusic.loop = true; // Ensure it loops
 bgMusic.volume = 0.5; // Adjust volume if needed
