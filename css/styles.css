@@ -301,22 +301,34 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
     z-index: 2; /* Make sure they correctly on top of the other images */
 }
 
-
-#sound-icon {
-    position: fixed;
+/* styles.css */
+#sound-controls {
+    position: fixed; /* Keep it fixed on the screen */
     top: 20px;
     right: 20px;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;
+    z-index: 5000; /* Ensures they are on top of other content */
+    visibility: visible;
+}
+
+#sfx-icon, #narration-icon, #sound-icon {
     width: 40px;
     height: 40px;
-    background: url('./img/Sound-on.png') no-repeat center/cover; /* Default ON */
+    background-size: cover;
     cursor: pointer;
-    z-index: 5000; /* Keeps it above other elements */
-    display: block; /* Ensure it stays visible */
+}
+
+.sound-on {
+    background: url('./img/sound-on.png') no-repeat center/cover;
 }
 
 .sound-off {
-    background: url('./img/Sound-off.png') no-repeat center/cover;
+    background: url('./img/sound-off.png') no-repeat center/cover;
 }
+
+
 
 
 /* Styling the button */
