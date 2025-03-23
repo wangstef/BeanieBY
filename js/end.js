@@ -57,7 +57,7 @@ gsap.set("#Beanie-sad-tailup", { scale:1.5 });
 // Pinning
 timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" },"startend")
         //its raccoon... fades in
-        .to("#text5E", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(Woof) },"startend")
+        .to("#text5E", { opacity: 1, duration: 0, ease: "power1.inOut" , onStart: () => playSound(Woof) },"startend")
         .to("#text5E", { opacity: 0, duration: 100, ease: "power1.inOut" })
 
         
