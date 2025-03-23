@@ -28,7 +28,6 @@ body {
 
 #scroll{ /* Adjust size */
     height: 100vh;
-    top:10vh;
     align-content: center;
     position: absolute; /* Overlap images */
     z-index: 2; 
@@ -37,8 +36,7 @@ body {
 /* Text */
 #text5E{
     width: 100%; /* Adjust size */;
-    top: -15vh;
-    opacity: 0; /* Adjust position so that the original image starts lower for js to make it go higher*/
+    top: -15vh; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */
     z-index: 999; 

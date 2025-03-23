@@ -55,9 +55,9 @@ gsap.set("#Beanie-sad-tailup", { scale:1.5 });
 
 // Scene 5E
 // Pinning
-timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
+timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" },"startend")
         //its raccoon... fades in
-        .to("#text5E", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(Woof) })
+        .to("#text5E", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(Woof) },"startend")
         .to("#text5E", { opacity: 0, duration: 100, ease: "power1.inOut" })
 
         
@@ -103,17 +103,7 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" })
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
 
-//scroll down pulses
-document.addEventListener("DOMContentLoaded", function () {
-    // Page Load Animation
-    gsap.from("#scroll", {
-            opacity: 0,
-            duration: 1,
-            repeat: -1,
-            yoyo: true,
-            ease: "power1.inOut"
-    });
-});
+
         
 
 // Create a ScrollMagic scene this puts evertyhing together, triggers the animation when the scroll
