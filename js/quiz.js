@@ -27,7 +27,14 @@ window.addEventListener('click', (event) => {
 
 // Handle quiz form submission
 const quizForm = document.getElementById('quiz-form');
-const quizButton = document.getElementById('quiz_button'); // Get the button
+const quizButton = document.getElementById('quiz-button'); // Get the button
+
+// Handle submit button (image click)
+const submitButton = document.getElementById('submit-button');
+submitButton.addEventListener('click', function () {
+    // Prevent form submission using the image click
+    quizForm.dispatchEvent(new Event('submit'));
+});
 
 quizForm.addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent form submission
@@ -47,7 +54,7 @@ quizForm.addEventListener('submit', function (e) {
         <p class="result-heading">Your answer: ${answer}</p>
         <p class="result-text">
             ${score ? '<span class="correct">Correct!</span> Time to go get it back!' 
-            : '<span class="incorrect">Not quite...</span> Check your notes and try again!'}
+            : '<span class="incorrect">Not quite, </span> check your notes and try again!'}
         </p>
     `;
 
