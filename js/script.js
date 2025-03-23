@@ -373,6 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
             yoyo: true,
             ease: "power1.inOut"
     });
+    gsap.from("#paw1", { opacity: 1, duration: 2, ease: "power1.inOut"});
 });
 
 
