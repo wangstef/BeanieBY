@@ -165,7 +165,7 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
 .button_container {
     position: absolute;
     z-index: 1000;
-    top: 80vh;
+    top: 65vh;
 }
 
 #quiz_button {
