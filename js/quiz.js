@@ -27,7 +27,14 @@ window.addEventListener('click', (event) => {
 
 // Handle quiz form submission
 const quizForm = document.getElementById('quiz-form');
-const quizButton = document.getElementById('quiz_button'); // Get the button
+const quizButton = document.getElementById('quiz-button'); // Get the button
+
+// Handle submit button (image click)
+const submitButton = document.getElementById('submit-button');
+submitButton.addEventListener('click', function () {
+    // Prevent form submission using the image click
+    quizForm.dispatchEvent(new Event('submit'));
+});
 
 quizForm.addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent form submission
