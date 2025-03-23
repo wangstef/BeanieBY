@@ -11,7 +11,7 @@ body {
     align-items: center;
     height: 100vh;
         /* Background Image */
-        background-image: url('http://127.0.0.1:5500/endimg/Woods.png'); /* Replace with your image URL */
+        background-image: url(/endimg/Woods.png); /* Replace with your image URL */
         background-size: cover; /* Ensures the image covers the entire screen */
         background-position: center; /* Centers the image */
         background-repeat: no-repeat; /* Prevents repeating */
@@ -31,7 +31,7 @@ body {
 p {
     color: #07213c;
     margin-top: -2vh; /* Adds space between paragraphs */
-    text-align: justify; /* Aligns text evenly (optional) */
+    text-align: center; /* Aligns text evenly (optional) */
     font-size: 30px; /* Adjust font size */
     margin: auto;
   }
@@ -111,31 +111,43 @@ p {
     margin: auto;
     margin-top: 30px;
     font-family: "vollkorn";
-    background-color: #4CAF50; /* Green background */
+    background-color: #4c5caf; /* Green background */
     color: white; /* White text */
     font-size: 20px; /* Set font size */
     padding: 15px 32px; /* Add padding to make it bigger */
-    border: none; /* Remove the default border */
-    border-radius: 10px; /* Round the corners */
+    border-radius: 30px; /* Round the corners */
     cursor: pointer; /* Show pointer on hover */
     transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transitions */
+    border: 3px solid rgb(27, 26, 45); /* Add a black stroke */
 }
 
 /* Hover effect */
 #submit-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #222d64; /* Darker green on hover */
     transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
 
-/* Focus effect */
+/* Focus effect with stroke */
 #submit-button:focus {
     outline: none; /* Remove default focus outline */
-    box-shadow: 0 0 0 3px rgba(72, 228, 72, 0.6); /* Add green focus ring */
+    border: 3px solid rgb(27, 26, 45); /* Add a black stroke */
 }
 
 /* Active effect when the button is clicked */
 #submit-button:active {
     transform: scale(0.98); /* Slightly shrink the button on click */
+}
+
+.result-heading {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.result-text {
+    font-size: 25px;
+    font-weight: normal;
+    text-align: center;
 }
 
 /* Gallery Container Styling */
