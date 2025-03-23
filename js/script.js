@@ -367,13 +367,20 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 document.addEventListener("DOMContentLoaded", function () {
     
     // Page Load Animation
-    gsap.from("#scroll", {
-        opacity: 0,
+    gsap.to("#scroll", {
+        opacity: 1,
         duration: 1,
-        repeat: -1,
+        repeat: 16,
         yoyo: true,
-        ease: "power1.inOut"
+        ease: "power1.inOut",
+        onComplete: function() {
+            // Once the animation is done, set the opacity to 0
+            gsap.to("#scroll", {
+                opacity: 0,
+                duration: 0.5  // This will fade it out smoothly
+            });}
     });
+    
 
     // Fade in #paw1
     gsap.from("#paw1", {opacity: 1,duration: 1, ease: "power1.inOut", onComplete: function() {
@@ -392,11 +399,74 @@ document.addEventListener("DOMContentLoaded", function () {
                                             // Once #paw5 fades in, start the animation for #paw6
                                             gsap.from("#paw6", {opacity: 1, duration: 1, ease: "power1.inOut",
                                                 onComplete: function() {
-                                                    // Once #paw5 fades in, start the animation for #paw6
+                                                    // Once #paw6 fades in, start the animation for #paw6
                                                     gsap.from("#paw7", {opacity: 1, duration: 1, ease: "power1.inOut",
                                                         onComplete: function() {
-                                                            // Once #paw5 fades in, start the animation for #paw6
-                                                            gsap.from("#paw8", {opacity: 1, duration: 1, ease: "power1.inOut"
+                                                            // Once #paw7 fades in, start the animation for #paw6
+                                                            gsap.from("#paw8", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                onComplete: function() {
+                                                                    // Once #paw8 fades in, start the animation for #paw6
+                                                                    gsap.from("#paw9", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                        onComplete: function() {
+                                                                            // Once #paw9 fades in, start the animation for #paw6
+                                                                            gsap.from("#paw10", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                onComplete: function() {
+                                                                                    // Once #paw10 fades in, start the animation for #paw6
+                                                                                    gsap.from("#paw11", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                        onComplete: function() {
+                                                                                            // Once #paw11 fades in, start the animation for #paw6
+                                                                                            gsap.from("#paw12", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                onComplete: function() {
+                                                                                                    // Once #paw12 fades in, start the animation for #paw6
+                                                                                                    gsap.from("#paw13", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                        onComplete: function() {
+                                                                                                            // Once #paw13 fades in, start the animation for #paw6
+                                                                                                            gsap.from("#paw14", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                                onComplete: function() {                                                                                                        
+                                                                                                                    // Once #paw14 fades in, start the animation for #paw6
+                                                                                                                    gsap.from("#paw15", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                                        onComplete: function() {
+                                                                                                                            // Once #paw15 fades in, start the animation for #paw6
+                                                                                                                            gsap.from("#paw16", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                                                onComplete: function() {
+                                                                                                                                    // Once #paw16 fades in, start the animation for #paw6
+                                                                                                                                    gsap.from("#paw17", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                                                        onComplete: function() {
+                                                                                                                                            // Once #paw17 fades in, start the animation for #paw6
+                                                                                                                                            gsap.from("#paw18", {opacity: 1, duration: 1, ease: "power1.inOut"
+                                                                                                                                                
+                                                                                                                                            });
+                                                                                                                                        }
+                                                                                                                                        
+                                                                                                                                    });
+                                                                                                                                }
+                                                                                                                                
+                                                                                                                            });
+                                                                                                                        }
+                                                                                                                        
+                                                                                                                    });
+                                                                                                                        
+                                                                                                                        
+                                                                                                                    
+                                                                                                                }
+                                                                                                                
+                                                                                                            });
+                                                                                                        }
+                                                                                                        
+                                                                                                    });
+                                                                                                }
+                                                                                                
+                                                                                            });
+                                                                                        }
+                                                                                        
+                                                                                    });
+                                                                                }
+                                                                                
+                                                                            });
+                                                                        }
+                                                                        
+                                                                    });
+                                                                }
                                                                 
                                                             });
                                                         }
@@ -418,6 +488,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
+    
 });
 
 
