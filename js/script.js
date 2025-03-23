@@ -107,15 +107,15 @@ function playSoundLoop(sound, times) {
 }
 
 // Toggle buttons
-const sfxButton = document.createElement("button");
-sfxButton.textContent = "SFX: ON";
-sfxButton.onclick = toggleSFX;
-document.body.appendChild(sfxButton);
+// const sfxButton = document.createElement("button");
+// sfxButton.textContent = "SFX: ON";
+// sfxButton.onclick = toggleSFX;
+// document.body.appendChild(sfxButton);
 
-const narrationButton = document.createElement("button");
-narrationButton.textContent = "Narration: ON";
-narrationButton.onclick = toggleNarration;
-document.body.appendChild(narrationButton);
+// const narrationButton = document.createElement("button");
+// narrationButton.textContent = "Narration: ON";
+// narrationButton.onclick = toggleNarration;
+// document.body.appendChild(narrationButton);
 
 // Start looping ToadSinging (fixing argument)
 playSoundLoop(ToadSinging, 4);
