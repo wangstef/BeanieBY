@@ -262,7 +262,7 @@ a {
 .button {
     background-color: #8382ce; /* A vibrant purple shade */
     color: #F0FFFF; /* Light cyan for contrast */
-    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-family: "vollkorn";
     font-size: 2rem; /* Larger font size for better visibility */
     padding: 20px 40px; /* More padding to make it larger */
     border: none;
