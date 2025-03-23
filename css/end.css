@@ -26,6 +26,14 @@ body {
     z-index: 2; 
 }
 
+#scroll{ /* Adjust size */
+    height: 100vh;
+    top:10vh;
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2; 
+}
+
 /* Text */
 #text5E{
     width: 100%; /* Adjust size */;

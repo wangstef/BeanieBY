@@ -363,7 +363,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(mystery2) })
 
 
-        
+//scroll down! pulses   
 document.addEventListener("DOMContentLoaded", function () {
     // Page Load Animation
     gsap.from("#scroll", {
