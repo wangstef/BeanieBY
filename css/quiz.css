@@ -76,28 +76,28 @@ p {
 .quiz-options {
     display: flex;
     margin-top: 10px;
-    justify-content: space-around;
+    justify-content: center; /* Center the icons horizontally */
+    gap: -100px; /* Reduce the space between icons (adjust this value as needed) */
 }
 
 /* options */
 .quiz-option {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center; /* Center the icon within each label */
     align-items: center;
     margin-top: -20px;
 }
+
 /* hide the radio buttons */
 .quiz-option input {
     display: none;
 }
 
 .animal-icon {
-    width: 60%;
+    width: 60%; /* Adjust width if needed */
     cursor: pointer;
-    justify-content: space-evenly;
-    align-items: center;
     transition: transform 0.2s ease-in-out, filter 0.2s;
-    
+    margin: 0 -200px; /* Adjust margin to fine-tune the spacing between icons */
 }
 
 /* Hover effect */
