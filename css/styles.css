@@ -25,6 +25,13 @@ body {
     position: absolute; /* Overlap images */
     z-index: 2; 
 }
+#scroll{ /* Adjust size */
+    height: 100vh;
+    top:10vh;
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2; 
+}
 
 /* Text */
 .text {
@@ -34,6 +41,7 @@ body {
     position: absolute; /* Overlap images */
     z-index: 999;
 }
+
 .s-text {
     width: 100%; /* Adjust size */;
     top: 50vh;

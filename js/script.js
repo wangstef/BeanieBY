@@ -144,8 +144,6 @@ gsap.set("#Beanie-behind2", { scale:1.5 });
 
 
 // Opening Scene 1 
-
-
 // Opening Scene 1: Fade to background gradient 
 timeline.to("#opening-text", { 
     opacity: 0, 
@@ -365,10 +363,18 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(mystery2) })
 
 
-
-
-
         
+document.addEventListener("DOMContentLoaded", function () {
+    // Page Load Animation
+    gsap.from("#scroll", {
+            opacity: 0,
+            duration: 1,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+    });
+});
+
 
 // Create a ScrollMagic scene this puts evertyhing together, triggers the animation when the scroll
 // reaches the .container
