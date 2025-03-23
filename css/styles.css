@@ -10,6 +10,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
+
 }
 
 
@@ -25,6 +27,22 @@ body {
     position: absolute; /* Overlap images */
     z-index: 2; 
 }
+#scroll{ /* Adjust size */
+    opacity: 0;
+    height: 100vh;
+    top: 0vh;
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2; 
+}
+.paw{ /* Adjust size */
+    height: 100vh;
+    overflow-x: hidden;
+    opacity: 0;
+    align-content: center;
+    position: absolute; /* Overlap images */
+    z-index: 2; 
+}
 
 /* Text */
 .text {
@@ -34,6 +52,7 @@ body {
     position: absolute; /* Overlap images */
     z-index: 999;
 }
+
 .s-text {
     width: 100%; /* Adjust size */;
     top: 50vh;

@@ -144,8 +144,6 @@ gsap.set("#Beanie-behind2", { scale:1.5 });
 
 
 // Opening Scene 1 
-
-
 // Opening Scene 1: Fade to background gradient 
 timeline.to("#opening-text", { 
     opacity: 0, 
@@ -365,10 +363,134 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(mystery2) })
 
 
+//scroll down! pulses   
+document.addEventListener("DOMContentLoaded", function () {
+    
+    // Page Load Animation
+    gsap.to("#scroll", {
+        opacity: 1,
+        duration: 1,
+        repeat: 16,
+        yoyo: true,
+        ease: "power1.inOut",
+        onComplete: function() {
+            // Once the animation is done, set the opacity to 0
+            gsap.to("#scroll", {
+                opacity: 0,
+                duration: 0.5  // This will fade it out smoothly
+            });}
+    });
+    
 
+    // Fade in #paw1
+    gsap.from("#paw1", {opacity: 1,duration: 1, ease: "power1.inOut", onComplete: function() {
+            // Once #paw1 fades in, start the animation for #paw2
+            gsap.from("#paw2", {opacity: 1, duration: 1, ease: "power1.inOut",
+                onComplete: function() {
+                    // Once #paw2 fades in, start the animation for #paw3 
+                    gsap.from("#paw3", {opacity: 1, duration: 1, ease: "power1.inOut",
+                        onComplete: function() {
+                            // Once #paw3 fades in, start the animation for #paw4 
+                            gsap.from("#paw4", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                onComplete: function() {
+                                    // Once #paw4 fades in, start the animation for #paw5
+                                    gsap.from("#paw5", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                        onComplete: function() {
+                                            // Once #paw5 fades in, start the animation for #paw6
+                                            gsap.from("#paw6", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                onComplete: function() {
+                                                    // Once #paw6 fades in, start the animation for #paw6
+                                                    gsap.from("#paw7", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                        onComplete: function() {
+                                                            // Once #paw7 fades in, start the animation for #paw6
+                                                            gsap.from("#paw8", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                onComplete: function() {
+                                                                    // Once #paw8 fades in, start the animation for #paw6
+                                                                    gsap.from("#paw9", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                        onComplete: function() {
+                                                                            // Once #paw9 fades in, start the animation for #paw6
+                                                                            gsap.from("#paw10", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                onComplete: function() {
+                                                                                    // Once #paw10 fades in, start the animation for #paw6
+                                                                                    gsap.from("#paw11", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                        onComplete: function() {
+                                                                                            // Once #paw11 fades in, start the animation for #paw6
+                                                                                            gsap.from("#paw12", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                onComplete: function() {
+                                                                                                    // Once #paw12 fades in, start the animation for #paw6
+                                                                                                    gsap.from("#paw13", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                        onComplete: function() {
+                                                                                                            // Once #paw13 fades in, start the animation for #paw6
+                                                                                                            gsap.from("#paw14", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                                onComplete: function() {                                                                                                        
+                                                                                                                    // Once #paw14 fades in, start the animation for #paw6
+                                                                                                                    gsap.from("#paw15", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                                        onComplete: function() {
+                                                                                                                            // Once #paw15 fades in, start the animation for #paw6
+                                                                                                                            gsap.from("#paw16", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                                                onComplete: function() {
+                                                                                                                                    // Once #paw16 fades in, start the animation for #paw6
+                                                                                                                                    gsap.from("#paw17", {opacity: 1, duration: 1, ease: "power1.inOut",
+                                                                                                                                        onComplete: function() {
+                                                                                                                                            // Once #paw17 fades in, start the animation for #paw6
+                                                                                                                                            gsap.from("#paw18", {opacity: 1, duration: 1, ease: "power1.inOut"
+                                                                                                                                                
+                                                                                                                                            });
+                                                                                                                                        }
+                                                                                                                                        
+                                                                                                                                    });
+                                                                                                                                }
+                                                                                                                                
+                                                                                                                            });
+                                                                                                                        }
+                                                                                                                        
+                                                                                                                    });
+                                                                                                                        
+                                                                                                                        
+                                                                                                                    
+                                                                                                                }
+                                                                                                                
+                                                                                                            });
+                                                                                                        }
+                                                                                                        
+                                                                                                    });
+                                                                                                }
+                                                                                                
+                                                                                            });
+                                                                                        }
+                                                                                        
+                                                                                    });
+                                                                                }
+                                                                                
+                                                                            });
+                                                                        }
+                                                                        
+                                                                    });
+                                                                }
+                                                                
+                                                            });
+                                                        }
+                                                        
+                                                    });
+                                                }
+                                                
+                                            });
+                                        }
+                                        
+                                    });
+                                }
+                                
+                            });
+                        }
+                        
+                    });
+                }
+            });
+        }
+    });
+    
+});
 
-
-        
 
 // Create a ScrollMagic scene this puts evertyhing together, triggers the animation when the scroll
 // reaches the .container
