@@ -37,7 +37,8 @@ body {
 }
 #text6B_2{
     width: 100%; /* Adjust size */;
-    top: -70vh;
+    top: -60vh;
+    left: -37vh;
     opacity: 0; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
     position: absolute; /* Overlap images */

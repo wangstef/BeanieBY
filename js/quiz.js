@@ -43,7 +43,14 @@ quizForm.addEventListener('submit', function (e) {
 
         // Display the result
         const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = `Your answer: ${answer}. ${score ? 'Correct! Time to go get it back!' : 'Not quite...check your notes and try again!'}`;
+        resultDiv.innerHTML = `
+        <p class="result-heading">Your answer: ${answer}</p>
+        <p class="result-text">
+            ${score ? '<span class="correct">Correct!</span> Time to go get it back!' 
+            : '<span class="incorrect">Not quite...</span> Check your notes and try again!'}
+        </p>
+    `;
+
 
         // Show the "Continue" button if the answer is correct, otherwise hide it
         quizButton.style.display = score === 1 ? 'block' : 'none';

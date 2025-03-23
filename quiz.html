@@ -31,6 +31,10 @@
 
             <div class="gallery-images">
 
+                <a href="./quizimg/owl-notepad.png" data-fancybox="gallery">
+                            <img src="./quizimg/owl-notepad.png" alt="owl-notepad" class="gallery-image">
+                            </a>
+
                 <a href="./quizimg/raccoon-notepad.png" data-fancybox="gallery">
                 <img src="./quizimg/raccoon-notepad.png" alt="Notebook-Raccoon" class="gallery-image">
                 </a>
@@ -39,9 +43,7 @@
                     <img src="./quizimg/toad-notepad.png" alt="toad-notepad" class="gallery-image">
                     </a>
 
-                    <a href="./quizimg/owl-notepad.png" data-fancybox="gallery">
-                        <img src="./quizimg/owl-notepad.png" alt="owl-notepad" class="gallery-image">
-                        </a>
+
 
                 <!-- Add more images here -->
             </div>
@@ -53,16 +55,16 @@
 
                 <!-- Animal icons as options -->
                 <label class="quiz-option">
+                    <input type="radio" name="quiz" value="Owl" data-correct="false">
+                    <img src="./quizimg/Owl_Quiz.png" alt="Owl" class="animal-icon owl-icon" data-sound="./audio/owl.mp3">
+                </label>
+                <label class="quiz-option">
                     <input type="radio" name="quiz" value="Raccoon" data-correct="true">
-                    <img src="./img/BeaniesBY_Enviroment_Raccoon.png" alt="Raccoon" class="animal-icon"  data-sound="./audio/raccoon.mp3">
+                    <img src="./quizimg/Raccoon_Quiz.png" alt="Raccoon" class="animal-icon"  data-sound="./audio/raccoon.mp3">
                 </label>
                 <label class="quiz-option">
                     <input type="radio"name="quiz" value="Toad" data-correct="false">
-                    <img src="./img/BeaniesBY_Enviroment_Raccoon.png" alt="Toad" class="animal-icon"  data-sound="./audio/toad.mp3">
-                </label>
-                <label class="quiz-option">
-                    <input type="radio" name="quiz" value="Owl" data-correct="false">
-                    <img src="./img/BeaniesBY_Enviroment_Raccoon.png" alt="Owl" class="animal-icon"  data-sound="./audio/owl.mp3">
+                    <img src="./quizimg/Toad_Quiz.png" alt="Toad" class="animal-icon"  data-sound="./audio/toad.mp3">
                 </label>
             </div>
             <button type="submit" id="submit-button">Submit</button> <!-- Added button ID -->
@@ -72,8 +74,8 @@
 
         <div id="result"></div>
 
-         <a href="end.html">
-            <button class="button" id="quiz_button"> Click Here to Continue! </button>
+        <a href="end.html">
+            <img src="quizimg/Grey-Box.jpeg" alt="Click Here to Continue!" id="quiz_button">
         </a>
     </div>
 </div>
