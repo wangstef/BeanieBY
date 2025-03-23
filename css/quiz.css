@@ -252,32 +252,26 @@ p {
 }
 
 
-
-
 /* Styling the button */
 a {
     text-decoration: none;
 }
 
-.button {
-    background-color: #8382ce; /* A vibrant purple shade */
-    color: #F0FFFF; /* Light cyan for contrast */
-    font-family: "vollkorn";
-    font-size: 2rem; /* Larger font size for better visibility */
-    padding: 20px 40px; /* More padding to make it larger */
-    border: none;
-    border-radius: 15px; /* Rounded edges for a more playful feel */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
-    z-index: 9999;
-    margin: auto;
-  }
-
-  #quiz_button {
+#quiz_button {
+    width: 200px; /* Adjust size */
+    cursor: pointer; /* Hand cursor */
+    transition: opacity 0.3s ease;
     display: none; /* Hide the button by default */
+
+    /* Add drop shadow */
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
 }
-  
+
+#quiz_button:hover {
+    content: url("../quizimg/white-box.jpg"); /* Change image on hover */
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+}
+
   /* Hover effect for the button */
   .button:hover {
     background-color: #D2691E; /* A deep brownish shade for hover */
@@ -290,3 +284,6 @@ a {
     outline: none; /* Remove the default focus outline */
     box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.5); /* Subtle focus ring */
   }
+
+
+
