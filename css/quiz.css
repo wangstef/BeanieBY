@@ -23,8 +23,7 @@ body {
     color: #07213c;
     text-align:center;
     display: flex;
-    margin-top: auto;
-    margin: auto;
+    margin: 0px 40px;
     font-size: 50px;
 }
 
@@ -33,7 +32,8 @@ p {
     margin-top: -2vh; /* Adds space between paragraphs */
     text-align: center; /* Aligns text evenly (optional) */
     font-size: 30px; /* Adjust font size */
-    margin: auto;
+    margin: 0;
+    margin-bottom: 40px;
   }
 
 /* Modal Styling */
@@ -271,7 +271,7 @@ p {
 
 /* Optional: Image hover effect */
 .gallery-image:hover {
-    transform: scale(1.05); /* Slightly enlarge the image when hovered */
+    transform: scale(1.10); /* Slightly enlarge the image when hovered */
 }
 
 
