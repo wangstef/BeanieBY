@@ -382,8 +382,8 @@ but I fiddled until it did, aka PLEASE DO NOT CHANGE anything*/
         height: 80px; /* Adjust to match image size */
         top: 50vh;
         background-image: url('../img/WCItBe.png');
-        margin-top: 27vh; /* Adjust value as needed */
-        padding: 80px 160px; /* Increase padding to make it bigger */
+        margin-top: 20vh; /* Adjust value as needed */
+        padding: 10vh 20vw; /* Increase padding to make it bigger */
         background-size: contain; /* Ensures the full image fits */
         background-repeat: no-repeat;
         background-position: center;
