@@ -269,7 +269,7 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 //pinning the scene
 .to("#Raccoon", { duration: 100, ease: "power1.inOut" })
 //Notebook 1: Raccoon
-        .to("#Notebook-Raccoon", { y: "-50vw", scale: 1.5, duration: 60, ease: "power0.out", onStart: () => playSound(Notebook)}, "notebook1", "+=2")
+        .to("#Notebook-Raccoon", { y: "-48vw", scale: 1.5, duration: 60, ease: "power0.out", onStart: () => playSound(Notebook)}, "notebook1", "+=2")
         //pinning the notebook
         .to("#Notebook-Raccoon", { duration: 300, ease: "power1.inOut" }, "+=15")
         .to("#Notebook-Raccoon", { y: "10vw", scale: 1.5, duration: 100, ease: "power1.inOut" }, "notebook2", "+=2")
