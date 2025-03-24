@@ -140,7 +140,7 @@ gsap.set("#Bush-Left2", { scaleX: -1 });
 gsap.set("#Tree-Left2", { scaleX: -1 });
 gsap.set("#Beanie-tail", { scaleX: -1 });
 gsap.set("#Beanie-behind2", { scale:1.5 });
-
+gsap.set("#quiz-button", { opacity: 0, pointerEvents: "none" });
 
 
 // Opening Scene 1 
@@ -360,8 +360,17 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5D_3", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(ding2) })
         .to("#text5D_3", { duration: 150, ease: "power1.inOut" })
         // .to("#text5D_1, #text5D_2, #text5D_3", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
-        .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(mystery2) })
+        .to("#quiz-button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", pointerEvents: "auto", onStart: () => playSound(mystery2) })
 
+    document.addEventListener("DOMContentLoaded", function () {
+        let quizButton = document.getElementById("quiz-button");
+    
+        if (quizButton) {
+            quizButton.addEventListener("click", function () {
+                window.location.href = "quiz.html"; // Redirects to index.html
+            });
+        }
+    });
 
 //scroll down! pulses   
 document.addEventListener("DOMContentLoaded", function () {

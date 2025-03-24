@@ -190,8 +190,8 @@ button:hover img {
     width: 200px; /* Adjust to match image size */
     height: 80px; /* Adjust to match image size */
     background-image: url('../endimg/PlayAgain.png');
-    margin-top: 30vh; /* Adjust value as needed */
-    padding: 75px 150px; /* Increase padding to make it bigger */
+    margin-top: 32vh; /* Adjust value as needed */
+    padding: 70px 140px; /* Increase padding to make it bigger */
     background-size: contain; /* Ensures the full image fits */
     background-repeat: no-repeat;
     background-position: center;
