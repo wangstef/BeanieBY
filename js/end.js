@@ -180,7 +180,7 @@ window.onload = function (){
 //Add Background Music with toggle button
 const bgMusic = new Audio("./audio/BG music.mp3");
 bgMusic.loop = true; // Ensure it loops
-bgMusic.volume = 0.5; // Adjust volume if needed
+bgMusic.volume = 0.2; // Adjust volume if needed
 bgMusic.play();
 
 document.addEventListener("DOMContentLoaded", function () {
