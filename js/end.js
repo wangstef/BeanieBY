@@ -49,6 +49,7 @@ var timeline = gsap.timeline();
 
 // Set initial positions for images that need to be flipped
 gsap.set("#Beanie-sad-tailup", { scale:1.5 });
+gsap.set("#quiz-button", { opacity: 0, pointerEvents: "none" });
 
 
 
@@ -97,14 +98,26 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" },"startend")
         .to("#fade-to-black", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
 
-        .to("#title", { opacity: 1, duration: 200, ease: "power1.inOut" })
-        .to("#quiz_button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut"})
+        .to("#title", { opacity: 1, duration: 200, ease: "power1.inOut" },"button-fade-in")
+        .to("#quiz-button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", pointerEvents: "auto"}, "button-fade-in")
 
+
+        
         .to("#House", { opacity: 0, duration: 50, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 50, ease: "power1.inOut" },"fadeout1")
 
 
+        document.addEventListener("DOMContentLoaded", function () {
+            let quizButton = document.getElementById("quiz-button");
         
+            if (quizButton) {
+                quizButton.addEventListener("click", function () {
+                    window.location.href = "index.html"; // Redirects to index.html
+                });
+            }
+        });
+
+
 
 // Create a ScrollMagic scene this puts evertyhing together, triggers the animation when the scroll
 // reaches the .container
@@ -187,3 +200,4 @@ document.addEventListener("DOMContentLoaded", function () {
         isPlaying = !isPlaying;
     });
 });
+
