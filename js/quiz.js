@@ -165,7 +165,7 @@ document.querySelectorAll('.animal-icon').forEach(icon => {
         // Play the new sound
         const soundPath = this.dataset.sound;
         currentSound = new Audio(soundPath);
-        currentSound.volume = 0.2; 
+        currentSound.volume = 0.9; 
         currentSound.load();  // Ensure the sound is loaded
         currentSound.play().catch(error => {
             console.error('Error playing sound:', error);  // Log any errors
