@@ -288,8 +288,17 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
           //text 4D_2 fades in and out
           .to("#text4D_2", { duration: 100, ease: "power1.inOut" })
           .to("#text4D_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" })
-          .to("#text4D_2", { scale: 1.2, duration: 50, repeat: 2, yoyo: true, ease: "sine.inOut",transformOrigin: "center center"})
-          
+          .to("#text4D_2", { scale: 1.2, duration: 50, repeat: 2, yoyo: true, ease: "sine.inOut",transformOrigin: "center center"},"text4D_2")
+
+          //Raccoon jumps 2
+          .to("#Raccoon", { x: "random(-10, 10)", 
+            y: "random(-20, 20)",
+            duration: 15, 
+            repeat: 8, // ⬅️ Adjust based on duration (0.2s * 15 ≈ 3 seconds)
+            yoyo: true, 
+            ease: "sine.inOut" },"text4D_2")
+          .to("#Raccoon", { y: "0vw", duration: 10, rotation: 0, ease: "power0.out" })
+    
           .to("#text4D_2", { duration: 100, ease: "power1.inOut" })
           //text 4D fades together
           .to("#text4D_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" }, "text4Dfadeout")
