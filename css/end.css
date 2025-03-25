@@ -43,7 +43,7 @@ body {
 }
 #text6B_2{
     width: 100%; /* Adjust size */;
-    top: -60vh;
+    top: -65vh;
     left: -37vh;
     opacity: 0; /* Adjust position so that the original image starts lower for js to make it go higher*/
     align-content: center;
