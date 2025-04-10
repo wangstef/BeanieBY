@@ -126,7 +126,7 @@ var controller = new ScrollMagic.Controller();
 
 
 // Create a timeline animation with GSAP
-var timeline = gsap.timeline();
+var timeline = gsap.timeline({ paused: true });
 
 // Set initial positions for images that need to be flipped
 gsap.set("#Bush-Left2", { scaleX: -1 });
@@ -232,12 +232,12 @@ timeline.to("#opening-text", {
 
 .to("#sky", {y:"-100vh", duration: 800, ease: "power1.inOut"})
 //text 1_1 fades in and out
-.to("#text1_1", { opacity: 1, duration: 150, ease: "power1.inOut", onStart: () => playSound(waterdroplets) },"text1_1","+=10")
-.to("#text1_1", { duration: 200, ease: "power1.inOut" }, "+=20")
+.to("#text1_1", { opacity: 1, duration: 150, ease: "power1.inOut", onStart: () => playSound(waterdroplets) },"text1_1")
+.to("#text1_1", { duration: 350, ease: "power1.inOut" }, "+=20")
 .to("#text1_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut",  onStart: () => playSound(BeanieWhimper) },)
 
 //text 1_1 fades in and out
-.to("#text1_2", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" , onStart: () => playSound(ghost)},"text1_2")
+.to("#text1_2", { opacity: 1, duration: 150, delay: 5, ease: "power1.inOut" , onStart: () => playSound(ghost)},"text1_2")
 .to("#text1_2", { duration: 200, ease: "power1.inOut"  }, "+=20")
 .to("#text1_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" , onStart: () => playSound(DoorOpen) },)
 
@@ -267,20 +267,20 @@ timeline.to("#opening-text", {
 // Scene 2: House
 timeline.to("#House,#Beanie-sad", { opacity:1, duration: 100, ease: "power1.inOut"},"fadetoblack1")
         //Arf! Arf! 1 fades in and out
-        .to("#text2_1", { duration: 100, ease: "power1.inOut" }, "text2_1")
         .to("#text2_1", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut" , onStart: () => playSound(Woof) },"text2_1")
+        .to("#text2_1", { duration: 150, ease: "power1.inOut" })
         .to("#text2_1", { opacity: 0, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Woof) }, "text2_1out")
          //What your.. fades in and out
+         .to("#text2_2", { opacity: 1, duration: 180, ease: "power1.inOut" , onStart: () => playSound(What)})
          .to("#text2_2", { duration: 200, ease: "power1.inOut", onStart: () => playSound(Gasp) }, "text2_2")
-         .to("#text2_2", { opacity: 1, duration: 200, ease: "power1.inOut" , onStart: () => playSound(What)},"text2_2","+=10")
          .to("#text2_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         //Beanie sad fades out
-        .to("#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut", onStart: () => playSound(DogRunning)})
+        .to("#Beanie-sad", { opacity:0, duration: 100, ease: "power1.inOut", onStart: () => playSound(DogRunning)},"tail_in")
         //Beanie tail fades in
         .to("#Beanie-tail", { opacity:1, duration: 100, ease: "power1.inOut" },"tail_in")
         //Arf! Arf! 2 fades in and out
-        .to("#text2_1B", { duration: 100, ease: "power1.inOut" , onStart: () => playSound(Woof)})
         .to("#text2_1B", {rotation:(3, 3), opacity: 1, duration: 200, delay: 10, ease: "power1.inOut", onStart: () => playSound(Woof) },"tail_in")
+        .to("#text2_1B", { duration: 100, ease: "power1.inOut" , onStart: () => playSound(Woof)})
         .to("#text2_1B", { opacity: 0, duration: 150, ease: "power1.inOut" },"text2_1Bout","+=10")
         //Beanie tail fades in
         .to("#Beanie-tail", { opacity:0, duration: 100, ease: "power1.inOut" },"text2_1Bout")
@@ -295,7 +295,7 @@ timeline.to("#House,#Beanie-sad", { opacity:1, duration: 100, ease: "power1.inOu
 
          //text 3A fades in and out
          .to("#text3A", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(nobeaniewait) },"text3A")
-         .to("#text3A", { duration: 150, ease: "power1.inOut" }, "text3A")
+         .to("#text3A", { duration: 300, ease: "power1.inOut" }, "text3A")
          .to("#text3A", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
          //text 3B fades in and out
          .to("#text3B", { y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(Hurry) },"text3B")
@@ -442,6 +442,52 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5D_3", { duration: 150, ease: "power1.inOut" })
         // .to("#text5D_1, #text5D_2, #text5D_3", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" },)
         .to("#quiz-button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", pointerEvents: "auto", onStart: () => playSound(mystery2) })
+
+
+
+
+    // Function to trigger the next step in the timeline on keydown
+let currentStep = 0; // Keeps track of the current animation step
+
+// Map each key to a specific step (for simplicity, we'll use numbers 1-9 as an example)
+const steps = [
+    "title", // First animation step
+    "text1_1", // Second animation step
+    "text1_2", // Third animation step
+    "skyfade", // Fourth animation step
+    "fadetoblack1", // Fifth animation step
+    "text2_1", // Sixth animation step
+    "text2_2", // Seventh animation step
+    "tail_in", // Eighth animation step
+    "text2_1Bout", // Ninth animation step
+    "text3A", // Tenth animation step
+    "text3B", // Eleventh animation step
+    "fadeout1", // Twelfth animation step
+    "bush1", // Thirteenth animation step
+
+
+
+    // Continue adding your steps here
+];
+
+// Add event listener for keydown
+document.addEventListener('keydown', function(event) {
+    if (event.key >= '1' && event.key <= '9') {
+        const stepIndex = parseInt(event.key) - 1;  // Convert '1' -> 0, '2' -> 1, etc.
+        if (stepIndex < steps.length) {
+            timeline.seek(steps[stepIndex]);  // Jump to the specified step
+        }
+    }
+});
+
+// Start the animation when the page is ready (if necessary)
+document.addEventListener("DOMContentLoaded", function () {
+    timeline.play(); // Play the timeline if you'd like it to start from the beginning
+});
+
+
+
+
 
     document.addEventListener("DOMContentLoaded", function () {
         let quizButton = document.getElementById("quiz-button");
