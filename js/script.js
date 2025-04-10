@@ -121,13 +121,6 @@ function playSoundLoop(sound, times) {
 playSoundLoop(ToadSinging, 4);
 
 
-
-
-
-
-
-
-
 // Initialize ScrollMagic controller
 var controller = new ScrollMagic.Controller();
 
@@ -226,7 +219,7 @@ window.addEventListener("scroll", () => {
 // Opening Scene 1: Fade to background gradient 
 timeline.to("#opening-text", { 
     opacity: 0, 
-    duration: 300, 
+    duration: 100, 
     ease: "power1.inOut", 
     scrollTrigger: {
         trigger: ".opening",
