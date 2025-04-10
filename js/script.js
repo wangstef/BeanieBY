@@ -144,10 +144,89 @@ gsap.set("#quiz-button", { opacity: 0, pointerEvents: "none" });
 
 
 // Opening Scene 1 
+// Scoll down animation
+let scrollAnim;
+
+// Initial animation on page load
+function startScrollAnim() {
+  // Re-create the animation if it's been killed
+  scrollAnim = gsap.to("#scroll", {
+    opacity: 1,
+    duration: 1,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut"
+  });
+
+  // Make sure it's visible and displayed
+  gsap.set("#scroll", {
+    display: "block"
+  });
+}
+
+// Hide animation and element
+function hideScrollAnim() {
+  if (scrollAnim) scrollAnim.kill();
+  gsap.set("#scroll", { display: "none" });
+}
+
+// Start animation on load
+startScrollAnim();
+
+// Listen for scroll events
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 0) {
+    // Hide when scrolling down
+    hideScrollAnim();
+  } else {
+    // Re-show when at top
+    startScrollAnim();
+  }
+});
+
+
+// //Paw animation (needs fixing)
+// let pawTimeline;
+
+// function startPawAnim() {
+//   // Create the timeline for paw animations
+//   pawTimeline = gsap.timeline({ ease: "power1.inOut" });
+
+//   for (let i = 1; i <= 18; i++) {
+//     pawTimeline.from(`#paw${i}`, {
+//       opacity: 0,
+//       duration: 1
+//     });
+//   }
+// }
+
+// function hidePawAnim() {
+//   // Set display to 'none' for all paw elements when scrolling down
+//   gsap.set("[id^='paw']", { display: "none" });
+// }
+
+// function showPawAnim() {
+//   // Show paws with display: block and set opacity to 0 initially to start animation smoothly
+//   gsap.set("[id^='paw']", { display: "block", opacity: 0 });
+
+//   // Now start the paw animation from the beginning
+//   startPawAnim();
+// }
+
+// // Listen for scroll events
+// window.addEventListener("scroll", () => {
+//   if (window.scrollY > 0) {
+//     hidePawAnim();  // Hide paw animation when scrolling down
+//   } else {
+//     showPawAnim();  // Re-show paw animation and restart it when at the top
+//   }
+// });
+
+  
 // Opening Scene 1: Fade to background gradient 
 timeline.to("#opening-text", { 
     opacity: 0, 
-    duration: 100, 
+    duration: 300, 
     ease: "power1.inOut", 
     scrollTrigger: {
         trigger: ".opening",
@@ -382,132 +461,142 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
     });
 
 //scroll down! pulses   
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
     
-    // Page Load Animation
-    gsap.to("#scroll", {
-        opacity: 1,
-        duration: 1,
-        repeat: 16,
-        yoyo: true,
-        ease: "power1.inOut",
-        onComplete: function() {
-            // Once the animation is done, set the opacity to 0
-            gsap.to("#scroll", {
-                opacity: 0,
-                duration: 0.5  // This will fade it out smoothly
-            });}
-    });
+    // // Page Load Animation
+    // gsap.to("#scroll", {
+    //     opacity: 1,
+    //     duration: 1,
+    //     repeat: 16,
+    //     yoyo: true,
+    //     ease: "power1.inOut",
+    //     onComplete: function() {
+    //         // Once the animation is done, set the opacity to 0
+    //         gsap.to("#scroll", {
+    //             opacity: 0,
+    //             duration: 0.5  // This will fade it out smoothly
+    //         });}
+    // });
     
+// Create a GSAP timeline
+// const pawTimeline = gsap.timeline({ ease: "power1.inOut" });
 
-    // Fade in #paw1
-    gsap.from("#paw1", {opacity: 1,duration: 1, ease: "power1.inOut", onComplete: function() {
-            // Once #paw1 fades in, start the animation for #paw2
-            gsap.from("#paw2", {opacity: 1, duration: 1, ease: "power1.inOut",
-                onComplete: function() {
-                    // Once #paw2 fades in, start the animation for #paw3 
-                    gsap.from("#paw3", {opacity: 1, duration: 1, ease: "power1.inOut",
-                        onComplete: function() {
-                            // Once #paw3 fades in, start the animation for #paw4 
-                            gsap.from("#paw4", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                onComplete: function() {
-                                    // Once #paw4 fades in, start the animation for #paw5
-                                    gsap.from("#paw5", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                        onComplete: function() {
-                                            // Once #paw5 fades in, start the animation for #paw6
-                                            gsap.from("#paw6", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                onComplete: function() {
-                                                    // Once #paw6 fades in, start the animation for #paw6
-                                                    gsap.from("#paw7", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                        onComplete: function() {
-                                                            // Once #paw7 fades in, start the animation for #paw6
-                                                            gsap.from("#paw8", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                onComplete: function() {
-                                                                    // Once #paw8 fades in, start the animation for #paw6
-                                                                    gsap.from("#paw9", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                        onComplete: function() {
-                                                                            // Once #paw9 fades in, start the animation for #paw6
-                                                                            gsap.from("#paw10", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                                onComplete: function() {
-                                                                                    // Once #paw10 fades in, start the animation for #paw6
-                                                                                    gsap.from("#paw11", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                                        onComplete: function() {
-                                                                                            // Once #paw11 fades in, start the animation for #paw6
-                                                                                            gsap.from("#paw12", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                                                onComplete: function() {
-                                                                                                    // Once #paw12 fades in, start the animation for #paw6
-                                                                                                    gsap.from("#paw13", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                                                        onComplete: function() {
-                                                                                                            // Once #paw13 fades in, start the animation for #paw6
-                                                                                                            gsap.from("#paw14", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                                                                onComplete: function() {                                                                                                        
-                                                                                                                    // Once #paw14 fades in, start the animation for #paw6
-                                                                                                                    gsap.from("#paw15", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                                                                        onComplete: function() {
-                                                                                                                            // Once #paw15 fades in, start the animation for #paw6
-                                                                                                                            gsap.from("#paw16", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                                                                                onComplete: function() {
-                                                                                                                                    // Once #paw16 fades in, start the animation for #paw6
-                                                                                                                                    gsap.from("#paw17", {opacity: 1, duration: 1, ease: "power1.inOut",
-                                                                                                                                        onComplete: function() {
-                                                                                                                                            // Once #paw17 fades in, start the animation for #paw6
-                                                                                                                                            gsap.from("#paw18", {opacity: 1, duration: 1, ease: "power1.inOut"
+// Loop through each paw and add a fade-in animation to the timeline
+// for (let i = 1; i <= 18; i++) {
+//   pawTimeline.from(`#paw${i}`, {
+//     opacity: 0,
+//     duration: 1
+//   });
+// }
+
+//     // Fade in #paw1
+//     gsap.from("#paw1", {opacity: 1,duration: 1, ease: "power1.inOut", onComplete: function() {
+//             // Once #paw1 fades in, start the animation for #paw2
+//             gsap.from("#paw2", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                 onComplete: function() {
+//                     // Once #paw2 fades in, start the animation for #paw3 
+//                     gsap.from("#paw3", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                         onComplete: function() {
+//                             // Once #paw3 fades in, start the animation for #paw4 
+//                             gsap.from("#paw4", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                 onComplete: function() {
+//                                     // Once #paw4 fades in, start the animation for #paw5
+//                                     gsap.from("#paw5", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                         onComplete: function() {
+//                                             // Once #paw5 fades in, start the animation for #paw6
+//                                             gsap.from("#paw6", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                 onComplete: function() {
+//                                                     // Once #paw6 fades in, start the animation for #paw6
+//                                                     gsap.from("#paw7", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                         onComplete: function() {
+//                                                             // Once #paw7 fades in, start the animation for #paw6
+//                                                             gsap.from("#paw8", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                 onComplete: function() {
+//                                                                     // Once #paw8 fades in, start the animation for #paw6
+//                                                                     gsap.from("#paw9", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                         onComplete: function() {
+//                                                                             // Once #paw9 fades in, start the animation for #paw6
+//                                                                             gsap.from("#paw10", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                                 onComplete: function() {
+//                                                                                     // Once #paw10 fades in, start the animation for #paw6
+//                                                                                     gsap.from("#paw11", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                                         onComplete: function() {
+//                                                                                             // Once #paw11 fades in, start the animation for #paw6
+//                                                                                             gsap.from("#paw12", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                                                 onComplete: function() {
+//                                                                                                     // Once #paw12 fades in, start the animation for #paw6
+//                                                                                                     gsap.from("#paw13", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                                                         onComplete: function() {
+//                                                                                                             // Once #paw13 fades in, start the animation for #paw6
+//                                                                                                             gsap.from("#paw14", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                                                                 onComplete: function() {                                                                                                        
+//                                                                                                                     // Once #paw14 fades in, start the animation for #paw6
+//                                                                                                                     gsap.from("#paw15", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                                                                         onComplete: function() {
+//                                                                                                                             // Once #paw15 fades in, start the animation for #paw6
+//                                                                                                                             gsap.from("#paw16", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                                                                                 onComplete: function() {
+//                                                                                                                                     // Once #paw16 fades in, start the animation for #paw6
+//                                                                                                                                     gsap.from("#paw17", {opacity: 1, duration: 1, ease: "power1.inOut",
+//                                                                                                                                         onComplete: function() {
+//                                                                                                                                             // Once #paw17 fades in, start the animation for #paw6
+//                                                                                                                                             gsap.from("#paw18", {opacity: 1, duration: 1, ease: "power1.inOut"
                                                                                                                                                 
-                                                                                                                                            });
-                                                                                                                                        }
+//                                                                                                                                             });
+//                                                                                                                                         }
                                                                                                                                         
-                                                                                                                                    });
-                                                                                                                                }
+//                                                                                                                                     });
+//                                                                                                                                 }
                                                                                                                                 
-                                                                                                                            });
-                                                                                                                        }
+//                                                                                                                             });
+//                                                                                                                         }
                                                                                                                         
-                                                                                                                    });
+//                                                                                                                     });
                                                                                                                         
                                                                                                                         
                                                                                                                     
-                                                                                                                }
+//                                                                                                                 }
                                                                                                                 
-                                                                                                            });
-                                                                                                        }
+//                                                                                                             });
+//                                                                                                         }
                                                                                                         
-                                                                                                    });
-                                                                                                }
+//                                                                                                     });
+//                                                                                                 }
                                                                                                 
-                                                                                            });
-                                                                                        }
+//                                                                                             });
+//                                                                                         }
                                                                                         
-                                                                                    });
-                                                                                }
+//                                                                                     });
+//                                                                                 }
                                                                                 
-                                                                            });
-                                                                        }
+//                                                                             });
+//                                                                         }
                                                                         
-                                                                    });
-                                                                }
+//                                                                     });
+//                                                                 }
                                                                 
-                                                            });
-                                                        }
+//                                                             });
+//                                                         }
                                                         
-                                                    });
-                                                }
+//                                                     });
+//                                                 }
                                                 
-                                            });
-                                        }
+//                                             });
+//                                         }
                                         
-                                    });
-                                }
+//                                     });
+//                                 }
                                 
-                            });
-                        }
+//                             });
+//                         }
                         
-                    });
-                }
-            });
-        }
-    });
+//                     });
+//                 }
+//             });
+//         }
+//     });
     
-});
+// });
 
 
 // Create a ScrollMagic scene this puts evertyhing together, triggers the animation when the scroll
