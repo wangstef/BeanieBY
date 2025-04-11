@@ -43,7 +43,8 @@ const Hurry = new Audio("./audio/Hurry.mp3");
 const Thereyouare = new Audio("./audio/Thereyouare.mp3"); 
 const StopSinging = new Audio("./audio/stopsinging.mp3");
 const DunkDinner = new Audio("./audio/dunkmydinner.mp3");
-const letmeeat = new Audio("./audio/letmeeat.mp3");
+const justkeepwalking = new Audio("./audio/justkeepwalking.mp3.mp3");
+const letmeeat = new Audio("./audio/letmeeat_1.mp3");
 const CanYouTellMe = new Audio("./audio/CanYouTellMe.mp3");
 const HelloRaccoon = new Audio("./audio/HelloRaccoon.mp3");
 
@@ -356,11 +357,11 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
           .to("#Raccoon", { y: "0vw", duration: 10, rotation: 0, ease: "power0.out" })
           //text 4D_1 fades in and out
           .to("#text4D_1", { opacity: 1, duration: 200,   ease: "power1.inOut" })
-          .to("#text4D_1", { duration: 200, ease: "power1.inOut" , onStart: () => playSound(letmeeat) },"text4D_1")
+          .to("#text4D_1", { duration: 200, ease: "power1.inOut" , onStart: () => playSound(justkeepwalking) },"text4D_1")
           //text 4D_2 fades in and out
-          .to("#text4D_2", { duration: 200, ease: "power1.inOut" })
-          .to("#text4D_2", { opacity: 1, duration: 200,   ease: "power1.inOut" },"text4D_1")
-          .to("#text4D_2", { scale: 1.2, duration: 200, repeat: 1, yoyo: true, ease: "sine.inOut",transformOrigin: "center center"},"text4D_2")
+          .to("#text4D_2", { duration: 200, ease: "power1.inOut"})
+          .to("#text4D_2", { opacity: 1, duration: 200,   ease: "power1.inOut" })
+          .to("#text4D_2", { scale: 1.2, duration: 200, repeat: 1, yoyo: true, ease: "sine.inOut",transformOrigin: "center center" , onStart: () => playSound(letmeeat)},"text4D_2")
 
           //Raccoon jumps 2
           .to("#Raccoon", { x: "random(-10, 10)", 
@@ -434,12 +435,12 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#text5C", { duration: 400, ease: "power1.inOut" })
         .to("#text5C", { opacity: 0, duration: 200,   ease: "power1.inOut" },)
         //text5D_1, then text5D_2, then text5D_3 fades in and then all out
-        .to("#text5D_1", { opacity: 1, duration: 200,   ease: "power1.inOut", onStart: () => playSound(ding1) })
-        .to("#text5D_1", { duration: 400, ease: "power1.inOut" })
-        .to("#text5D_2", { opacity: 1, duration: 200,   ease: "power1.inOut", onStart: () => playSound(ding3) })
-        .to("#text5D_2", { duration: 400, ease: "power1.inOut" })
-        .to("#text5D_3", { opacity: 1, duration: 200,   ease: "power1.inOut", onStart: () => playSound(ding2) })
-        .to("#text5D_3", { duration: 400, ease: "power1.inOut" })
+        .to("#text5D_1", { opacity: 1, duration: 200,   ease: "power1.inOut" })
+        .to("#text5D_1", { duration: 400, ease: "power1.inOut" , onStart: () => playSound(ding1)})
+        .to("#text5D_2", { opacity: 1, duration: 200,   ease: "power1.inOut" })
+        .to("#text5D_2", { duration: 400, ease: "power1.inOut" , onStart: () => playSound(ding3)})
+        .to("#text5D_3", { opacity: 1, duration: 200,   ease: "power1.inOut" })
+        .to("#text5D_3", { duration: 400, ease: "power1.inOut" , onStart: () => playSound(ding2)})
         // .to("#text5D_1, #text5D_2, #text5D_3", { opacity: 0, duration: 200,   ease: "power1.inOut" },)
         .to("#quiz-button", { opacity: 1, duration: 200,   ease: "power1.inOut", pointerEvents: "auto", onStart: () => playSound(mystery2) })
 
@@ -521,112 +522,6 @@ function handleArrowKeyDown(event) {
 //   });
 // }
 
-//     // Fade in #paw1
-//     gsap.from("#paw1", {opacity: 1,duration: 200, ease: "power1.inOut", onComplete: function() {
-//             // Once #paw1 fades in, start the animation for #paw2
-//             gsap.from("#paw2", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                 onComplete: function() {
-//                     // Once #paw2 fades in, start the animation for #paw3 
-//                     gsap.from("#paw3", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                         onComplete: function() {
-//                             // Once #paw3 fades in, start the animation for #paw4 
-//                             gsap.from("#paw4", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                 onComplete: function() {
-//                                     // Once #paw4 fades in, start the animation for #paw5
-//                                     gsap.from("#paw5", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                         onComplete: function() {
-//                                             // Once #paw5 fades in, start the animation for #paw6
-//                                             gsap.from("#paw6", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                 onComplete: function() {
-//                                                     // Once #paw6 fades in, start the animation for #paw6
-//                                                     gsap.from("#paw7", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                         onComplete: function() {
-//                                                             // Once #paw7 fades in, start the animation for #paw6
-//                                                             gsap.from("#paw8", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                 onComplete: function() {
-//                                                                     // Once #paw8 fades in, start the animation for #paw6
-//                                                                     gsap.from("#paw9", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                         onComplete: function() {
-//                                                                             // Once #paw9 fades in, start the animation for #paw6
-//                                                                             gsap.from("#paw10", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                                 onComplete: function() {
-//                                                                                     // Once #paw10 fades in, start the animation for #paw6
-//                                                                                     gsap.from("#paw11", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                                         onComplete: function() {
-//                                                                                             // Once #paw11 fades in, start the animation for #paw6
-//                                                                                             gsap.from("#paw12", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                                                 onComplete: function() {
-//                                                                                                     // Once #paw12 fades in, start the animation for #paw6
-//                                                                                                     gsap.from("#paw13", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                                                         onComplete: function() {
-//                                                                                                             // Once #paw13 fades in, start the animation for #paw6
-//                                                                                                             gsap.from("#paw14", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                                                                 onComplete: function() {                                                                                                        
-//                                                                                                                     // Once #paw14 fades in, start the animation for #paw6
-//                                                                                                                     gsap.from("#paw15", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                                                                         onComplete: function() {
-//                                                                                                                             // Once #paw15 fades in, start the animation for #paw6
-//                                                                                                                             gsap.from("#paw16", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                                                                                 onComplete: function() {
-//                                                                                                                                     // Once #paw16 fades in, start the animation for #paw6
-//                                                                                                                                     gsap.from("#paw17", {opacity: 1, duration: 200, ease: "power1.inOut",
-//                                                                                                                                         onComplete: function() {
-//                                                                                                                                             // Once #paw17 fades in, start the animation for #paw6
-//                                                                                                                                             gsap.from("#paw18", {opacity: 1, duration: 200, ease: "power1.inOut"
-                                                                                                                                                
-//                                                                                                                                             });
-//                                                                                                                                         }
-                                                                                                                                        
-//                                                                                                                                     });
-//                                                                                                                                 }
-                                                                                                                                
-//                                                                                                                             });
-//                                                                                                                         }
-                                                                                                                        
-//                                                                                                                     });
-                                                                                                                        
-                                                                                                                        
-                                                                                                                    
-//                                                                                                                 }
-                                                                                                                
-//                                                                                                             });
-//                                                                                                         }
-                                                                                                        
-//                                                                                                     });
-//                                                                                                 }
-                                                                                                
-//                                                                                             });
-//                                                                                         }
-                                                                                        
-//                                                                                     });
-//                                                                                 }
-                                                                                
-//                                                                             });
-//                                                                         }
-                                                                        
-//                                                                     });
-//                                                                 }
-                                                                
-//                                                             });
-//                                                         }
-                                                        
-//                                                     });
-//                                                 }
-                                                
-//                                             });
-//                                         }
-                                        
-//                                     });
-//                                 }
-                                
-//                             });
-//                         }
-                        
-//                     });
-//                 }
-//             });
-//         }
-//     });
     
 // });
 

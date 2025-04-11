@@ -65,14 +65,14 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" },"startend")
         //Fade to black
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" })
         //We follow beanie... fades in
-        .to("#text6A_1", {  y: "-60vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", onStart: () => playSound(raccoonwater)})
+        .to("#text6A_1", {  y: "-60vh", opacity: 1, duration: 150,   ease: "power1.inOut", onStart: () => playSound(raccoonwater)})
         .to("#text6A_1", { duration: 150, ease: "power1.inOut" })
-        .to("#text6A_1", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut" }, "text6A_1out")
+        .to("#text6A_1", { opacity: 0, duration: 100,   ease: "power1.inOut" }, "text6A_1out")
         // Turns out... fades in
 
-        .to("#text6A_2", {  y: "-70vh", opacity: 1, duration: 150, delay: 10, ease: "power1.inOut" },"text6A_1out")
+        .to("#text6A_2", {  y: "-70vh", opacity: 1, duration: 150,   ease: "power1.inOut" },"text6A_1out")
         .to("#text6A_2", { duration: 150, ease: "power1.inOut" , onStart: () => playSound(mystery2)})
-        .to("#text6A_2", { opacity: 0, duration: 100, delay: 10, ease: "power1.inOut", 
+        .to("#text6A_2", { opacity: 0, duration: 100,   ease: "power1.inOut", 
         })
 
         //Outside fades
@@ -99,7 +99,7 @@ timeline.to("#staticwoods", { duration: 50, ease: "power1.inOut" },"startend")
         .to("#fade-to-black", { opacity: 1, duration: 100, ease: "power1.inOut" }, "fadein1")
 
         .to("#title", { opacity: 1, duration: 200, ease: "power1.inOut" },"button-fade-in")
-        .to("#quiz-button", { opacity: 1, duration: 150, delay: 10, ease: "power1.inOut", pointerEvents: "auto"}, "button-fade-in")
+        .to("#quiz-button", { opacity: 1, duration: 150,   ease: "power1.inOut", pointerEvents: "auto"}, "button-fade-in")
 
 
         
