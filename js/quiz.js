@@ -54,7 +54,7 @@ quizForm.addEventListener('submit', function (e) {
         <p class="result-heading">Your answer: ${answer}</p>
         <p class="result-text">
             ${score ? '<span class="correct">Correct!</span> Time to go get it back!' 
-            : '<span class="incorrect">Not quite, </span> check your notes and try again!'}
+            : '<span class="incorrect">Not quite,  </span> check your notes and try again! <br> Remember, Beanie said they had a furry coat, bushy striped tail, and a dark mask hiding its eyes! '}
         </p>
     `;
 
