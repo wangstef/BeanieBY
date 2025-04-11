@@ -86,6 +86,11 @@ body {
     left: -2vw;
 }
 
+#text5B_2{
+    top: -25vh;
+}
+
+
 #text5D_1{
     top: -11vh; 
 }
@@ -103,6 +108,8 @@ body {
     position: absolute; /* Overlap images */
     z-index: 999;
 }
+
+
 
 
 /* Other elements */
