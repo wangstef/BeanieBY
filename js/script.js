@@ -233,12 +233,12 @@ timeline.to("#opening-text", {
 .to("#sky", {y:"-100vh", duration: 200, ease: "power1.inOut"})
 //text 1_1 fades in and out
 .to("#text1_1", { opacity: 1, duration: 200, ease: "power1.inOut", onStart: () => playSound(waterdroplets) },"text1_1")
-.to("#text1_1", { duration: 400, ease: "power1.inOut" }, "+=20")
+.to("#text1_1", { duration: 400, ease: "power1.inOut" } )
 .to("#text1_1", { opacity: 0, duration: 200,   ease: "power1.inOut",  onStart: () => playSound(BeanieWhimper) },)
 
 //text 1_2 fades in and out
 .to("#text1_2", { opacity: 1, duration: 200,   ease: "power1.inOut" , onStart: () => playSound(ghost)},"text1_2")
-.to("#text1_2", { duration: 400, ease: "power1.inOut"  }, "+=20")
+.to("#text1_2", { duration: 400, ease: "power1.inOut"  } )
 .to("#text1_2", { opacity: 0, duration: 200,   ease: "power1.inOut" },)
 
 
@@ -281,7 +281,7 @@ timeline.to("#House,#Beanie-sad", { opacity:1, duration: 200, ease: "power1.inOu
         //Arf! Arf! 2 fades in and out
         .to("#text2_1B", {rotation:(3, 3), opacity: 1, duration: 200,   ease: "power1.inOut", onStart: () => playSound(Woof) },"tail_in")
         .to("#text2_1B", { duration: 200, ease: "power1.inOut" , onStart: () => playSound(Woof)})
-        .to("#text2_1B", { opacity: 0, duration: 200, ease: "power1.inOut" },"text2_1Bout","+=10")
+        .to("#text2_1B", { opacity: 0, duration: 200, ease: "power1.inOut" },"text2_1Bout" )
         //Beanie tail fades in
         .to("#Beanie-tail", { opacity:0, duration: 200, ease: "power1.inOut" },"text2_1Bout")
         
@@ -306,7 +306,7 @@ timeline.to("#House,#Beanie-sad", { opacity:1, duration: 200, ease: "power1.inOu
 
         .to("#House", { opacity: 0, duration: 200, ease: "power1.inOut" })
         .to("#Beanie", { opacity: 0, duration: 200, ease: "power1.inOut" },"fadeout1")
-        .to("#fade-to-black", { opacity: 0, duration: 200, ease: "power1.inOut" }, "fadeout1", "+=2" )
+        .to("#fade-to-black", { opacity: 0, duration: 200, ease: "power1.inOut" }, "fadeout1"  )
 
         
 
@@ -325,10 +325,10 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         .to("#Bush-Left", { duration: 200, ease: "power1.inOut" })
 
 //Move the image off-screen (one after another)
-//Definitions: .to (adding to timeline), x = horizontal, y = vertical, scale = size, duration = time, ease = easing effect, "" = label, "+=1" = delay
+//Definitions: .to (adding to timeline), x = horizontal, y = vertical, scale = size, duration = time, ease = easing effect, "" = label  = delay
 
 // Scene 4: Encounter Raccoon
-        .to("#Bush-Left", { x: "-100vw", y: "-10vh", scale: 1.5, duration: 200, ease: "power.inOut" }, "bush1", "+=2")
+        .to("#Bush-Left", { x: "-100vw", y: "-10vh", scale: 1.5, duration: 200, ease: "power.inOut" }, "bush1" )
           //text 4A fades in and out
           .to("#text4A", { opacity: 1, duration: 200,   ease: "power1.inOut", onStart: () => playSound(StopSinging)},"bush1")
           .to("#text4A", { duration: 200, ease: "power1.inOut" }, "text4A")
@@ -341,14 +341,14 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 //pinning the scene
 .to("#Raccoon", { duration: 200, ease: "power1.inOut" })
 //Notebook 1: Raccoon
-        .to("#Notebook-Raccoon", { y: "-48vw", scale: 1.5, duration: 60, ease: "power0.out", onStart: () => playSound(Notebook)}, "notebook1", "+=2")
+        .to("#Notebook-Raccoon", { y: "-48vw", scale: 1.5, duration: 60, ease: "power0.out", onStart: () => playSound(Notebook)}, "notebook1" )
         //pinning the notebook
-        .to("#Notebook-Raccoon", { duration: 500, ease: "power1.inOut" }, "+=15")
-        .to("#Notebook-Raccoon", { y: "10vw", scale: 1.5, duration: 300, ease: "power1.inOut" }, "notebook2", "+=20")
+        .to("#Notebook-Raccoon", { duration: 500, ease: "power1.inOut" } )
+        .to("#Notebook-Raccoon", { y: "10vw", scale: 1.5, duration: 300, ease: "power1.inOut" }, "notebook2" )
         
           //text 4C fades in and out
           .to("#text4C", { opacity: 1, duration: 200,   ease: "power1.inOut", onStart: () => playSound(HelloRaccoon) },"text4C")
-          .to("#text4C", { duration: 200, ease: "power1.inOut" },"+=20")
+          .to("#text4C", { duration: 200, ease: "power1.inOut" } )
           .to("#text4C", { opacity: 0, duration: 200,   ease: "power1.inOut" })
 
           //Raccoon jumps
@@ -377,12 +377,12 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
           .to("#text4D_1", { opacity: 0, duration: 200,   ease: "power1.inOut" }, "text4Dfadeout")
 
         //things leaves
-        .to("#Puddle", { y: "100vw", scale: 1.5, duration: 200, ease: "power1.inOut", onStart: () => playSound(walking)},"move1", "+=1")
-        .to("#Raccoon", { x: "-100vw", scale: 1.5, duration: 200, ease: "power1.inOut", onStart: () => playSound(walking)},"move1", "+=1")
-        .to("#Tree-Left", { x: "-100vw", scale: 1.5, duration: 200, ease: "power1.inOut" },"move1", "+=1")
-        .to("#Bush-Right", { x: "100vw", scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1", "+=1")
-        .to("#Tree-Right", { x: "150vw", y: "-10vh", scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1", "+=1") //y position change so it goes higher
-        .to("#Tree-Middle", { x: "-100vw", scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1", "+=1")
+        .to("#Puddle", { y: "100vw", scale: 1.5, duration: 200, ease: "power1.inOut", onStart: () => playSound(walking)},"move1" )
+        .to("#Raccoon", { x: "-100vw", scale: 1.5, duration: 200, ease: "power1.inOut", onStart: () => playSound(walking)},"move1" )
+        .to("#Tree-Left", { x: "-100vw", scale: 1.5, duration: 200, ease: "power1.inOut" },"move1" )
+        .to("#Bush-Right", { x: "100vw", scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
+        .to("#Tree-Right", { x: "150vw", y: "-10vh", scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" ) //y position change so it goes higher
+        .to("#Tree-Middle", { x: "-100vw", scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
 
 
     
@@ -391,16 +391,16 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
 // Zoom
     .to("#Bush-Left2", {  scaleX: -1.5, // Ensures the image stays flipped while scaling
     scaleY: 1.5,  // Only scales vertically
-    duration: 200, ease: "power1.inOut" }, "move1", "+=2")
-        .to("#Tree-Left2", { scaleX: -1.5, scaleY: 1.5, duration: 200, ease: "power1.inOut" }, "move1", "+=2")
-        .to("#Bush-Right2", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1", "+=2")
-        .to("#Tree-Right2", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1","+=2") //y position change so it goes higher
-        .to("#Tree-Middle2", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1","+=2")
-        .to("#Bush-Left3", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1","+=2")
-        .to("#Tree-Right3", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1","+=2")
-        .to("#Bush-Right3", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1","+=2")
-        .to("#Bush-Left4", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1","+=2")
-        .to("#Beanie-behind", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1","+=2")
+    duration: 200, ease: "power1.inOut" }, "move1" )
+        .to("#Tree-Left2", { scaleX: -1.5, scaleY: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
+        .to("#Bush-Right2", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
+        .to("#Tree-Right2", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" ) //y position change so it goes higher
+        .to("#Tree-Middle2", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
+        .to("#Bush-Left3", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
+        .to("#Tree-Right3", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
+        .to("#Bush-Right3", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
+        .to("#Bush-Left4", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
+        .to("#Beanie-behind", { scale: 1.5, duration: 200, ease: "power1.inOut" }, "move1" )
         
         
 
@@ -410,9 +410,9 @@ timeline.to("#Tree-Middle, #Tree-Right, #Bush-Right, #Tree-Left, #Bush-Left, #BG
         
 //Move to reveal beanie
         //make the back ones zoom too
-        .to("#Bush-Left2,#Bush-Left2b", { x: "2vw", scaleX: -1.5, scaleY: 1.5, duration: 200, ease: "power.inOut", onStart: () => playSound(Win) }, "move2", "+=2")
-        .to("#Tree-Middle2,#Tree-Middle2b", { x: "-15vw", scale: 1.5, duration: 200, ease: "power1.inOut" }, "move2", "+=2")
-        .to("#Bush-Left2b", { opacity:1, duration: 200, ease: "power.inOut" }, "switchtoback","+=2")
+        .to("#Bush-Left2,#Bush-Left2b", { x: "2vw", scaleX: -1.5, scaleY: 1.5, duration: 200, ease: "power.inOut", onStart: () => playSound(Win) }, "move2" )
+        .to("#Tree-Middle2,#Tree-Middle2b", { x: "-15vw", scale: 1.5, duration: 200, ease: "power1.inOut" }, "move2" )
+        .to("#Bush-Left2b", { opacity:1, duration: 200, ease: "power.inOut" }, "switchtoback" )
 
         
         //text 5A fades in and out
