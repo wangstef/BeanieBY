@@ -68,7 +68,7 @@ const Hurry = new Audio("./audio/Hurry.mp3");
 const Thereyouare = new Audio("./audio/Thereyouare.mp3"); 
 const StopSinging = new Audio("./audio/stopsinging.mp3");
 const DunkDinner = new Audio("./audio/dunkmydinner.mp3");
-const justkeepwalking = new Audio("./audio/justkeepwalking.mp3.mp3");
+const justkeepwalking = new Audio("./audio/justkeepwalking.mp3");
 const letmeeat = new Audio("./audio/letmeeat_1.mp3");
 const CanYouTellMe = new Audio("./audio/CanYouTellMe.mp3");
 const HelloRaccoon = new Audio("./audio/HelloRaccoon.mp3");
@@ -80,7 +80,7 @@ const sfxSounds = [
 ];
 
 const narrationSounds = [
-    What, nobeaniewait, Hurry, Thereyouare, StopSinging, DunkDinner, letmeeat, CanYouTellMe, HelloRaccoon
+    What, nobeaniewait, Hurry, Thereyouare, StopSinging, DunkDinner, letmeeat, CanYouTellMe, HelloRaccoon, justkeepwalking
 ];
 
 // Sound toggles
