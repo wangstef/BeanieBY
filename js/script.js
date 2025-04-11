@@ -14,6 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sound-controls").appendChild(narrationIcon);
 });
 
+//Add Background Music with toggle button
+const bgMusic = new Audio("./audio/BG music.mp3");
+bgMusic.loop = true; // Ensure it loops
+bgMusic.volume = 0.2; // Adjust volume if needed
+bgMusic.play();
+
+document.addEventListener("DOMContentLoaded", function () {
+    let bgMusic = document.getElementById("bg-music");
+    let soundIcon = document.getElementById("sound-icon");
+
+    let isPlaying = false; // Start with music off
+
+    soundIcon.addEventListener("click", function () {
+        if (isPlaying) {
+            bgMusic.pause();
+            soundIcon.style.backgroundImage = "url('./img/BGSound_Off.png')";
+        } else {
+            bgMusic.play();
+            soundIcon.style.backgroundImage = "url('./img/BGSound_On.png')";
+        }
+        isPlaying = !isPlaying;
+    });
+});
+
+
 // Audio - SFX
 const DoorOpen = new Audio("./audio/door.mp3");
 const Rustle = new Audio("./audio/rustle.mp3"); 
@@ -586,27 +611,4 @@ window.onload = function (){
 
 
 
-//Add Background Music with toggle button
-const bgMusic = new Audio("./audio/BG music.mp3");
-bgMusic.loop = true; // Ensure it loops
-bgMusic.volume = 0.2; // Adjust volume if needed
-bgMusic.play();
-
-document.addEventListener("DOMContentLoaded", function () {
-    let bgMusic = document.getElementById("bg-music");
-    let soundIcon = document.getElementById("sound-icon");
-
-    let isPlaying = false; // Start with music off
-
-    soundIcon.addEventListener("click", function () {
-        if (isPlaying) {
-            bgMusic.pause();
-            soundIcon.style.backgroundImage = "url('./img/BGSound_Off.png')";
-        } else {
-            bgMusic.play();
-            soundIcon.style.backgroundImage = "url('./img/BGSound_On.png')";
-        }
-        isPlaying = !isPlaying;
-    });
-});
 
