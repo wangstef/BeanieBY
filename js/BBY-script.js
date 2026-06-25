@@ -163,7 +163,7 @@ gsap.set("#quiz-button", { opacity: 0, pointerEvents: "none" });
 
 
 // Opening Scene 1 
-// Scoll down animation
+// Scroll down animation
 let scrollAnim;
 
 // Initial animation on page load
